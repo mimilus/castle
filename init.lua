@@ -7,8 +7,8 @@ dofile(minetest.get_modpath("castle").."/town_item.lua")
 dofile(minetest.get_modpath("castle").."/shields_decor.lua")
 dofile(minetest.get_modpath("castle").."/murder_hole.lua")
 dofile(minetest.get_modpath("castle").."/orbs.lua")
---dofile(minetest.get_modpath("castle").."/orbs10use.lua")
 dofile(minetest.get_modpath("castle").."/rope.lua")
+dofile(minetest.get_modpath("castle").."/covers.lua")
 --dofile(minetest.get_modpath("castle").."/crossbow.lua")
 
 minetest.register_node("castle:stonewall", {
