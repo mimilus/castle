@@ -62,7 +62,7 @@ minetest.register_node("castle:top_secret_stonewall",{
 
 
 
---castlewall
+--stonewall cover
 minetest.register_craft({
 	output = "castle:cover_stonewall 16",
 	recipe = {
@@ -75,6 +75,94 @@ minetest.register_craft({
 minetest.register_node("castle:cover_stonewall", {
 	description = "Stonewall Cover",
 	tiles = { 'castle_stonewall.png' },
+    drawtype = "nodebox",
+	paramtype = "light",
+    paramtype2 = "facedir",
+    node_box={
+        type="fixed",
+        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
+    },
+    selection_box={
+        type="fixed",
+        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
+    },
+	groups = {choppy=2,dig_immediate=2},
+})
+
+--secret_dungeonwall
+minetest.register_craft({
+	output = "castle:secret_dungeonwall 1",
+	recipe = {
+		{"", "", ""},
+		{"castle:cover_dungeon", "", "castle:cover_dungeon"},
+		{"", "", ""},
+	},
+})
+
+minetest.register_node("castle:secret_dungeonwall",{
+	description = "Dungeon secret Wall",
+	tiles = { 'castle_dungeon_stone.png' },
+	drawtype= "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5}},
+		selection_box={
+			type="fixed",{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5}},
+	},
+	groups = {choppy=2,dig_immediate=2},
+})
+
+--top_secret_dungeonwall
+minetest.register_craft({
+	output = "castle:top_secret_dungeonwall 1",
+	recipe = {
+		{"", "castle:cover_dungeon", ""},
+		{"", "castle:secret_dungeonwall", ""},
+		{"", "", ""},
+	},
+})
+
+minetest.register_craft({
+	output = "castle:top_secret_dungeonwall 1",
+	recipe = {
+		{"", "castle:cover_dungeon", ""},
+		{"castle:cover_dungeon", "", "castle:cover_dungeon"},
+		{"", "", ""},
+	},
+})
+
+minetest.register_node("castle:top_secret_dungeonwall",{
+	description = "Dungeon Top secret Wall",
+	tiles = { 'castle_dungeon_stone.png' },
+	drawtype = "nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},{-0.4375,0.4375,-0.5,0.4375,0.5,0.5},},
+		selection_box={
+			type="fixed",{-0.5,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},{-0.4375,0.4375,-0.5,0.4375,0.5,0.5},},
+	},
+	groups = {choppy=2,dig_immediate=2},
+})
+
+
+
+--Dungeon cover
+minetest.register_craft({
+	output = "castle:cover_dungeon 16",
+	recipe = {
+		{"castle:saw", "castle:dungeon_stone", ""},
+		{"", "", ""},
+		{"", "", ""},
+	},
+})
+
+minetest.register_node("castle:cover_dungeon", {
+	description = "Dungeonwall Cover",
+	tiles = { 'castle_dungeon_stone.png' },
     drawtype = "nodebox",
 	paramtype = "light",
     paramtype2 = "facedir",
