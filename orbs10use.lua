@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 --minetest.register_craftitem("castle:orb_day", {
 --	description = "Orb of Midday",
 --	tiles = {"castle_day.png"},
@@ -10,7 +18,7 @@
 
 -- ADDED TenPlus1 (Only has 10 uses)
 minetest.register_tool("castle:orb_day", {
-	description = "Orb of Midday",
+	description = S("Orb of Midday"),
 	inventory_image = "castle_day.png",
 	stack_max = 1,
 
@@ -33,7 +41,7 @@ minetest.register_tool("castle:orb_day", {
 
 -- ADDED TenPlus1 (Only has 10 uses)
 minetest.register_tool("castle:orb_night", {
-	description = "Orb of Night",
+	description = S("Orb of Night"),
 	inventory_image = "castle_night.png",
 	stack_max = 1,
 
