@@ -1,4 +1,10 @@
-
+minetest.register_craft({
+	output = "castle:stonewall",
+	recipe = {
+		{"default:cobble"},
+		{"default:desert_stone"},
+	}
+})
 minetest.register_node("castle:stonewall", {
 	description = "Castle Wall",
 	drawtype = "normal",
@@ -9,6 +15,19 @@ minetest.register_node("castle:stonewall", {
 	sounds = default.node_sound_stone_defaults(),
 })
 
+minetest.register_craft({
+	output = "castle:rubble",
+	recipe = {
+		{"castle:stonewall"},
+	}
+})
+minetest.register_craft({
+	output = "castle:rubble 2",
+	recipe = {
+		{"default:gravel"},
+		{"default:desert_stone"},
+	}
+})
 minetest.register_node("castle:rubble", {
 	description = "Castle Rubble",
 	drawtype = "normal",
@@ -16,29 +35,6 @@ minetest.register_node("castle:rubble", {
 	paramtype = light,
 	groups = {crumbly=3,falling_node=1},
 	sounds = default.node_sound_dirt_defaults(),
-})
-
-minetest.register_craft({
-	output = "castle:stonewall",
-	recipe = {
-		{"default:cobble"},
-		{"default:desert_stone"},
-	}
-})
-
-minetest.register_craft({
-	output = "castle:rubble",
-	recipe = {
-		{"castle:stonewall"},
-	}
-})
-
-minetest.register_craft({
-	output = "castle:rubble 2",
-	recipe = {
-		{"default:gravel"},
-		{"default:desert_stone"},
-	}
 })
 
 minetest.register_node("castle:stonewall_corner", {
@@ -55,7 +51,6 @@ minetest.register_node("castle:stonewall_corner", {
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
-
 minetest.register_craft({
 	output = "castle:stonewall_corner",
 	recipe = {
@@ -94,8 +89,6 @@ minetest.register_node("castle:hides", {
 		type = "wallmounted",
 	},
 })
-
-
 minetest.register_craft({
 	output = "castle:hides",
 	recipe = {
@@ -103,8 +96,6 @@ minetest.register_craft({
 		{"bucket:bucket_water"},
 	}
 })
-
-
 minetest.register_craft( {
          type = "shapeless",
          output = "castle:hides 6",
@@ -194,41 +185,6 @@ minetest.register_craft({
 	}
 })
 
-doors:register_door("castle:oak_door", {
-	description = "Oak Door",
-	inventory_image = "castle_oak_door_inv.png",
-	groups = {choppy=2,door=1},
-	tiles_bottom = {"castle_oak_door_bottom.png", "door_oak.png"},
-	tiles_top = {"castle_oak_door_top.png", "door_oak.png"},
-	only_placer_can_open = true,
-})
-
-doors:register_door("castle:jail_door", {
-	description = "Jail Door",
-	inventory_image = "castle_jail_door_inv.png",
-	groups = {cracky=2,door=1},
-	tiles_bottom = {"castle_jail_door_bottom.png", "door_jail.png"},
-	tiles_top = {"castle_jail_door_top.png", "door_jail.png"},
-	only_placer_can_open = true,
-})
-
-minetest.register_craft({
-	output = "castle:oak_door",
-	recipe = {
-		{"default:tree", "default:tree"},
-		{"default:tree", "default:tree"},
-		{"default:tree", "default:tree"}
-	}
-})
-
-minetest.register_craft({
-	output = "castle:jail_door",
-	recipe = {
-		{"castle:jailbars", "castle:jailbars"},
-		{"castle:jailbars", "castle:jailbars"},
-		{"castle:jailbars", "castle:jailbars"}
-	}
-})
 
 function default.get_ironbound_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
