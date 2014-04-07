@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 minetest.register_alias("darkage:box", "castle:crate")
 minetest.register_alias("cottages:straw", "castle:straw")
 minetest.register_alias("cottages:straw_bale", "castle:bound_straw")
@@ -8,7 +16,7 @@ minetest.register_alias("darkage:lamp", "castle:street_light")
 
 minetest.register_node("castle:anvil",{
 	drawtype = "nodebox",
-	description = "Anvil",
+	description = S("Anvil"),
 	tiles = {"castle_steel.png"},
 	groups = {cracky=2,falling_node=1},
 	sounds = default.node_sound_stone_defaults(),
@@ -36,7 +44,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:workbench",{
-	description = "Workbench",
+	description = S("Workbench"),
 	tiles = {"castle_workbench_top.png", "default_wood.png", "castle_workbench_1.png", "castle_workbench_1.png", "castle_workbench_2.png", "castle_workbench_2.png"},
 	paramtype2 = "facedir",
 	paramtype = "light",
@@ -46,14 +54,14 @@ minetest.register_node("castle:workbench",{
     on_construct = function ( pos )
         local meta = minetest.get_meta( pos )
 		meta:set_string( 'formspec', 'size[10,10;]' ..
-			'label[1,0;Source Material]' ..
+			"label[1,0;"..S("Source Material").."]" ..
 			'list[context;src;1,1;2,4;]' ..
-			'label[4,0;Recipe to Use]' ..
+			"label[4,0;"..S("Recipe to Use").."]" ..
 			'list[context;rec;4,1;3,3;]' ..
-			'label[7.5,0;Craft Output]' ..
+			"label[7.5,0;"..S("Craft Output").."]" ..
 			'list[context;dst;8,1;1,4;]' ..
 			'list[current_player;main;1,6;8,4;]' )
-        meta:set_string( 'infotext', 'Workbench' )
+        meta:set_string( 'infotext', S('Workbench') )
         local inv = meta:get_inventory()
         inv:set_size( 'src', 2 * 4 )
 		inv:set_size( 'rec', 3 * 3 )
@@ -173,7 +181,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:dungeon_stone", {
-	description = "Dungeon Stone",
+	description = S("Dungeon Stone"),
 	drawtype = "normal",
 	tiles = {"castle_dungeon_stone.png"},
 	groups = {cracky=2},
@@ -198,7 +206,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:crate", {
-	description = "Crate",
+	description = S("Crate"),
 	drawtype = "normal",
 	tiles = {"castle_crate_top.png","castle_crate_top.png","castle_crate.png","castle_crate.png","castle_crate.png","castle_crate.png"},
 	groups = {choppy=3},
@@ -210,7 +218,7 @@ minetest.register_node("castle:crate", {
 				"size[8,9]"..
 				"list[current_name;main;0,1;8,4;]"..
 				"list[current_player;main;0,5;8,4;]")
-		meta:set_string("infotext", "Crate")
+		meta:set_string("infotext", S("Crate"))
 		local inv = meta:get_inventory()
 		inv:set_size("main", 8*3)
 	end,
@@ -249,7 +257,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:straw", {
-	description = "Straw",
+	description = S("Straw"),
 	drawtype = "normal",
 	tiles = {"castle_straw.png"},
 	groups = {choppy=4, flammable=1, oddly_breakable_by_hand=3},
@@ -268,7 +276,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:bound_straw", {
-	description = "Bound Straw",
+	description = S("Bound Straw"),
 	drawtype = "normal",
 	tiles = {"castle_straw_bale.png"},
 	groups = {choppy=4, flammable=1, oddly_breakable_by_hand=3},
@@ -288,14 +296,14 @@ minetest.register_craft({
 stairs.register_stair_and_slab("straw", "castle:straw",
 		{choppy=3, flammable=1, oddly_breakable_by_hand=3},
 		{"castle_straw.png"},
-		"Castle Straw Stair",
-		"Castle Straw Slab",
+		S("Castle Straw Stair"),
+		S("Castle Straw Slab"),
 		default.node_sound_dirt_defaults({
 		footstep = {name="default_grass_footstep", gain=0.25},
 	}))
 
 minetest.register_node("castle:pavement", {
-	description = "Paving Stone",
+	description = S("Paving Stone"),
 	drawtype = "normal",
 	tiles = {"castle_pavement_brick.png"},
 	groups = {cracky=2},
@@ -314,7 +322,7 @@ minetest.register_craft({
 
 minetest.register_node("castle:light",{
 	drawtype = "glasslike",
-	description = "Light Block",
+	description = S("Light Block"),
 	sunlight_propagates = true,
 	light_source = 14,
 	tiles = {"castle_street_light.png"},
