@@ -1,5 +1,13 @@
 -- xjailbarss mod by xyz
 
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 local function rshift(x, by)
   return math.floor(x / 2 ^ by)
 end
@@ -91,7 +99,7 @@ for i = 1, 15 do
 end
 
 minetest.register_node("castle:jailbars", {
-    description = "Jailbars",
+    description = S("Jailbars"),
     tile_images = {"castle_space.png"},
     inventory_image = "castle_jailbars.png",
     wield_image = "castle_jailbars.png",
