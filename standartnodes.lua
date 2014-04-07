@@ -1,6 +1,13 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
 
 minetest.register_node("castle:stonewall", {
-	description = "Castle Wall",
+	description = S("Castle Wall"),
 	drawtype = "normal",
 	tiles = {"castle_stonewall.png"},
 	paramtype = light,
@@ -10,7 +17,7 @@ minetest.register_node("castle:stonewall", {
 })
 
 minetest.register_node("castle:rubble", {
-	description = "Castle Rubble",
+	description = S("Castle Rubble"),
 	drawtype = "normal",
 	tiles = {"castle_rubble.png"},
 	paramtype = light,
@@ -45,7 +52,7 @@ minetest.register_node("castle:stonewall_corner", {
 	drawtype = "normal",
 	paramtype = light,
 	paramtype2 = "facedir",
-	description = "Castle Corner",
+	description = S("Castle Corner"),
 	tiles = {"castle_stonewall.png", 
 	                  "castle_stonewall.png",
 			"castle_corner_stonewall1.png", 
@@ -66,7 +73,7 @@ minetest.register_craft({
 
 minetest.register_node("castle:roofslate", {
 	drawtype = "raillike",
-	description = "Roof Slates",
+	description = S("Roof Slates"),
 	inventory_image = "castle_slate.png",
 	paramtype = "light",
 	walkable = false,
@@ -81,7 +88,7 @@ minetest.register_node("castle:roofslate", {
 
 minetest.register_node("castle:hides", {
 	drawtype = "signlike",
-	description = "Hides",
+	description = S("Hides"),
 	inventory_image = "castle_hide.png",
 	paramtype = "light",
 	walkable = false,
@@ -165,8 +172,8 @@ end
 stairs.register_stair_and_slab("stonewall", "castle:stonewall",
 		{cracky=3},
 		{"castle_stonewall.png"},
-		"Castle Wall Stair",
-		"Castle Wall Slab",
+		S("Castle Wall Stair"),
+		S("Castle Wall Slab"),
 		default.node_sound_stone_defaults())
 
 minetest.register_craft({
@@ -195,7 +202,7 @@ minetest.register_craft({
 })
 
 doors:register_door("castle:oak_door", {
-	description = "Oak Door",
+	description = S("Oak Door"),
 	inventory_image = "castle_oak_door_inv.png",
 	groups = {choppy=2,door=1},
 	tiles_bottom = {"castle_oak_door_bottom.png", "door_oak.png"},
@@ -204,7 +211,7 @@ doors:register_door("castle:oak_door", {
 })
 
 doors:register_door("castle:jail_door", {
-	description = "Jail Door",
+	description = S("Jail Door"),
 	inventory_image = "castle_jail_door_inv.png",
 	groups = {cracky=2,door=1},
 	tiles_bottom = {"castle_jail_door_bottom.png", "door_jail.png"},
@@ -248,7 +255,7 @@ end
 
 minetest.register_node("castle:ironbound_chest",{
 	drawtype = "nodebox",
-	description = "Ironbound Chest",
+	description = S("Ironbound Chest"),
 	tiles = {"castle_ironbound_chest_top.png",
 	                  "castle_ironbound_chest_top.png",
 			"castle_ironbound_chest_side.png",
@@ -278,8 +285,7 @@ minetest.register_node("castle:ironbound_chest",{
 	after_place_node = function(pos, placer)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("owner", placer:get_player_name() or "")
-		meta:set_string("infotext", "Ironbound Chest (owned by "..
-				meta:get_string("owner")..")")
+		meta:set_string("infotext", S("Ironbound Chest (owned by %s)"):format((meta:get_string("owner") or "")))
 	end,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
@@ -359,7 +365,7 @@ minetest.register_craft({
 })
 
 minetest.register_tool("castle:battleaxe", {
-	description = "Battleaxe",
+	description = S("Battleaxe"),
 	inventory_image = "castle_battleaxe.png",
 	tool_capabilities = {
 		full_punch_interval = 2.0,
