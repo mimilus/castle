@@ -13,7 +13,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:cover_stonewall", {
-	description = "Stonewall Cover",
+	description = "Castlewall Cover",
 	tiles = { 'castle_stonewall.png' },
     drawtype = "nodebox",
 	paramtype = "light",
@@ -27,6 +27,7 @@ minetest.register_node("castle:cover_stonewall", {
         fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
     },
 	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 
@@ -55,6 +56,7 @@ minetest.register_node("castle:cover_dungeon", {
         fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
     },
 	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
 })
 
 
@@ -465,7 +467,7 @@ minetest.register_node("castle:wood", {
 --Bookshelf
 
 minetest.register_craft({
-	output = "castle:bookshelf 16",
+	output = "castle:cover_bookshelf 16",
 	recipe = {
 		{"castle:saw", "default:bookshelf", ""},
 		{"", "", ""},
@@ -473,21 +475,21 @@ minetest.register_craft({
 	},
 })
 
-minetest.register_node("castle:bookshelf", {
+minetest.register_node("castle:cover_bookshelf", {
 	description = "Bookshelf Cover",
 	drawtype = "nodebox",
 	tiles = { 'default_bookshelf.png' },
 	inventory_image = 'default_bookshelf.png',
 	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
+	paramtype2="facedir",
+	node_box={
+		type="fixed",
+		fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
+	},
+	selection_box={
+		type="fixed",
+		fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
+	},
 	groups = {choppy=2,dig_immediate=2},
 })
 
