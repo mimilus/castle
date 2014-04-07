@@ -11,6 +11,7 @@ dofile(minetest.get_modpath("castle").."/orbs10use.lua")
 dofile(minetest.get_modpath("castle").."/rope.lua")
 dofile(minetest.get_modpath("castle").."/castle_covers.lua")
 dofile(minetest.get_modpath("castle").."/castle_secret.lua")
+--dofile(minetest.get_modpath("castle").."/sounds.lua")
 --dofile(minetest.get_modpath("castle").."/crossbow.lua")
 
 minetest.register_node("castle:stonewall", {
