@@ -1,5 +1,13 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 minetest.register_node("castle:shield",{
-	description = "Mounted Shield",
+	description = S("Mounted Shield"),
 	tiles = {"castle_shield_side.png", "castle_shield_side.png", "castle_shield_side.png", "castle_shield_side.png", "castle_shield_back.png", "castle_shield_front.png"},
 	drawtype="nodebox",
 	paramtype2 = "facedir",
@@ -33,7 +41,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:shield_2",{
-	description = "Mounted Shield",
+	description = S("Mounted Shield"),
 	tiles = {"castle_shield_side_2.png", "castle_shield_side_2.png", "castle_shield_side_2.png", "castle_shield_side_2.png", "castle_shield_back.png", "castle_shield_front_2.png"},
 	drawtype="nodebox",
 	paramtype2 = "facedir",
@@ -66,7 +74,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:shield_3",{
-	description = "Mounted Shield",
+	description = S("Mounted Shield"),
 	tiles = {"castle_shield_side_3.png", "castle_shield_side_3.png", "castle_shield_side_3.png", "castle_shield_side_3.png", "castle_shield_back.png", "castle_shield_front_3.png"},
 	drawtype="nodebox",
 	paramtype2 = "facedir",
