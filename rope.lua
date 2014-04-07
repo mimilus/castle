@@ -1,5 +1,13 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+    S = intllib.Getter()
+else
+    S = function(s) return s end
+end
+
 minetest.register_node("castle:ropes",{
-	description = "Rope",
+	description = S("Rope"),
 	drawtype = "nodebox",
 	sunlight_propagates = true,
 	tiles = {"castle_ropes.png"},
@@ -31,7 +39,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:box_rope", {
-    description = "Rope from Ropebox",
+    description = S("Rope from Ropebox"),
     drawtype = "nodebox",
     paramtype = "light",
     sunlight_propagates = true,
@@ -61,7 +69,7 @@ minetest.register_node("castle:box_rope", {
 })
 
 minetest.register_node("castle:ropebox", {
-    description = "Ropebox",
+    description = S("Ropebox"),
     drawtype = "nodebox",
     sunlight_propagates = true,
     tiles = {"castle_ropebox_top.png",
