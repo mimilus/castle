@@ -1,0 +1,134 @@
+# Template
+
+### arrows.lua ###
+Arrow = 
+
+### arrowslit.lua ###
+Stonewall = 
+Cobble = 
+Stonebrick = 
+Sandstone Brick = 
+Desert Stone Brick = 
+Stone = 
+Sandstone = 
+Desert Stone = 
+%s Arrowslit = 
+%s Arrowslit with Cross = 
+%s Arrowslit with Hole = 
+
+###castle_covers.lua###
+%s Cover = 
+Castlewall  =  
+Dungeonwall  = 
+Dirt = 
+Stone = 
+Cobble = 
+Sand = 
+Desert Sand = 
+Desert Stone = 
+Brick = 
+Steel = 
+Glass = 
+Stone Brick = 
+Desert Stone Brick = 
+Sand Stone Brick = 
+Tree = 
+Wood = 
+Bookshelf = 
+Sand Stone = 
+Obsidian = 
+Gravel = 
+Handsaw = 
+Saw Handle = 
+Saw Blade = 
+
+###castle_secret.lua###
+Dungeon Top secret One Side Wall = 
+Castle Top secret One Side Wall = 
+Dungeon Top secret One Side Angle Wall = 
+Castle Top secret One Side Angle Wall = 
+Dungeon secret Wall = 
+Castle secret Wall
+Dungeon Top secret Wall = 
+Castle Top secret Wall = 
+
+### corssbow.lua ###
+Crossbow = 
+
+### standartnodes.lua ###
+Castle Wall = 
+Castle Rubble = 
+Castle Corner = 
+Roof Slates = 
+Hides = 
+Castle Wall Stair = 
+Castle Wall Slab = 
+Oak Door = 
+Jail Door = 
+Ironbound Chest = 
+Ironbound Chest (owned by %s) = 
+access 
+moves stuff
+Battleaxe = 
+
+### jailbars.lua ###
+Jailbars = 
+
+### murder_hole.lua ###
+%s Murder Hole = 
+
+### orbs.lua ###
+Orb of Midday = 
+Orb of Midnight = 
+
+### orbs10use.lua ###
+Orb of Midday = 
+Orb of Night = 
+
+### pillars.lua ###
+%s Pillar Base = 
+%s Pillar Top = 
+%s Pillar Middle = 
+
+### rope.lua ###
+Rope = 
+Rope from Ropebox = 
+Ropebox = 
+
+### shields_decor.lua ###
+Mounted Shield = 
+
+### tapestry.lua ###
+Tapestry Top = 
+White = 
+Grey = 
+Black = 
+Red = 
+Yellow = 
+Green = 
+Cyan = 
+Blue = 
+Magenta = 
+Orange = 
+Violet = 
+Dark Grey = 
+Dark Green = 
+Pink = 
+Brown = 
+%s Tapestry = 
+%s Tapestry (Long) = 
+%s Tapestry (Very Long) = 
+
+### town_item.lua ###
+Anvil = 
+Workbench = 
+move stuff
+Dungeon Stone = 
+Crate = 
+move stuff
+Straw = 
+Bound Straw = 
+Castle Straw Stair = 
+Castle Straw Slab = 
+Paving Stone = 
+Light Block = 
