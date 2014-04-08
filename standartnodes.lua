@@ -37,6 +37,13 @@ minetest.register_node("castle:rubble", {
 	sounds = default.node_sound_dirt_defaults(),
 })
 
+minetest.register_craft({
+	output = "castle:stonewall_corner",
+	recipe = {
+		{"", "castle:stonewall"},
+		{"castle:stonewall", "default:sandstone"},
+	}
+})
 minetest.register_node("castle:stonewall_corner", {
 	drawtype = "normal",
 	paramtype = light,
@@ -51,12 +58,58 @@ minetest.register_node("castle:stonewall_corner", {
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
+
 minetest.register_craft({
-	output = "castle:stonewall_corner",
+	output = "castle:hides",
 	recipe = {
-		{"", "castle:stonewall"},
-		{"castle:stonewall", "default:sandstone"},
+		{"wool:white"},
+		{"bucket:bucket_water"},
 	}
+})
+minetest.register_craft( {
+         type = "shapeless",
+         output = "castle:hides 6",
+         recipe = { "wool:white" , "bucket:bucket_water" },
+         replacements = {
+             { 'bucket:bucket_water', 'bucket:bucket_empty' }
+         }
+} )
+minetest.register_node("castle:hides", {
+	drawtype = "signlike",
+	description = "Hides",
+	inventory_image = "castle_hide.png",
+	paramtype = "light",
+	walkable = false,
+	tiles = {'castle_hide.png'},
+	climbable = true,
+	paramtype2 = "wallmounted",
+	legacy_wallmounted = true,
+	groups = {dig_immediate=2},
+	selection_box = {
+		type = "wallmounted",
+	},
+})
+
+minetest.register_craft({
+	output = "castle:battleaxe",
+	recipe = {
+		{"default:steel_ingot", "default:steel_ingot","default:steel_ingot"},
+		{"default:steel_ingot", "default:stick","default:steel_ingot"},
+                  {"", "default:stick",""}
+	}
+})
+minetest.register_tool("castle:battleaxe", {
+	description = "Battleaxe",
+	inventory_image = "castle_battleaxe.png",
+	tool_capabilities = {
+		full_punch_interval = 2.0,
+		max_drop_level=1,
+		groupcaps={
+			choppy={times={[1]=2.10, [2]=0.90, [3]=0.50}, uses=20, maxlevel=3},
+			snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses=20, maxlevel=3},
+		},
+		damage_groups = {fleshy=7},
+	},
 })
 
 minetest.register_node("castle:roofslate", {
@@ -73,37 +126,6 @@ minetest.register_node("castle:roofslate", {
 	},
 	groups = {cracky=3,attached_node=1},
 })
-
-minetest.register_node("castle:hides", {
-	drawtype = "signlike",
-	description = "Hides",
-	inventory_image = "castle_hide.png",
-	paramtype = "light",
-	walkable = false,
-	tiles = {'castle_hide.png'},
-	climbable = true,
-	paramtype2 = "wallmounted",
-	legacy_wallmounted = true,
-	groups = {dig_immediate=2},
-	selection_box = {
-		type = "wallmounted",
-	},
-})
-minetest.register_craft({
-	output = "castle:hides",
-	recipe = {
-		{"wool:white"},
-		{"bucket:bucket_water"},
-	}
-})
-minetest.register_craft( {
-         type = "shapeless",
-         output = "castle:hides 6",
-         recipe = { "wool:white" , "bucket:bucket_water" },
-         replacements = {
-             { 'bucket:bucket_water', 'bucket:bucket_empty' }
-         }
-} )
 
 local mod_building_blocks = minetest.get_modpath("building_blocks") 
 local mod_streets = minetest.get_modpath("streets") or minetest.get_modpath("asphalt")
@@ -311,28 +333,6 @@ minetest.register_craft({
 	recipe = {
 		{"default:wood", "default:steel_ingot","default:wood"},
 		{"default:wood", "default:steel_ingot","default:wood"}
-	}
-})
-
-minetest.register_tool("castle:battleaxe", {
-	description = "Battleaxe",
-	inventory_image = "castle_battleaxe.png",
-	tool_capabilities = {
-		full_punch_interval = 2.0,
-		max_drop_level=1,
-		groupcaps={
-			choppy={times={[1]=2.10, [2]=0.90, [3]=0.50}, uses=20, maxlevel=3},
-			snappy={times={[1]=1.90, [2]=0.90, [3]=0.30}, uses=20, maxlevel=3},
-		},
-		damage_groups = {fleshy=7},
-	},
-})
-minetest.register_craft({
-	output = "castle:battleaxe",
-	recipe = {
-		{"default:steel_ingot", "default:steel_ingot","default:steel_ingot"},
-		{"default:steel_ingot", "default:stick","default:steel_ingot"},
-                  {"", "default:stick",""}
 	}
 })
 
