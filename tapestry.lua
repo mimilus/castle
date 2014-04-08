@@ -1,16 +1,16 @@
 -- Boilerplate to support localized strings if intllib mod is installed.
 local S
 if intllib then
-    S = intllib.Getter()
+	S = intllib.Getter()
 else
-    S = function(s) return s end
+	S = function(s) return s end
 end
 
 local tapestry = {}
 
 minetest.register_node("castle:tapestry_top", {
 	drawtype = "nodebox",
-         description = S("Tapestry Top"),
+         description = "Tapestry Top",
 	tiles = {"default_wood.png"},
 	sunlight_propagates = true,
 	groups = {flammable=3,oddly_breakable_by_hand=1},
@@ -38,21 +38,21 @@ minetest.register_craft({
 })
 
 tapestry.colours = {
-	{"white",      S("White"),      "white"},
-	{"grey",       S("Grey"),       "grey"},
-	{"black",      S("Black"),      "black"},
-	{"red",        S("Red"),        "red"},
-	{"yellow",     S("Yellow"),     "yellow"},
-	{"green",      S("Green"),      "green"},
-	{"cyan",       S("Cyan"),       "cyan"},
-	{"blue",       S("Blue"),       "blue"},
-	{"magenta",    S("Magenta"),    "magenta"},
-	{"orange",     S("Orange"),     "orange"},
-	{"violet",     S("Violet"),     "violet"},
-	{"dark_grey",  S("Dark Grey"),  "dark_grey"},
-	{"dark_green", S("Dark Green"), "dark_green"},
-	{"pink", S("Pink"), "pink"},
-	{"brown", S("Brown"), "brown"},
+	{"white",      "White",      "white"},
+	{"grey",       "Grey",       "grey"},
+	{"black",      "Black",      "black"},
+	{"red",        "Red",        "red"},
+	{"yellow",     "Yellow",     "yellow"},
+	{"green",      "Green",      "green"},
+	{"cyan",       "Cyan",       "cyan"},
+	{"blue",       "Blue",       "blue"},
+	{"magenta",    "Magenta",    "magenta"},
+	{"orange",     "Orange",     "orange"},
+	{"violet",     "Violet",     "violet"},
+	{"dark_grey",  "Dark Grey",  "dark_grey"},
+	{"dark_green", "Dark Green", "dark_green"},
+	{"pink", "Pink", "pink"},
+	{"brown", "Brown", "brown"},
 }
 
 for _, row in ipairs(tapestry.colours) do
@@ -62,7 +62,7 @@ for _, row in ipairs(tapestry.colours) do
 	-- Node Definition
 	minetest.register_node("castle:tapestry_"..name, {
 	         drawtype = "nodebox",
-		description = S("%s Tapestry"):format(desc),
+		description = S("%s Tapestry"):format(S(desc)),
 		tiles = {"wool_"..name..".png"},
 		groups = {oddly_breakable_by_hand=3,flammable=3,not_in_creative_inventory=1},
 		sounds = default.node_sound_defaults(),
@@ -106,7 +106,7 @@ for _, row in ipairs(tapestry.colours) do
 	-- Node Definition
 	minetest.register_node("castle:long_tapestry_"..name, {
 	         drawtype = "nodebox",
-		description = S("%s Tapestry (Long)"):format(desc),
+		description = S("%s Tapestry (Long)"):format(S(desc)),
 		tiles = {"wool_"..name..".png"},
 		groups = {oddly_breakable_by_hand=3,flammable=3,not_in_creative_inventory=1},
 		sounds = default.node_sound_defaults(),
@@ -150,7 +150,7 @@ for _, row in ipairs(tapestry.colours) do
 	-- Node Definition
 	minetest.register_node("castle:very_long_tapestry_"..name, {
 	         drawtype = "nodebox",
-		description = S("%s Tapestry (Very Long)"):format(desc),
+		description = S("%s Tapestry (Very Long)"):format(S(desc)),
 		tiles = {"wool_"..name..".png"},
 		groups = {oddly_breakable_by_hand=3,flammable=3,not_in_creative_inventory=1},
 		sounds = default.node_sound_defaults(),
