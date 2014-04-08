@@ -1,3 +1,11 @@
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+
 --TOP SECRET ONE SIDE
 --top_secret_oneside_dungeonwall
 minetest.register_craft({
@@ -9,7 +17,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:top_secret_oneside_dungeonwall",{
-	description = "Dungeon Top secret One Side Wall",
+	description = S("Dungeon Top secret One Side Wall"),
 	tiles = { 'castle_dungeon_stone.png' },
 	drawtype="nodebox",
 	paramtype = "light",
@@ -32,7 +40,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:top_secret_oneside_stonewall",{
-	description = "Castle Top secret One Side Wall",
+	description = S("Castle Top secret One Side Wall"),
 	tiles = { 'castle_stonewall.png' },
 	drawtype="nodebox",
 	paramtype = "light",
@@ -65,7 +73,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:top_secret_oneside_angle_dungeonwall",{
-	description = "Dungeon Top secret One Side Angle Wall",
+	description = S("Dungeon Top secret One Side Angle Wall"),
 	tiles = { 'castle_dungeon_stone.png' },
 	drawtype="nodebox",
 	paramtype = "light",
@@ -96,7 +104,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:top_secret_oneside_angle_stonewall",{
-	description = "Castle Top secret One Side Angle Wall",
+	description = S("Castle Top secret One Side Angle Wall"),
 	tiles = { 'castle_stonewall.png' },
 	drawtype="nodebox",
 	paramtype = "light",
@@ -121,7 +129,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:secret_dungeonwall",{
-	description = "Dungeon secret Wall",
+	description = S("Dungeon secret Wall"),
 	tiles = { 'castle_dungeon_stone.png' },
 	drawtype= "nodebox",
 	paramtype = "light",
@@ -145,7 +153,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:secret_stonewall",{
-	description = "Castle secret Wall",
+	description = S("Castle secret Wall"),
 	tiles = { 'castle_stonewall.png' },
 	drawtype= "nodebox",
 	paramtype = "light",
@@ -179,7 +187,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:top_secret_dungeonwall",{
-	description = "Dungeon Top secret Wall",
+	description = S("Dungeon Top secret Wall"),
 	tiles = { 'castle_dungeon_stone.png' },
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -211,7 +219,7 @@ minetest.register_craft({
 	},
 })
 minetest.register_node("castle:top_secret_stonewall",{
-	description = "Castle Top secret Wall",
+	description = S("Castle Top secret Wall"),
 	tiles = { 'castle_stonewall.png' },
 	drawtype = "nodebox",
 	paramtype = "light",
