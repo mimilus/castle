@@ -1,9 +1,9 @@
 -- Boilerplate to support localized strings if intllib mod is installed.
 local S
 if intllib then
-    S = intllib.Getter()
+	S = intllib.Getter()
 else
-    S = function(s) return s end
+	S = function(s) return s end
 end
 
 minetest.register_alias("castle:pillars_bottom", "castle:pillars_stonewall_bottom")
@@ -13,14 +13,14 @@ minetest.register_alias("castle:pillars_middle", "castle:pillars_stonewall_middl
 local pillar = {}
 
 pillar.types = {
-	{"stonewall", S("Stonewall"), "castle_stonewall", "castle:stonewall"},
-    {"cobble", S("Cobble"), "default_cobble", "default:cobble"},
-    {"stonebrick", S("Stonebrick"), "default_stone_brick", "default:stonebrick"},
-    {"sandstonebrick", S("Sandstone Brick"), "default_sandstone_brick", "default:sandstonebrick"},
-    {"desertstonebrick", S("Desert Stone Brick"), "default_desert_stone_brick", "default:desert_stonebrick"},
-    {"stone", S("Stone"), "default_stone", "default:stone"},
-    {"sandstone", S("Sandstone"), "default_sandstone", "default:sandstone"},
-    {"desertstone", S("Desert Stone"), "default_desert_stone", "default:desert_stone"},
+	{"stonewall", "Stonewall", "castle_stonewall", "castle:stonewall"},
+    {"cobble", "Cobble", "default_cobble", "default:cobble"},
+    {"stonebrick", "Stonebrick", "default_stone_brick", "default:stonebrick"},
+    {"sandstonebrick", "Sandstone Brick", "default_sandstone_brick", "default:sandstone_brick"},
+    {"desertstonebrick", "Desert Stone Brick", "default_desert_stone_brick", "default:desert_stonebrick"},
+    {"stone", "Stone", "default_stone", "default:stone"},
+    {"sandstone", "Sandstone", "default_sandstone", "default:sandstone"},
+    {"desertstone", "Desert Stone", "default_desert_stone", "default:desert_stone"},
 }
 
 for _, row in ipairs(pillar.types) do
@@ -31,7 +31,7 @@ for _, row in ipairs(pillar.types) do
 	-- Node Definition
 	minetest.register_node("castle:pillars_"..name.."_bottom", {
 	    drawtype = "nodebox",
-		description = S("%s Pillar Base"):format(desc),
+		description = S("%s Pillar Base"):format(S(desc)),
 		tiles = {tile..".png"},
 		groups = {cracky=3,attached_node=1},
 		sounds = default.node_sound_stone_defaults(),
@@ -48,7 +48,7 @@ for _, row in ipairs(pillar.types) do
 	})
 	minetest.register_node("castle:pillars_"..name.."_top", {
 	    drawtype = "nodebox",
-		description = S("%s Pillar Top"):format(desc),
+		description = S("%s Pillar Top"):format(S(desc)),
 		tiles = {tile..".png"},
 		groups = {cracky=3,attached_node=1},
 		sounds = default.node_sound_stone_defaults(),
@@ -65,7 +65,7 @@ for _, row in ipairs(pillar.types) do
 	})
 	minetest.register_node("castle:pillars_"..name.."_middle", {
 	    drawtype = "nodebox",
-		description = S("%s Pillar Middle"):format(desc),
+		description = S("%s Pillar Middle"):format(S(desc)),
 		tiles = {tile..".png"},
 		groups = {cracky=3,attached_node=1},
 		sounds = default.node_sound_stone_defaults(),
