@@ -1,25 +1,54 @@
 --castle Mod By Daniel modified by mimilus
 --The castle
+-- Boilerplate to support localized strings if intllib mod is installed.
+local S
+if intllib then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
 
+local cover = {}
 
---stonewall cover
-minetest.register_craft({
-	output = "castle:cover_stonewall 16",
-	recipe = {
-		{"castle:saw", "castle:stonewall", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
+cover.types = {
+    {"cover_stonewall", "Castlewall", "castle_stonewall", "castle:stonewall", default.node_sound_stone_defaults()},
+    {"cover_dungeon", "Dungeonwall", "castle_dungeon_stone", "castle:dungeon_stone", default.node_sound_stone_defaults()},
+    {"dirt", "Dirt", "default_dirt", "default:dirt", default.node_sound_dirt_defaults()},
+    {"stone", "Stone", "default_stone", "default:stone", default.node_sound_stone_defaults()},
+    {"cobble", "Cobble", "default_cobble", "default:cobble", default.node_sound_stone_defaults()},
+    {"sand", "Sand", "default_sand", "default:sand", default.node_sound_sand_defaults()},
+    {"desert_sand", "Desert Sand", "default_desert_sand", "default:desert_sand", default.node_sound_sand_defaults()},
+    {"desert_stone", "Desert Stone", "default_desert_stone", "default:desert_stone", default.node_sound_stone_defaults()},
+    {"brick", "Brick", "default_brick", "default:brick", default.node_sound_stone_defaults()},
+    {"steel", "Steel", "default_steel_block", "default:steelblock", default.node_sound_stone_defaults()},
+    {"glass", "Glass", "default_glass", "default:glass", default.node_sound_glass_defaults()},
+    {"stonebrick", "Stone Brick", "default_stone_brick", "default:stonebrick", default.node_sound_stone_defaults()},
+    {"desertstonebrick", "Desert Stone Brick", "default_desert_stone_brick", "default:desert_stonebrick", default.node_sound_stone_defaults()},
+    {"sandstonebrick", "Sand Stone Brick", "default_sandstone_brick", "default:sand_stonebrick", default.node_sound_stone_defaults()},
+    {"tree", "Tree ", "default_tree", "default:tree", default.node_sound_wood_defaults()},
+    {"wood", "Wood ", "default_wood", "default:wood", default.node_sound_wood_defaults()},
+    {"cover_bookshelf", "Bookshelf", "default_bookshelf", "default:bookshelf", default.node_sound_wood_defaults()},
+    {"sandstone", "Sand Stone", "default_sandstone", "default:sandstone", default.node_sound_stone_defaults()},
+    {"obsidian", "Obsidian", "default_obsidian", "default:obsidian", default.node_sound_glass_defaults()},
+    {"gravel", "Gravel", "default_gravel", "default:gravel", default.node_sound_dirt_defaults({footstep = {name="default_gravel_footstep", gain=0.5},dug = {name="default_gravel_footstep", gain=1.0},})},
+}
 
-minetest.register_node("castle:cover_stonewall", {
-	description = "Castlewall Cover",
-	tiles = { 'castle_stonewall.png' },
-    drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
+for _, row in ipairs(cover.types) do
+	local name = row[1]
+	local desc = row[2]
+	local tile = row[3]
+	local craft_material = row[4]
+    	local sound = row[5]
+
+	-- Node Definition
+	minetest.register_node("castle:"..name, {
+		description = S("%s Cover"):format(S(desc)),
+		tiles = {tile..".png"},
+    	drawtype = "nodebox",
+		paramtype = "light",
+    	paramtype2 = "facedir",
     node_box={
-        type="fixed",
+        type = "fixed",
         fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
     },
     selection_box={
@@ -27,575 +56,35 @@ minetest.register_node("castle:cover_stonewall", {
         fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
     },
 	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-
---Dungeon cover
-minetest.register_craft({
-	output = "castle:cover_dungeon 16",
-	recipe = {
-		{"castle:saw", "castle:dungeon_stone", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:cover_dungeon", {
-	description = "Dungeonwall Cover",
-	tiles = { 'castle_dungeon_stone.png' },
-    drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-
-
---Dirt
-minetest.register_craft({
-	output = "castle:dirt 16",
-	recipe = {
-		{"castle:saw", "default:dirt", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:dirt", {
-	description = "Dirt Cover",
-	tiles = { 'default_dirt.png' },
-    drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
-
---Stone
-
-minetest.register_craft({
-	output = "castle:stone 16",
-	recipe = {
-		{"castle:saw", "default:stone", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:stone", {
-	description = "Stone Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_stone.png' },
-	inventory_image = 'default_stone.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Cobble
-
-minetest.register_craft({
-	output = "castle:cobble 16",
-	recipe = {
-		{"castle:saw", "default:cobble", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:cobble", {
-	description = "Cobble Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_cobble.png' },
-	inventory_image = 'default_cobble.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Sand
-
-minetest.register_craft({
-	output = "castle:sand 16",
-	recipe = {
-		{"castle:saw", "default:sand", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:sand", {
-	description = "Sand Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_sand.png' },
-	inventory_image = 'default_sand.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Desert Sand
-
-minetest.register_craft({
-	output = "castle:desert_sand 16",
-	recipe = {
-		{"castle:saw", "default:desert_sand", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:desert_sand", {
-	description = "Desert Sand Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_desert_sand.png' },
-	inventory_image = 'default_desert_sand.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Desert Stone
-
-minetest.register_craft({
-	output = "castle:desert_stone 16",
-	recipe = {
-		{"castle:saw", "default:desert_stone", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:desert_stone", {
-	description = "Desert Stone Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_desert_stone.png' },
-	inventory_image = 'default_desert_stone.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Brick
-
-minetest.register_craft({
-	output = "castle:brick 16",
-	recipe = {
-		{"castle:saw", "default:brick", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:brick", {
-	description = "Brick Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_brick.png' },
-	inventory_image = 'default_brick.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Steel
-
-minetest.register_craft({
-	output = "castle:steel 16",
-	recipe = {
-		{"castle:saw", "default:steelblock", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:steel", {
-	description = "Steel Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_steel_block.png' },
-	inventory_image = 'default_steel_block.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Glass
-
-minetest.register_craft({
-	output = "castle:glass 16",
-	recipe = {
-		{"castle:saw", "default:glass", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:glass", {
-	description = "Glass Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_glass.png' },
-	inventory_image = 'default_glass.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Stone Brick
-
-minetest.register_craft({
-	output = "castle:stonebrick 16",
-	recipe = {
-		{"castle:saw", "default:stonebrick", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:stonebrick", {
-	description = "Stone Brick Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_stone_brick.png' },
-	inventory_image = 'default_stone_brick.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
---Desert Stone Brick
-
-minetest.register_craft({
-	output = "castle:desertstonebrick 16",
-	recipe = {
-		{"castle:saw", "default:desert_stonebrick", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:desertstonebrick", {
-	description = "Desert Stone Brick Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_desert_stone_brick.png' },
-	inventory_image = 'default_desert_stone_brick.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Sand Stone Brick
-
-minetest.register_craft({
-	output = "castle:sandstonebrick 16",
-	recipe = {
-		{"castle:saw", "default:sand_stonebrick", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:sandstonebrick", {
-	description = "Sand Stone Brick Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_sandstone_brick.png' },
-	inventory_image = 'default_sandstone_brick.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
---Tree
-
-minetest.register_craft({
-	output = "castle:tree 16",
-	recipe = {
-		{"castle:saw", "default:tree", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:tree", {
-	description = "Tree Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_tree.png' },
-	inventory_image = 'default_tree.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Wood
-
-minetest.register_craft({
-	output = "castle:wood 16",
-	recipe = {
-		{"castle:saw", "default:wood", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:wood", {
-	description = "Wood Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_wood.png' },
-	inventory_image = 'default_wood.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Bookshelf
-
-minetest.register_craft({
-	output = "castle:cover_bookshelf 16",
-	recipe = {
-		{"castle:saw", "default:bookshelf", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:cover_bookshelf", {
-	description = "Bookshelf Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_bookshelf.png' },
-	inventory_image = 'default_bookshelf.png',
-	paramtype = "light",
-	paramtype2="facedir",
-	node_box={
-		type="fixed",
-		fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-	},
-	selection_box={
-		type="fixed",
-		fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-	},
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Sand Stone
-
-minetest.register_craft({
-	output = "castle:sandstone 16",
-	recipe = {
-		{"castle:saw", "default:sandstone", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:sandstone", {
-	description = "Sand Stone Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_sandstone.png' },
-	inventory_image = 'default_sandstone.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Obsidian
-
-minetest.register_craft({
-	output = "castle:obsidian 16",
-	recipe = {
-		{"castle:saw", "default:obsidian", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:obsidian", {
-	description = "Obsidian Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_obsidian.png' },
-	inventory_image = 'default_obsidian.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
---Gravel
-
-minetest.register_craft({
-	output = "castle:gravel 16",
-	recipe = {
-		{"castle:saw", "default:gravel", ""},
-		{"", "", ""},
-		{"", "", ""},
-	},
-})
-
-minetest.register_node("castle:gravel", {
-	description = "Gravel Cover",
-	drawtype = "nodebox",
-	tiles = { 'default_gravel.png' },
-	inventory_image = 'default_gravel.png',
-	paramtype = "light",
-    paramtype2="facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    selection_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-	groups = {choppy=2,dig_immediate=2},
-})
-
+	sounds = sound,
+	})
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:"..name.." 16",
+			recipe = {
+			{"castle:saw",craft_material, ""},
+			{"", "", ""},
+			{"", "", ""}, },
+		})
+	end
+end
 
 --Saw
 minetest.register_craftitem("castle:saw", {
-	description = "Handsaw",
+	description = S("Handsaw"),
 	tiles = { 'coversaw.png' },
 	inventory_image = 'coversaw.png',
 })
 
 minetest.register_craftitem("castle:sawhandle", {
-	description = "Saw Handle",
+	description = S("Saw Handle"),
 	tiles = { 'sawhandle.png' },
 	inventory_image = 'sawhandle.png',
 })
 
 minetest.register_craftitem("castle:sawblade", {
-	description = "Saw Blade",
+	description = S("Saw Blade"),
 	tiles = { 'sawblade.png' },
 	inventory_image = 'sawblade.png',
 })
