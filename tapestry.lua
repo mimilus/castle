@@ -10,7 +10,7 @@ local tapestry = {}
 
 minetest.register_node("castle:tapestry_top", {
 	drawtype = "nodebox",
-         description = "Tapestry Top",
+         description = S("Tapestry Top"),
 	tiles = {"default_wood.png"},
 	sunlight_propagates = true,
 	groups = {flammable=3,oddly_breakable_by_hand=1},
