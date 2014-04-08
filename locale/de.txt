@@ -1,0 +1,137 @@
+# Translation by Xanthin
+
+### arrows.lua ###
+Arrow = Pfeil
+
+### arrowslit.lua ###
+Stonewall = Steinmauer
+Cobble = Pflasterstein
+Stonebrick = Steinziegel
+Sandstone Brick = Sandsteinziegel
+Desert Stone Brick = Wuestensteinziegel
+Stone = Stein
+Sandstone = Sandstein
+Desert Stone = Wuestenstein
+%s Arrowslit = %s mit Bogenscharte
+%s Arrowslit with Cross = %s mit Kreuzscharte
+%s Arrowslit with Hole = %s mit Schluesselscharte
+
+###castle_covers.lua###
+%s Cover = Wandverkleidung (%s)
+Castlewall  =  Burgmauer
+Dungeonwall  = Kerkermauer
+Dirt = Erde
+Stone = Stein
+Cobble = Pflasterstein
+Sand = Sand
+Desert Sand = Wuestensand
+Desert Stone = Wuestenstein
+Brick = Ziegel
+Steel = Stahl
+Glass = Glas
+Stone Brick = Steinziegel
+Desert Stone Brick = Wuestensteinziegel
+Sand Stone Brick = Sandsteinziegel
+Tree = Baumstamm
+Wood = Holz
+Bookshelf = Buecherregal
+Sand Stone = Sandstein
+Obsidian = Obsidian
+Gravel = Kies
+Handsaw = Handsaege
+Saw Handle = Saegegriff
+Saw Blade = Saegeblatt
+
+###castle_secret.lua###
+Dungeon Top secret One Side Wall = Geheime Kerkermauer (Decke,einseitig)
+Castle Top secret One Side Wall = Geheime Burgmauer (Decke,einseitig)
+Dungeon Top secret One Side Angle Wall = Geheime Kerkermauer (Decke,einseitig,Ecke)
+Castle Top secret One Side Angle Wall = Geheime Burgmauer (Decke,einseitig,Ecke)
+Dungeon secret Wall = Geheime Kerkermauer
+Castle secret Wall = Geheime Burgmauer
+Dungeon Top secret Wall = Geheime Kerkermauer (Decke)
+Castle Top secret Wall = Geheime Burgmauer (Decke)
+
+### corssbow.lua ###
+Crossbow = Armbrust
+
+### standartnodes.lua ###
+Castle Wall = Steinmauer
+Castle Rubble = Schutt
+Castle Corner = Steinmauerecke
+Roof Slates = Dachschiefer
+Hides = Felle
+Castle Wall Stair = Steinmauertreppe
+Castle Wall Slab = Steinmauerstufe
+Oak Door = Eichentuer
+Jail Door = Kerkertuer
+Ironbound Chest = Eisenbeschlagene Truhe
+Ironbound Chest (owned by %s) = Eisenbeschlagene Truhe (gehoert %s)
+#access 
+#moves stuff
+Battleaxe = Streitaxt
+
+### jailbars.lua ###
+Jailbars = Kerkergitterstaebe
+
+### murder_hole.lua ###
+%s Murder Hole = %s mit Pechnase
+
+### orbs.lua ###
+Orb of Midday = Kugel der Mittagsstunde
+Orb of Midnight = Kugel der Mitternacht
+
+### orbs.lua ###
+Orb of Midday = Kugel der Mittagsstunde
+Orb of Night = Kugel der Nacht
+
+### pillars.lua ###
+%s Pillar Base = Saeulenbasis aus %s
+%s Pillar Top = Saeulenkopf aus %s
+%s Pillar Middle = Saeulenschaft aus %s
+
+### rope.lua ###
+Rope = Seil
+Rope from Ropebox = Seil von Seilwinde
+Ropebox = Seilwinde
+
+### shields_decor.lua ###
+Mounted Shield = Wandschild
+
+### tapestry.lua ###
+Tapestry Top = Wandteppichstange
+White = Weisser
+Grey = Grauer
+Black = Schwarzer
+Red = Roter
+Yellow = Gelber
+Green = Gruener
+Cyan = Tuerkiser
+Blue = Blauer
+Magenta = Magenta
+Orange = Oranger
+Violet = Violetter
+Dark Grey = Dunkelgrauer
+Dark Green = Dunkelgruener
+Pink = Rosa
+Brown = Brauner
+%s Tapestry = %s Wandteppich
+%s Tapestry (Long) = %s Wandteppich (lang)
+%s Tapestry (Very Long) = %s Wandteppich (sehr lang)
+
+### town_item.lua ###
+Anvil = Amboss
+Workbench = Werkbank
+Source Material = Ausgangsmaterial
+Recipe to Use = Zu nutzendes Rezept
+Craft Output = Endprodukt
+#move stuff
+Dungeon Stone = Kerkerstein
+Crate = Kiste
+#move stuff
+Straw = Stroh
+Bound Straw = Gebundenes Stroh 
+Castle Straw Stair = Strohtreppe
+Castle Straw Slab = Strohstufe
+Paving Stone = Pflasterblock
+Light Block = Lichtblock
