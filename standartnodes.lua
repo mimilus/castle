@@ -50,11 +50,28 @@ minetest.register_node("castle:stonewall_corner", {
 	paramtype2 = "facedir",
 	description = "Castle Corner",
 	tiles = {"castle_stonewall.png", 
-	                  "castle_stonewall.png",
+			"castle_stonewall.png",
 			"castle_corner_stonewall1.png", 
 			"castle_stonewall.png", 
 			"castle_stonewall.png", 
 			"castle_corner_stonewall2.png"},
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_craft({
+	output = "castle:cornerwall",
+	recipe = {
+		{"default:sandstone", "castle:stonewall"},
+		{"default:sandstone", "default:sandstone"},
+	}
+})
+minetest.register_node("castle:cornerwall", {
+	drawtype = "normal",
+	paramtype = light,
+	paramtype2 = "facedir",
+	description = "Castle CornerWall",
+	tiles = {"castle_cornwall.png"},
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
