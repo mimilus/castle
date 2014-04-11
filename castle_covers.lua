@@ -2,6 +2,34 @@
 --The castle
 
 
+--cornerwall cover
+minetest.register_craft({
+	output = "castle:cover_cornerwall 16",
+	recipe = {
+		{"castle:saw", "castle:cornerwall", ""},
+		{"", "", ""},
+		{"", "", ""},
+	},
+})
+
+minetest.register_node("castle:cover_cornerwall", {
+	description = "Castlewall Cover",
+	tiles = { 'castle_cornwall.png' },
+    drawtype = "nodebox",
+	paramtype = "light",
+    paramtype2 = "facedir",
+    node_box={
+        type="fixed",
+        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
+    },
+    selection_box={
+        type="fixed",
+        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
+    },
+	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 --stonewall cover
 minetest.register_craft({
 	output = "castle:cover_stonewall 16",

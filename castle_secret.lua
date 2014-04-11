@@ -1,4 +1,30 @@
 --TOP SECRET ONE SIDE
+
+--top secret_oneside_cornerwall
+
+minetest.register_craft({
+	output = "castle:top_secret_oneside_dungeonwall 1",
+	recipe = {
+		{"", "castle:cover_cornerwall", ""},
+		{"", "", "castle:cover_cornerwall"},
+		{"", "", ""},
+	},
+})
+minetest.register_node("castle:top_secret_oneside_cornerwall",{
+	description = "Dungeon Top secret One Side Wall",
+	tiles = { 'castle_cornwall.png' },
+	drawtype="nodebox",
+	paramtype = "light",
+	paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},},
+			selection_box={{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},},
+	},
+	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 --top_secret_oneside_dungeonwall
 minetest.register_craft({
 	output = "castle:top_secret_oneside_dungeonwall 1",
