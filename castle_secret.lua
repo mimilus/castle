@@ -1,253 +1,48 @@
---TOP SECRET ONE SIDE
+--TRYING
+local top_secret_one_side = {}
 
---top secret_oneside_cornerwall
+top_secret_one_side.types = {
+	{"stonewall", "Stonewall", "castle_stonewall", "castle:stonewall"},
+	{"cornerwall", "CornerWall", "castle_cornwall", "castle:cornerwall"},
+	{"dungeon","Dungeon Stone","castle_dungeon_stone","castle:dungeon_stone"},
+}
 
-minetest.register_craft({
-	output = "castle:top_secret_oneside_dungeonwall 1",
-	recipe = {
-		{"", "castle:cover_cornerwall", ""},
-		{"", "", "castle:cover_cornerwall"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:top_secret_oneside_cornerwall",{
-	description = "Dungeon Top secret One Side Wall",
-	tiles = { 'castle_cornwall.png' },
-	drawtype="nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
+for _, row in ipairs(top_secret_one_side.types) do
+	local name = row[1]
+	local desc = row[2]
+	local tile = row[3]
+	local craft_material = row[4]
+	-- Node Definition
+	minetest.register_node("castle:top_secret_"..name, {
+	    drawtype = "nodebox",
+		description = desc.." One Side Top Secret ",
+		tiles = {tile..".png"},
+		groups = {cracky=3},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
 	node_box = {
 		type = "fixed",
 		fixed = {{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},},
 			selection_box={{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
---top_secret_oneside_dungeonwall
+		},
+	})
 minetest.register_craft({
-	output = "castle:top_secret_oneside_dungeonwall 1",
+	output = "castle:top_secret_" ..name.. " 1",
 	recipe = {
-		{"", "castle:cover_dungeon", ""},
-		{"", "", "castle:cover_dungeon"},
+		{"", "castle:cover_" ..name , ""},
+		{"", "", "castle:cover_" ..name },
 		{"", "", ""},
 	},
 })
-minetest.register_node("castle:top_secret_oneside_dungeonwall",{
-	description = "Dungeon Top secret One Side Wall",
-	tiles = { 'castle_dungeon_stone.png' },
-	drawtype="nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},},
-			selection_box={{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
---top_secret_oneside_stonewall
-minetest.register_craft({
-	output = "castle:top_secret_oneside_stonewall 1",
-	recipe = {
-		{"", "castle:cover_stonewall", ""},
-		{"", "", "castle:cover_stonewall"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:top_secret_oneside_stonewall",{
-	description = "Castle Top secret One Side Wall",
-	tiles = { 'castle_stonewall.png' },
-	drawtype="nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},},
-			selection_box={{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},{-0.4375,0.4375,-0.5,0.4375,0.5,0.5},},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
---TOP SECRET ONESIDE ANGLE WALL
---top secret oneside angle dungeonwall
-minetest.register_craft({
-	output = "castle:top_secret_oneside_angle_dungeonwall 1",
-	recipe = {
-		{"", "castle:cover_dungeon", ""},
-		{"", "castle:top_secret_oneside_dungeonwall", ""},
-		{"", "", ""},
-	},
-})
-minetest.register_craft({
-	output = "castle:top_secret_oneside_angle_dungeonwall 1",
-	recipe = {
-		{"", "castle:cover_dungeon", "castle:cover_dungeon"},
-		{"", "", "castle:cover_dungeon"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:top_secret_oneside_angle_dungeonwall",{
-	description = "Dungeon Top secret One Side Angle Wall",
-	tiles = { 'castle_dungeon_stone.png' },
-	drawtype="nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},{0.4375,-0.5,-0.5,0.5,0.5,0.5},},
-		selection_box={{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},{0.4375,-0.5,-0.5,0.5,0.5,0.5},},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
---top secret oneside angle stonewall
-minetest.register_craft({
-	output = "castle:top_secret_oneside_angle_stonewall 1",
-	recipe = {
-		{"", "castle:cover_stonewall", ""},
-		{"", "castle:top_secret_oneside_stonewall", ""},
-		{"", "", ""},
-	},
-})
-minetest.register_craft({
-	output = "castle:top_secret_oneside_angle_stonewall 1",
-	recipe = {
-		{"", "castle:cover_stonewall", "castle:cover_stonewall"},
-		{"", "", "castle:cover_stonewall"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:top_secret_oneside_angle_stonewall",{
-	description = "Castle Top secret One Side Angle Wall",
-	tiles = { 'castle_stonewall.png' },
-	drawtype="nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},{0.4375,-0.5,-0.5,0.5,0.5,0.5},},
-		selection_box={{-0.5,-0.5,0.4375,0.5,0.5,0.5},{-0.5,0.4375,-0.5,0.5,0.5,0.5},{0.4375,-0.5,-0.5,0.5,0.5,0.5},},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
---SECRET WALL
---secret_dungeonwall
-minetest.register_craft({
-	output = "castle:secret_dungeonwall 1",
-	recipe = {
-		{"", "", ""},
-		{"castle:cover_dungeon", "", "castle:cover_dungeon"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:secret_dungeonwall",{
-	description = "Dungeon secret Wall",
-	tiles = { 'castle_dungeon_stone.png' },
-	drawtype= "nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5}},
-		selection_box={
-			type="fixed",{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5}},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
---secret_stonewall
-minetest.register_craft({
-	output = "castle:secret_stonewall 1",
-	recipe = {
-		{"", "", ""},
-		{"castle:cover_stonewall", "", "castle:cover_stonewall"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:secret_stonewall",{
-	description = "Castle secret Wall",
-	tiles = { 'castle_stonewall.png' },
-	drawtype= "nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5}},
-		selection_box={
-			type="fixed",{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5}},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
---TOP SECRET WALL
---top_secret_dungeonwall
-minetest.register_craft({
-	output = "castle:top_secret_dungeonwall 1",
-	recipe = {
-		{"", "castle:cover_dungeon", ""},
-		{"", "castle:secret_dungeonwall", ""},
-		{"", "", ""},
-	},
-})
-minetest.register_craft({
-	output = "castle:top_secret_dungeonwall 1",
-	recipe = {
-		{"", "castle:cover_dungeon", ""},
-		{"castle:cover_dungeon", "", "castle:cover_dungeon"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:top_secret_dungeonwall",{
-	description = "Dungeon Top secret Wall",
-	tiles = { 'castle_dungeon_stone.png' },
-	drawtype = "nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},{-0.4375,0.4375,-0.5,0.4375,0.5,0.5},},
-		selection_box={
-			type="fixed",{-0.5,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},{-0.4375,0.4375,-0.5,0.4375,0.5,0.5},},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
---top_secret_stonewall
-minetest.register_craft({
-	output = "castle:top_secret_stonewall 1",
-	recipe = {
-		{"", "castle:cover_stonewall", ""},
-		{"", "castle:secret_stonewall", ""},
-		{"", "", ""},
-	},
-})
-minetest.register_craft({
-	output = "castle:top_secret_stonewall 1",
-	recipe = {
-		{"", "castle:cover_stonewall", ""},
-		{"castle:cover_stonewall", "", "castle:cover_stonewall"},
-		{"", "", ""},
-	},
-})
-minetest.register_node("castle:top_secret_stonewall",{
-	description = "Castle Top secret Wall",
-	tiles = { 'castle_stonewall.png' },
-	drawtype = "nodebox",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	node_box = {
-		type = "fixed",
-		fixed = {{0.4375,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},{-0.4375,0.4375,-0.5,0.4375,0.5,0.5},},
-		selection_box={
-			type="fixed",{-0.5,-0.5,-0.5,0.5,0.5,0.5},{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},{-0.4375,0.4375,-0.5,0.4375,0.5,0.5},},
-	},
-	groups = {choppy=2,dig_immediate=2},
-	sounds = default.node_sound_stone_defaults(),
-})
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:top_secret_" ..name.. " 4",
+			recipe = {
+			{"",craft_material, "" },
+			{craft_material,"", craft_material},
+			{"",craft_material, ""} },
+		})
+	end
+end
