@@ -13,7 +13,7 @@ minetest.register_craft({
 })
 
 minetest.register_node("castle:cover_cornerwall", {
-	description = "Castlewall Cover",
+	description = "CornerWall Cover",
 	tiles = { 'castle_cornwall.png' },
     drawtype = "nodebox",
 	paramtype = "light",
