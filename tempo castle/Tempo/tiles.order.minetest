@@ -1,0 +1,13 @@
+Node_Box
+
+The order of the textures is +Y, -Y, +X, -X, +Z, -Z. 
+In English: top, bottom, right, left, front, back.
+
+
+Each line of numbers stands for each rectangular prism in the node.
+The numbers in each line stand for (in this order):
+{ -x, -y, -z, x, y, z }                            or, more simply:
+{ left side, bottom, back, right side, top, front }
+
+They are measured from the middle of the nodebox (0), and the edge of the nodebox is 0.5 or 1/2 (one half)
+If the middle of the nodebox is inside the node, then the first 3 coordinates will be negitive, and the last 3 will be positive.
