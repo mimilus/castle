@@ -215,6 +215,9 @@ function cornerstairs.register_stair_and_slab(subname, recipeitem, groups, image
 	cornerstairs.register_slab(subname, recipeitem, groups, images, desc_slab, sounds)
 end
 
+
+-- Not Castle nodes
+
 cornerstairs.register_stair_and_slab("wood", "default:wood",
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
 		{"default_wood.png"},
@@ -263,3 +266,27 @@ cornerstairs.register_stair_and_slab("stonebrick", "default:stonebrick",
 		"Stone Brick Stair",
 		"Stone Brick Slab",
 		default.node_sound_stone_defaults())
+		
+-- Castle nodes
+
+cornerstairs.register_stair_and_slab("stonewall", "castle_stonewall",
+		{cracky=3},
+		{"castle_stonewall.png"},
+		"StoneWall Brick Corner Stair",
+		"StoneWall Brick Corner Slab",
+		default.node_sound_stone_defaults())
+		
+cornerstairs.register_stair_and_slab("stonedungeon", "castle_dungeon_stone",
+		{cracky=3},
+		{"castle_dungeon_stone.png"},
+		"Dungeon Brick Corner Stair",
+		"Dungeon Brick Corner Slab",
+		default.node_sound_stone_defaults())
+
+cornerstairs.register_stair_and_slab("stonecornerwall", "castle_cornwall",
+		{cracky=3},
+		{"castle_cornwall.png"},
+		"CornWall Brick Corner Stair",
+		"Cornwall Brick Corner Slab",
+		default.node_sound_stone_defaults())
+
