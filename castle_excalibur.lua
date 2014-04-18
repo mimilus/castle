@@ -2,7 +2,7 @@
 
 minetest.register_node("castle:excalibur", {
 	description = "Excalibur in the rock",
-	drawtype =  "nodebox",
+	drawtype = "nodebox",
 	tiles = {'excalibur-top.png','excalibur-front.png','excalibur-front.png','excalibur-front.png','excalibur-front.png','excalibur-front.png'},
 	inventory_image = "excalibur-front.png",
 --	wield_image = "default_torch_on_floor.png",
@@ -27,6 +27,8 @@ minetest.register_node("castle:excalibur", {
 	sunlight_propagates = false,
 --	is_ground_content = false,
 --	walkable = false,
+	diggable = false,
+	damage_per_second = 1,
 	light_source = LIGHT_MAX-10,
 	groups = {choppy=2,dig_immediate=3,flammable=1,attached_node=1,hot=2},
 --	legacy_wallmounted = true,
