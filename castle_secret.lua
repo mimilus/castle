@@ -3,9 +3,29 @@
 local secret = {}
 
 secret.types = {
-	{"stonewall", "Stonewall", "castle_stonewall", "castle:stonewall"},
-	{"cornerwall", "CornerWall", "castle_cornwall", "castle:cornerwall"},
-	{"dungeon","Dungeon Stone","castle_dungeon_stone","castle:dungeon_stone"},
+	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
+	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+--	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
+	{"dirt","Dirt","default_dirt.png","default:dirt"},
+	{"stone","Stone","default_stone.png","default:stone"},
+	{"cobble","Cobble","default_cobble.png","default:cobble"},
+--	{"sand","Sand","default_sand.png","default:sand"},
+--	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
+	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
+	{"brick","Brick","default_brick.png","default:brick"},
+	{"steel","Steel","default_steel_block.png","default:steelblock"},
+--	{"glass","Glass","default_glass.png","default:glass"},
+	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
+	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
+	{"sand_stone_brick","Sand Stone Brick","default_sandstone_brick.png","default:sandstonebrick"},
+	{"tree","Tree","default_tree.png","default:tree"},
+	{"wood","Wood","default_wood.png","default:wood"},
+--	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
+	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
+--	{"gravel","Gravel","default_gravel.png","default:gravel"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
 }
 
 for _, row in ipairs(secret.types) do
@@ -21,7 +41,7 @@ for _, row in ipairs(secret.types) do
 	minetest.register_node("castle:top_secret_one_side" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." One Side Top Secret ",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -58,7 +78,7 @@ minetest.register_craft({
 	minetest.register_node("castle:top_secret_corner_side"..name, {
 	    drawtype = "nodebox",
 		description = desc.." One Side Top Secret Corner Wall",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -93,7 +113,7 @@ minetest.register_craft({
 	minetest.register_node("castle:top_secret_" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Top Secret Wall",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -129,7 +149,7 @@ minetest.register_craft({
 	minetest.register_node("castle:top_secret_end" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Top Secret End Wall",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -165,7 +185,7 @@ minetest.register_craft({
 	minetest.register_node("castle:bottom_secret_end" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Bottom Secret End Wall",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -202,7 +222,7 @@ minetest.register_craft({
 	minetest.register_node("castle:secret_wall_" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Secret Wall",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -238,7 +258,7 @@ minetest.register_craft({
 	minetest.register_node("castle:secret_corner_wall_" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Secret Corner Wall",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -274,7 +294,7 @@ minetest.register_craft({
 	minetest.register_node("castle:top_top_wall_" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Secret Top Top Wall",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -310,7 +330,7 @@ minetest.register_craft({
 	minetest.register_node("castle:secret_stairs_" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Secret Stair",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -346,7 +366,7 @@ minetest.register_craft({
 	minetest.register_node("castle:super_secret_stairs_" ..name, {
 	    drawtype = "nodebox",
 		description = desc.." Super Secret Stair",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",

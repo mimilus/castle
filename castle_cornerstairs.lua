@@ -216,77 +216,46 @@ function cornerstairs.register_stair_and_slab(subname, recipeitem, groups, image
 end
 
 
--- Not Castle nodes
+local gogogo = {}
 
-cornerstairs.register_stair_and_slab("wood", "default:wood",
+gogogo.types = {
+	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
+	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+--	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
+	{"dirt","Dirt","default_dirt.png","default:dirt"},
+	{"stone","Stone","default_stone.png","default:stone"},
+	{"cobble","Cobble","default_cobble.png","default:cobble"},
+--	{"sand","Sand","default_sand.png","default:sand"},
+--	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
+	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
+	{"brick","Brick","default_brick.png","default:brick"},
+	{"steel","Steel","default_steel_block.png","default:steelblock"},
+--	{"glass","Glass","default_glass.png","default:glass"},
+	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
+	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
+	{"sand_stone_brick","Sand Stone Brick","default_sandstone_brick.png","default:sandstonebrick"},
+	{"tree","Tree","default_tree.png","default:tree"},
+	{"wood","Wood","default_wood.png","default:wood"},
+--	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
+	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
+--	{"gravel","Gravel","default_gravel.png","default:gravel"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
+	
+}
+
+for _, row in ipairs(gogogo.types) do
+	local name = row[1]
+	local desc = row[2]
+	local inv = row[3]
+	local craft_logical = row[4]
+
+
+cornerstairs.register_stair_and_slab(name, craft_logical,
 		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		{"default_wood.png"},
-		"Wooden Stair",
-		"Wooden Slab",
+		{inv},
+		desc.." Corner Stair",
+		desc.." Corner Slab",
 		default.node_sound_wood_defaults())
-
-cornerstairs.register_stair_and_slab("stone", "default:stone",
-		{cracky=3},
-		{"default_stone.png"},
-		"Stone Stair",
-		"Stone Slab",
-		default.node_sound_stone_defaults())
-
-cornerstairs.register_stair_and_slab("cobble", "default:cobble",
-		{cracky=3},
-		{"default_cobble.png"},
-		"Cobble Stair",
-		"Cobble Slab",
-		default.node_sound_stone_defaults())
-
-cornerstairs.register_stair_and_slab("brick", "default:brick",
-		{cracky=3},
-		{"default_brick.png"},
-		"Brick Stair",
-		"Brick Slab",
-		default.node_sound_stone_defaults())
-
-cornerstairs.register_stair_and_slab("sandstone", "default:sandstone",
-		{crumbly=2,cracky=2},
-		{"default_sandstone.png"},
-		"Sandstone Stair",
-		"Sandstone Slab",
-		default.node_sound_stone_defaults())
-
-cornerstairs.register_stair_and_slab("junglewood", "default:junglewood",
-		{snappy=2,choppy=2,oddly_breakable_by_hand=2,flammable=3},
-		{"default_junglewood.png"},
-		"Junglewood Stair",
-		"Junglewood Slab",
-		default.node_sound_wood_defaults())
-
-cornerstairs.register_stair_and_slab("stonebrick", "default:stonebrick",
-		{cracky=3},
-		{"default_stone_brick.png"},
-		"Stone Brick Stair",
-		"Stone Brick Slab",
-		default.node_sound_stone_defaults())
-		
--- Castle nodes
-
-cornerstairs.register_stair_and_slab("stonewall", "castle_stonewall",
-		{cracky=3},
-		{"castle_stonewall.png"},
-		"StoneWall Brick Corner Stair",
-		"StoneWall Brick Corner Slab",
-		default.node_sound_stone_defaults())
-		
-cornerstairs.register_stair_and_slab("stonedungeon", "castle_dungeon_stone",
-		{cracky=3},
-		{"castle_dungeon_stone.png"},
-		"Dungeon Brick Corner Stair",
-		"Dungeon Brick Corner Slab",
-		default.node_sound_stone_defaults())
-
-cornerstairs.register_stair_and_slab("stonecornerwall", "castle_cornwall",
-		{cracky=3},
-		{"castle_cornwall.png"},
-		"CornWall Brick Corner Stair",
-		"Cornwall Brick Corner Slab",
-		default.node_sound_stone_defaults())
-
+end

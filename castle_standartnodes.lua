@@ -258,38 +258,6 @@ if not (mod_building_blocks or mod_streets) then
 
 end
 
-stairs.register_stair_and_slab("stonewall", "castle:stonewall",
-		{cracky=3},
-		{"castle_stonewall.png"},
-		"Castle Wall Stair",
-		"Castle Wall Slab",
-		default.node_sound_stone_defaults())
-
-minetest.register_craft({
-	output = "castle:stairs 4",
-	recipe = {
-		{"castle:stonewall","",""},
-		{"castle:stonewall","castle:stonewall",""},
-		{"castle:stonewall","castle:stonewall","castle:stonewall"},
-	}
-})
-
-minetest.register_craft({
-	output = "stairs:stair_stonewall 4",
-	recipe = {
-		{"","","castle:stonewall"},
-		{"","castle:stonewall","castle:stonewall"},
-		{"castle:stonewall","castle:stonewall","castle:stonewall"},
-	}
-})
-
-minetest.register_craft({
-	output = "stairs:slab_stonewall 6",
-	recipe = {
-		{"castle:stonewall","castle:stonewall","castle:stonewall"},
-	}
-})
-
 
 function default.get_ironbound_chest_formspec(pos)
 	local spos = pos.x .. "," .. pos.y .. "," ..pos.z

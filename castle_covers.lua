@@ -63,3 +63,49 @@ minetest.register_craft({
 	},
 })
 end
+
+--Saw
+minetest.register_craftitem("castle:saw", {
+	description = "Handsaw",
+	tiles = { 'coversaw.png' },
+	inventory_image = 'coversaw.png',
+})
+
+minetest.register_craftitem("castle:sawhandle", {
+	description = "Saw Handle",
+	tiles = { 'sawhandle.png' },
+	inventory_image = 'sawhandle.png',
+})
+
+minetest.register_craftitem("castle:sawblade", {
+	description = "Saw Blade",
+	tiles = { 'sawblade.png' },
+	inventory_image = 'sawblade.png',
+})
+
+minetest.register_craft({
+	output = "castle:sawhandle",
+	recipe = {
+		{"default:stick", "default:stick", "default:stick"},
+		{"default:stick", "", ""},
+		{"", "", ""},
+	},
+})
+
+minetest.register_craft({
+	output = "castle:sawblade",
+	recipe = {
+		{"default:cobble", "default:cobble", "default:cobble"},
+		{"default:stick", "default:stick", "default:stick"},
+		{"", "", ""},
+	},
+})
+
+minetest.register_craft({
+	output = "castle:saw",
+	recipe = {
+		{"castle:sawhandle", "castle:sawblade", ""},
+		{"", "", ""},
+		{"", "", ""},
+	},
+})

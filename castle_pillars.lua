@@ -1,23 +1,32 @@
---minetest.register_alias("castle:pillars_bottom", "castle:pillars_stonewall_bottom")
---minetest.register_alias("castle:pillars_top", "castle:pillars_stonewall_top")
---minetest.register_alias("castle:pillars_middle", "castle:pillars_stonewall_middle")
---Removed
---    {"cobble", "Cobble", "default_cobble", "default:cobble"},
---    {"sandstonebrick", "Sandstone Brick", "default_sandstone_brick", "default:sandstone_brick"},
---    {"sandstone", "Sandstone", "default_sandstone", "default:sandstone"},
---    {"desertstonebrick", "Desert Stone Brick", "default_desert_stone_brick", "default:desert_stonebrick"},
---    {"desertstone", "Desert Stone", "default_desert_stone", "default:desert_stone"},
---    {"stonebrick", "Stonebrick", "default_stone_brick", "default:stonebrick"},
---    {"stone", "Stone", "default_stone", "default:stone"},
-    
-    
 local pillar = {}
 
 pillar.types = {
-	{"stonewall", "Stonewall", "castle_stonewall", "castle:stonewall"},
-	{"castle_cornerwall", "CornerWall", "castle_cornwall", "castle:cornerwall"},
-	{"dungeon_stone","Dungeon Stone","castle_dungeon_stone","castle:dungeon_stone"},
+	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
+	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+--	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
+	{"dirt","Dirt","default_dirt.png","default:dirt"},
+	{"stone","Stone","default_stone.png","default:stone"},
+	{"cobble","Cobble","default_cobble.png","default:cobble"},
+--	{"sand","Sand","default_sand.png","default:sand"},
+--	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
+	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
+	{"brick","Brick","default_brick.png","default:brick"},
+	{"steel","Steel","default_steel_block.png","default:steelblock"},
+--	{"glass","Glass","default_glass.png","default:glass"},
+	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
+	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
+	{"sand_stone_brick","Sand Stone Brick","default_sandstone_brick.png","default:sandstonebrick"},
+	{"tree","Tree","default_tree.png","default:tree"},
+	{"wood","Wood","default_wood.png","default:wood"},
+--	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
+	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
+--	{"gravel","Gravel","default_gravel.png","default:gravel"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
 }
+
+--Standart pillar
 
 for _, row in ipairs(pillar.types) do
 	local name = row[1]
@@ -28,7 +37,7 @@ for _, row in ipairs(pillar.types) do
 	minetest.register_node("castle:pillars_"..name.."_bottom", {
 	    drawtype = "nodebox",
 		description = desc.." Pillar Base",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3,attached_node=1},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -45,7 +54,7 @@ for _, row in ipairs(pillar.types) do
 	minetest.register_node("castle:pillars_"..name.."_top", {
 	    drawtype = "nodebox",
 		description = desc.." Pillar Top",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3,attached_node=1},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -62,7 +71,7 @@ for _, row in ipairs(pillar.types) do
 	minetest.register_node("castle:pillars_"..name.."_middle", {
 	    drawtype = "nodebox",
 		description = desc.." Pillar Middle",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3,attached_node=1},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
