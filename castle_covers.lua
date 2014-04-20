@@ -11,6 +11,8 @@ castle_cover.types = {
 	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
 	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
 	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
+	{"dirt","Dirt","default_dirt.png","default:dirt"},
+	{"stone","Stone","default_stone.png","default:stone"},
 }
 
 for _, row in ipairs(castle_cover.types) do
@@ -48,7 +50,4 @@ minetest.register_craft({
 		{"", "", ""}
 	},
 })
-
 end
-
-
