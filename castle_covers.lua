@@ -22,6 +22,8 @@ castle_cover.types = {
 	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
 	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
 	{"gravel","Gravel","default_gravel.png","default:gravel"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
 	
 }
 
