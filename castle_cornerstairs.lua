@@ -92,9 +92,8 @@ function cornerstairs.register_slab(subname, recipeitem, groups, images, descrip
 		node_box = {
 			type = "fixed",
 			fixed = {
-			{-0.5,-0.5,-0.5,0.5,0,0},
-			{0,-0.5,0,0.5,0,0.5},
-			{-0.5,-0.5,0,0,0.5,0.5},
+			{-0.5,-0.5,-0,0,0.5,0.5},
+			{-0.5,-0.5,-0.5,0.5,0,0.5},
 			},
 		},
 		on_place = function(itemstack, placer, pointed_thing)
@@ -231,7 +230,7 @@ gogogo.types = {
 	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
 	{"brick","Brick","default_brick.png","default:brick"},
 	{"steel","Steel","default_steel_block.png","default:steelblock"},
-	{"glass","Glass","default_glass.png","default:glass"},
+--	{"glass","Glass","default_glass.png","default:glass"},
 	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
 	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
 	{"sand_stone_brick","Sand Stone Brick","default_sandstone_brick.png","default:sandstonebrick"},

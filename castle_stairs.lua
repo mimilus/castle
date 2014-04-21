@@ -13,7 +13,7 @@ castle_stairs.types = {
 	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
 	{"brick","Brick","default_brick.png","default:brick"},
 	{"steel","Steel","default_steel_block.png","default:steelblock"},
-	{"glass","Glass","default_glass.png","default:glass"},
+--	{"glass","Glass","default_glass.png","default:glass"},
 	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
 	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
 	{"sand_stone_brick","Sand Stone Brick","default_sandstone_brick.png","default:sandstonebrick"},
@@ -42,7 +42,7 @@ stairs.register_stair_and_slab(name, craft_logical,
 		default.node_sound_stone_defaults())
 
 minetest.register_craft({
-	output = "castle:stairs 4",
+	output = "castle:stairs 12",
 	recipe = {
 		{"castle:stonewall","",""},
 		{"castle:stonewall","castle:stonewall",""},
