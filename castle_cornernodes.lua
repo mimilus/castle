@@ -2,7 +2,8 @@ local castle_cornernodes_ = {}
 
 castle_cornernodes_.types = {
 	{"stonewall_corner","StoneWall Corner","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
-----	{"dungeoncorner","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+	{"dungeon_corner","DungeonWall Corner","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
+	{"pavingstone_corner","PavingStone Corner","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
 --	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
@@ -22,7 +23,6 @@ castle_cornernodes_.types = {
 --	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
 --	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
 --	{"gravel","Gravel","default_gravel.png","default:gravel"},
-----	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
 --	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
 	
 }
