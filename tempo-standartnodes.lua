@@ -1,9 +1,9 @@
-local castle_mossycornernodes_ = {}
+local castle_cornernodes_ = {}
 
-castle_mossycornernodes_.types = {
-	{"stonewall_mossycorner","StoneWall Mossy Corner","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
-	{"dungeon_mossycorner","DungeonWall Mossy Corner","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
-	{"pavingstone_mossycorner","PavingStone Mossy Corner","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
+castle_cornernodes_.types = {
+	{"stonewall_corner","StoneWall Corner","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
+	{"dungeon_corner","DungeonWall Corner","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
+	{"pavingstone_corner","PavingStone Corner","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
 --	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
@@ -27,7 +27,7 @@ castle_mossycornernodes_.types = {
 	
 }
 
-for _, row in ipairs(castle_mossycornernodes_.types) do
+for _, row in ipairs(castle_cornernodes_.types) do
 	local name = row[1]
 	local desc = row[2]
 	local inv = row[3]
@@ -46,13 +46,13 @@ minetest.register_node("castle:" ..name, {
 	drawtype = "normal",
 	paramtype = light,
 	paramtype2 = "facedir",
-	description = "Castle Mossy Corner" ..desc,
+	description = "Castle Corner" ..desc,
 	tiles = {inv, 
 			inv,
-			"mossy_" ..tile1, 
-			"mossy_" ..inv, 
-			"mossy_" ..inv, 
-			"mossy_" ..tile2},
+			tile1, 
+			inv, 
+			inv, 
+			tile2},
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
