@@ -7,3 +7,4 @@ minetest.register_node("castle:desert_cobble", {
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
+

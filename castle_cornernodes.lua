@@ -1,9 +1,9 @@
-local castle_standartnodes_ = {}
+local castle_cornernodes_ = {}
 
-castle_standartnodes_.types = {
-	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
-	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
-	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+castle_cornernodes_.types = {
+	{"stonewall_corner","StoneWall Corner","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
+----	{"dungeoncorner","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+--	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -22,32 +22,40 @@ castle_standartnodes_.types = {
 --	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
 --	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
 --	{"gravel","Gravel","default_gravel.png","default:gravel"},
-	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+----	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
 --	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
 	
 }
 
-for _, row in ipairs(castle_standartnodes_.types) do
+for _, row in ipairs(castle_cornernodes_.types) do
 	local name = row[1]
 	local desc = row[2]
 	local inv = row[3]
-	local craft_logical = row[4]
+	local tile1 = row[4]
+	local tile2 = row[5]
+	local craft_logical = row[6]
 
 minetest.register_craft({
 	output = "castle:" ..name,
 	recipe = {
-		{"default:cobble"},
-		{"default:desert_stone"},
+		{"", "castle:stonewall"},
+		{"castle:stonewall", "default:sandstone"},
 	}
 })
 minetest.register_node("castle:" ..name, {
-	description = "Castle " ..desc ,
 	drawtype = "normal",
-	tiles = {inv},
 	paramtype = light,
-	drop = "castle:" ..name,
+	paramtype2 = "facedir",
+	description = "Castle Corner" ..desc,
+	tiles = {inv, 
+			inv,
+			tile1, 
+			inv, 
+			inv, 
+			tile2},
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
+
 end
 
