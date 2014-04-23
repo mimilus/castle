@@ -2,6 +2,7 @@
 --The castle mod ReBirth
 
 dofile(minetest.get_modpath("castle").."/castle_rooftop.lua")
+dofile(minetest.get_modpath("castle").."/castle_rooftoplow.lua")
 dofile(minetest.get_modpath("castle").."/castle_torchnode.lua")
 dofile(minetest.get_modpath("castle").."/castle_standartnodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_cornernodes.lua")
@@ -34,4 +35,4 @@ dofile(minetest.get_modpath("castle").."/castle_deco_weapon.lua")
 ----dofile(minetest.get_modpath("castle").."/castle_orbs.lua")
 dofile(minetest.get_modpath("castle").."/castle_orbs10use.lua")
 dofile(minetest.get_modpath("castle").."/castle_tools.lua")
-----dofile(minetest.get_modpath("castle").."/castle_falseplayer.lua")
+------dofile(minetest.get_modpath("castle").."/castle_falseplayer.lua")
