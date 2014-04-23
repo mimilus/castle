@@ -104,4 +104,70 @@ minetest.register_node("castle:standart_torch_node_" ..name,{
 	sounds = default.node_sound_stone_defaults(),
 })
 
+--pillar_torch
+minetest.register_node("castle:pillar_torch_node_" ..name,{
+	description = "Torch In " ..desc.. " Pillar",
+	tiles = { inv ,
+			  inv ,
+			{
+			image = animtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = animtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = animtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = animtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+	},
+    drawtype = "nodebox",
+	paramtype = "light",
+    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.25,0.25,-0.25,0.25,0.5,0.25},
+			{-0.25,-0.5,-0.25,0.25,0,0.25},
+			{-0.125,-0.25,-0.125,0.125,0.25,0.125},
+			{0.0625,0,0.0625,0.25,0.25,0.25},
+			{-0.25,0,0.0625,-0.0625,0.25,0.25},
+			{0.0625,0,-0.25,0.25,0.25,-0.0625},
+			{-0.25,0,-0.25,-0.0625,0.25,-0.0625},
+		},
+	},
+		light_source = LIGHT_MAX-1,
+	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 end
