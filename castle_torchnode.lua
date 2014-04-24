@@ -33,8 +33,8 @@ for _, row in ipairs(castle_torchnode.types) do
 	local inv = row[3]
 --	local statictile = row[4]
 	--ANIMATION
-	local animtile = row[4]		--Standart Node
-	local pillaranimtile = row[5]		--Pillar Middle
+	local animtile = row[4]		--Standart Node top bottom
+	local pillaranimtile = row[5]		--Pillar Middle 4 faces
 --	local craft_logical = row[6]
 
 minetest.register_node("castle:standart_torch_node_" ..name,{
@@ -153,7 +153,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 			  },
 	},
     drawtype = "nodebox",
---	paramtype = "light",
+	paramtype = "light",
     paramtype2 = "facedir",
 	node_box = {
 		type = "fixed",
@@ -172,4 +172,143 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 	sounds = default.node_sound_stone_defaults(),
 })
 
+--pillar_corner_torch
+minetest.register_node("castle:pillar_torch_node_" ..name,{
+	description = "Torch In " ..desc.. " Pillar",
+	tiles = { inv ,
+			  inv ,
+			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+	},
+    drawtype = "nodebox",
+	paramtype = "light",
+    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.25,0.25,-0.25,0.25,0.5,0.25},
+			{-0.25,-0.5,-0.25,0.25,0,0.25},
+			{-0.125,-0.25,-0.125,0.125,0.25,0.125},
+			{0.0625,0,0.0625,0.25,0.25,0.25},
+			{-0.25,0,0.0625,-0.0625,0.25,0.25},
+			{0.0625,0,-0.25,0.25,0.25,-0.0625},
+			{-0.25,0,-0.25,-0.0625,0.25,-0.0625},
+		},
+	},
+		light_source = LIGHT_MAX-3,
+	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+--tower_wall_torch
+minetest.register_node("castle:towerwall_torch_node_" ..name,{
+	description = "Torch In " ..desc.. " Tower Wall",
+	tiles = { inv ,
+			  inv ,
+			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+	},
+    drawtype = "nodebox",
+	paramtype = "light",
+    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},
+			{-0.375,-0.5,-0.375,-0.3125,0.5,0.5},
+			{-0.25,-0.5,-0.25,-0.1875,0.5,0.5},
+			{-0.125,-0.5,-0.125,-0.0625,0.5,0.5},
+			{0,-0.5,0,0.0625,0.5,0.5},
+			{0.125,-0.5,0.125,0.1875,0.5,0.5},
+			{0.25,-0.5,0.25,0.3125,0.5,0.5},
+			{0.375,-0.5,0.375,0.4375,0.5,0.5},
+			{-0.4375,-0.5,-0.4375,-0.375,0.5,0.5},
+			{-0.3125,-0.5,-0.3125,-0.25,0.5,0.5},
+			{-0.1875,-0.5,-0.1875,-0.125,0.5,0.5},
+			{-0.0625,-0.5,-0.0625,0,0.5,0.5},
+			{0.0625,-0.5,0.0625,0.125,0.5,0.5},
+			{0.1875,-0.5,0.1875,0.25,0.5,0.5},
+			{0.3125,-0.5,0.3125,0.375,0.5,0.5},
+			{0.4375,-0.5,0.4375,0.5,0.5,0.5},
+		},
+	},
+		light_source = LIGHT_MAX-3,
+	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
+})
 end
