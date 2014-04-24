@@ -1,10 +1,10 @@
 local castle_torchnode = {}
 
 castle_torchnode.types = {
-	{"stonewall","StoneWall","castle_stonewall.png","castle_stonewall_torchnode_animated.png","castle_corner_stonewall2.png","castle:stonewall"},
-	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle_dungeon_torchnode_animated.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
-	{"pavingstone","PavingStone","castle_pavement_brick.png","castle_pavement_torchnode_animated.png","castle_pavement_brick_corner2.png","castle:pavement"},
-	{"cornerwall","CornerWall","castle_cornwall.png","castle_cornwall_torchnode_animated.png"},
+	{"stonewall","StoneWall","castle_stonewall.png","castle_stonewall_torchnode_animated.png","castle_stonewall_pillar_middle_torch_animated.png","castle:stonewall"},
+	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle_dungeon_torchnode_animated.png","castle_dungeonwall_pillar_middle_torch_animated.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
+	{"pavingstone","PavingStone","castle_pavement_brick.png","castle_pavement_torchnode_animated.png","castle_pavementwall_pillar_middle_torch_animated.png","castle_pavement_brick_corner2.png","castle:pavement"},
+	{"cornerwall","CornerWall","castle_cornwall.png","castle_cornwall_torchnode_animated.png","castle_cornerwall_pillar_middle_torch_animated.png",},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -32,7 +32,9 @@ for _, row in ipairs(castle_torchnode.types) do
 	local desc = row[2]
 	local inv = row[3]
 --	local statictile = row[4]
-	local animtile = row[4]
+	--ANIMATION
+	local animtile = row[4]		--Standart Node
+	local pillaranimtile = row[5]		--Pillar Middle
 --	local craft_logical = row[6]
 
 minetest.register_node("castle:standart_torch_node_" ..name,{
@@ -99,7 +101,7 @@ minetest.register_node("castle:standart_torch_node_" ..name,{
 			{-0.25,-0.25,-0.25,0.25,0.25,0.25},
 		},
 	},
-		light_source = LIGHT_MAX-1,
+		light_source = LIGHT_MAX-3,
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -110,7 +112,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 	tiles = { inv ,
 			  inv ,
 			{
-			image = animtile,
+			image = pillaranimtile,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -120,7 +122,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 				},
 			  },
 			  			{
-			image = animtile,
+			image = pillaranimtile,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -130,7 +132,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 				},
 			  },
 			  			{
-			image = animtile,
+			image = pillaranimtile,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -140,7 +142,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 				},
 			  },
 			  			{
-			image = animtile,
+			image = pillaranimtile,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -151,7 +153,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 			  },
 	},
     drawtype = "nodebox",
-	paramtype = "light",
+--	paramtype = "light",
     paramtype2 = "facedir",
 	node_box = {
 		type = "fixed",
@@ -165,7 +167,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 			{-0.25,0,-0.25,-0.0625,0.25,-0.0625},
 		},
 	},
-		light_source = LIGHT_MAX-1,
+		light_source = LIGHT_MAX-3,
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })
