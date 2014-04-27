@@ -10,9 +10,10 @@
 local hole = {}
 
 hole.types = {
-	{"stonewall", "Stonewall", "castle_stonewall", "castle:stonewall"},
-	{"castle_cornerwall", "CornerWall", "castle_cornwall", "castle:cornerwall"},
-	{"dungeon_stone","Dungeon Stone","castle_dungeon_stone","castle:dungeon_stone"},
+	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
+	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
 }
 
 for _, row in ipairs(hole.types) do
@@ -24,7 +25,7 @@ for _, row in ipairs(hole.types) do
 	minetest.register_node("castle:hole_"..name, {
 	    drawtype = "nodebox",
 		description = desc.." Murder Hole",
-		tiles = {tile..".png"},
+		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",

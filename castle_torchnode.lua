@@ -237,6 +237,77 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })
+
+--Corner_torch
+minetest.register_node("castle:corner_torch_node_" ..name,{
+	description = "Torch In " ..desc.. " Into Corner",
+	tiles = { inv ,
+			  inv ,
+			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+			  			{
+			image = pillaranimtile,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			  },
+	},
+    drawtype = "nodebox",
+	paramtype = "light",
+    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.375,0.375,-0.375,0.4375,0.5}, --NodeBox1
+			{-0.5,-0.25,0.25,-0.25,-0.1875,0.5}, --NodeBox2
+			{-0.5,-0.1875,0.1875,-0.1875,0.0625,0.25}, --NodeBox3
+			{-0.25,-0.1875,0.25,-0.1875,0.0625,0.5}, --NodeBox4
+			{-0.5,0.3125,0.1875,-0.1875,0.375,0.5}, --NodeBox5
+			{-0.4375,-0.1875,0.375,-0.375,0.3125,0.4375}, --NodeBox6
+			{-0.5,-0.5,0.4375,-0.4375,0.5,0.5}, --NodeBox7
+			{-0.5,-0.1875,0.1875,-0.4375,0.3125,0.5}, --NodeBox8
+			{-0.5,-0.1875,0.4375,-0.1875,0.3125,0.5}, --NodeBox9
+			{-0.5,-0.1875,0.3125,-0.3125,0.25,0.5}, --NodeBox10
+			{-0.5,-0.125,0.25,-0.25,0.1875,0.5}, --NodeBox11
+		},
+	},
+		light_source = LIGHT_MAX-3,
+	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
 --tower_wall_torch
 minetest.register_node("castle:towerwall_torch_node_" ..name,{
 	description = "Torch In " ..desc.. " Tower Wall",

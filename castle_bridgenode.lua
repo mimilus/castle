@@ -1,12 +1,10 @@
-local castle_standartnodes_ = {}
+local castle_bridgenode = {}
 
-castle_standartnodes_.types = {
---Normal nodes
-	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
-	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
-	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
-	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
---Unused
+castle_bridgenode.types = {
+	{"stonewall_under_bridge","StoneWallBridge","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
+	{"dungeon_under_bridge","DungeonWallBridge","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
+	{"pavingstone_under_bridge","PavingStoneBridge","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
+	{"cornerwall_under_bridge","CornerWallBridge","castle_cornwall.png","castle:cornerwall"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -29,29 +27,34 @@ castle_standartnodes_.types = {
 	
 }
 
-for _, row in ipairs(castle_standartnodes_.types) do
+for _, row in ipairs(castle_bridgenode.types) do
 	local name = row[1]
 	local desc = row[2]
 	local inv = row[3]
-	local craft_logical = row[4]
+	local tile1 = row[4]
+	local tile2 = row[5]
+	local craft_logical = row[6]
 
-minetest.register_craft({
-	output = "castle:" ..name,
-	recipe = {
-		{"default:cobble"},
-		{"default:desert_stone"},
+--Under Bridge Corner
+minetest.register_node("castle:" ..name,{
+	drawtype="nodebox",
+		description = desc.. "Under Bridge",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		tiles = {inv},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.1875,-0.5,-0.4375,0.5,0.5}, --NodeBox2
+			{-0.4375,0.0625,-0.5,-0.3125,0.5,0.5}, --NodeBox3
+			{-0.3125,0.25,-0.5,-0.125,0.5,0.5}, --NodeBox4
+			{-0.125,0.375,-0.5,0.0625,0.5,0.5}, --NodeBox5
+			{0.0625,0.4375,-0.5,0.25,0.5,0.5}, --NodeBox6
+	},
 	}
-})
-minetest.register_node("castle:" ..name, {
-	description = "Castle " ..desc ,
-	drawtype = "normal",
-	tiles = {inv},
-	paramtype = light,
---	paramtype2 = "facedir",
-	drop = "castle:" ..name,
-	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+
 })
 
 end
-

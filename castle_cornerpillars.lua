@@ -4,6 +4,7 @@ cornerpillar.types = {
 	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
 	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
 	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -22,7 +23,6 @@ cornerpillar.types = {
 --	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
 --	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
 --	{"gravel","Gravel","default_gravel.png","default:gravel"},
-	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
 --	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
 }
 
