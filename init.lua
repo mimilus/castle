@@ -1,6 +1,7 @@
 --castle Mod By Daniel modified by mimilus
 --The castle mod ReBirth
 
+dofile(minetest.get_modpath("castle").."/castle_defensewall.lua")
 dofile(minetest.get_modpath("castle").."/castle_rooftop.lua")
 dofile(minetest.get_modpath("castle").."/castle_rooftoplow.lua")
 dofile(minetest.get_modpath("castle").."/castle_torchnode.lua")
@@ -38,8 +39,9 @@ dofile(minetest.get_modpath("castle").."/castle_orbs10use.lua")
 dofile(minetest.get_modpath("castle").."/castle_tools.lua")
 ------dofile(minetest.get_modpath("castle").."/castle_falseplayer.lua")
 dofile(minetest.get_modpath("castle").."/castle_towerwall.lua")
-dofile(minetest.get_modpath("castle").."/castle_rooftowerwall.lua")
-dofile(minetest.get_modpath("castle").."/castle_secrettowerwall.lua")
+dofile(minetest.get_modpath("castle").."/castle_towerwalldefense.lua")
+dofile(minetest.get_modpath("castle").."/castle_towerwallroof.lua")
+dofile(minetest.get_modpath("castle").."/castle_towerwallsecret.lua")
 dofile(minetest.get_modpath("castle").."/castle_bridgenode.lua")
 dofile(minetest.get_modpath("castle").."/castle_turningstairs.lua")
 --dofile(minetest.get_modpath("castle").."/test.lua")

@@ -3,8 +3,8 @@
 minetest.register_node("castle:excalibur", {
 	description = "Excalibur in the rock",
 	drawtype = "nodebox",
-	tiles = {'excalibur-top.png','excalibur-front.png','excalibur-front.png','excalibur-front.png','excalibur-front.png','excalibur-front.png'},
-	inventory_image = "excalibur-front.png",
+	tiles = {'excalibur_top.png','excalibur_front.png','excalibur_front.png','excalibur_front.png','excalibur_front.png','excalibur_front.png'},
+	inventory_image = "excalibur_front.png",
 --	wield_image = "default_torch_on_floor.png",
 	paramtype = "light",
 	paramtype2 = "facedir",

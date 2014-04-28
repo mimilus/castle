@@ -1,10 +1,10 @@
 local castle_turningstair = {}
 
 castle_turningstair.types = {
-	{"stonewall_turning_stair","StoneWall Turning Stair","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
-	{"dungeon_turning_stair","DungeonWall Turning Stair","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
-	{"pavingstone_turning_stair","PavingStone Turning Stair","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
-	{"cornerwall_turning_stair","CornerWall Turning Stair","castle_cornwall.png","castle:cornerwall"},
+	{"stonewall_turning_stair","StoneWall","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
+	{"dungeon_turning_stair","DungeonWall","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
+	{"pavingstone_turning_stair","PavingStone","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
+	{"cornerwall_turning_stair","CornerWall","castle_cornwall.png","castle:cornerwall"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -47,31 +47,23 @@ minetest.register_node("castle:" ..name.. "left",{
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.5,0.5,-0.25,0.5}, --NodeBox1
-			{-0.5,-0.25,-0.5,-0.375,0,0.5}, --NodeBox10
-			{-0.375,-0.25,-0.4375,-0.25,0,0.5}, --NodeBox11
-			{-0.25,-0.25,-0.375,-0.125,0,0.5}, --NodeBox12
-			{-0.125,-0.25,-0.3125,0,0,0.5}, --NodeBox13
-			{0,-0.25,-0.25,0.125,0,0.5}, --NodeBox14
-			{0.125,-0.25,-0.1875,0.25,0,0.5}, --NodeBox15
-			{0.25,-0.25,-0.125,0.375,0,0.5}, --NodeBox16
-			{0.375,-0.25,-0.0625,0.5,0,0.5}, --NodeBox17
-			{-0.5,0.25,0.375,0,0.5,0.5}, --NodeBox18----
-			{-0.5,0.25,0.25,-0.0625,0.5,0.375}, --NodeBox19
-			{-0.5,0.25,0.125,-0.125,0.5,0.25}, --NodeBox21
-			{-0.5,0.25,0,-0.1875,0.5,0.125}, --NodeBox23
-			{-0.5,0.25,-0.125,-0.25,0.5,0}, --NodeBox22
-			{-0.5,0.25,-0.25,-0.3125,0.5,-0.125}, --NodeBox23bis
-			{-0.5,0.25,-0.375,-0.375,0.5,-0.25}, --NodeBox24
-			{-0.5,0.25,-0.5,-0.4375,0.5,-0.375}, --NodeBox25
-			{-0.5,0,0.375,0.5,0.25,0.5}, --NodeBox18--
-			{-0.5,0,0.25,0.375,0.25,0.375}, --NodeBox19--
-			{-0.5,0,0.125,0.25,0.25,0.25}, --NodeBox20--
-			{-0.5,0,0,0.125,0.25,0.125}, --NodeBox21--
-			{-0.5,0,-0.125,0,0.25,0}, --NodeBox22--
-			{-0.5,0,-0.25,-0.125,0.25,-0.125}, --NodeBox23--
-			{-0.5,0,-0.375,-0.25,0.25,-0.25}, --NodeBox24--
-			{-0.5,0,-0.5,-0.375,0.25,-0.375}, --NodeBox25--
+			{-0.5,-0.5,-0.5,0.5,0,0.5}, --NodeBox1
+			{-0.5,0,0.4375,0.5,0.5,0.5}, --NodeBox18--
+			{-0.5,0,0.3125,0.375,0.5,0.375}, --NodeBox19--
+			{-0.5,0,0.1875,0.25,0.5,0.25}, --NodeBox20--
+			{-0.5,0,0.0625,0.125,0.5,0.125}, --NodeBox21--
+			{-0.5,0,-0.0625,0,0.5,0}, --NodeBox22--
+			{-0.5,0,-0.1875,-0.125,0.5,-0.125}, --NodeBox23--
+			{-0.5,0,-0.3125,-0.25,0.5,-0.25}, --NodeBox24--
+			{-0.5,0,-0.5,-0.4375,0.5,-0.4375}, --NodeBox25--
+			{-0.5,0,-0.4375,-0.375,0.5,-0.375}, --NodeBox10
+			{-0.5,0,-0.375,-0.3125,0.5,-0.3125}, --NodeBox11
+			{-0.5,0,-0.25,-0.1875,0.5,-0.1875}, --NodeBox12
+			{-0.5,0,-0.125,-0.0625,0.5,-0.0625}, --NodeBox13
+			{-0.5,0,0,0.0625,0.5,0.0625}, --NodeBox14
+			{-0.5,0,0.125,0.1875,0.5,0.1875}, --NodeBox15
+			{-0.5,0,0.25,0.3125,0.5,0.3125}, --NodeBox16
+			{-0.5,0,0.375,0.4375,0.5,0.4375}, --NodeBox17
 	},
 	}
 })
@@ -88,32 +80,89 @@ minetest.register_node("castle:" ..name.. "right",{
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{0.5,-0.5,-0.5,-0.5,-0.25,0.5}, --NodeBox1
-			{0.5,-0.25,-0.5,0.375,0,0.5}, --NodeBox10
-			{0.375,-0.25,-0.4375,0.25,0,0.5}, --NodeBox11
-			{0.25,-0.25,-0.375,0.125,0,0.5}, --NodeBox12
-			{0.125,-0.25,-0.3125,0,0,0.5}, --NodeBox13
-			{0,-0.25,-0.25,-0.125,0,0.5}, --NodeBox14
-			{-0.125,-0.25,-0.1875,-0.25,0,0.5}, --NodeBox15
-			{-0.25,-0.25,-0.125,-0.375,0,0.5}, --NodeBox16
-			{-0.375,-0.25,-0.0625,-0.5,0,0.5}, --NodeBox17
-			{0.5,0.25,0.375,0,0.5,0.5}, --NodeBox18----
-			{0.5,0.25,0.25,0.0625,0.5,0.375}, --NodeBox19
-			{0.5,0.25,0.125,0.125,0.5,0.25}, --NodeBox21
-			{0.5,0.25,0,0.1875,0.5,0.125}, --NodeBox23
-			{0.5,0.25,-0.125,0.25,0.5,0}, --NodeBox22
-			{0.5,0.25,-0.25,0.3125,0.5,-0.125}, --NodeBox23bis
-			{0.5,0.25,-0.375,0.375,0.5,-0.25}, --NodeBox24
-			{0.5,0.25,-0.5,0.4375,0.5,-0.375}, --NodeBox25
-			{0.5,0,0.375,-0.5,0.25,0.5}, --NodeBox18--
-			{0.5,0,0.25,-0.375,0.25,0.375}, --NodeBox19--
-			{0.5,0,0.125,-0.25,0.25,0.25}, --NodeBox20--
-			{0.5,0,0,-0.125,0.25,0.125}, --NodeBox21--
-			{0.5,0,-0.125,0,0.25,0}, --NodeBox22--
-			{0.5,0,-0.25,0.125,0.25,-0.125}, --NodeBox23--
-			{0.5,0,-0.375,0.25,0.25,-0.25}, --NodeBox24--
-			{0.5,0,-0.5,0.375,0.25,-0.375}, --NodeBox25--
+			{-0.5,-0.5,-0.5,0.5,0,0.5}, --NodeBox1
+			{0.5,0,0.4375,-0.5,0.5,0.5}, --NodeBox18--
+			{0.5,0,0.3125,-0.375,0.5,0.375}, --NodeBox19--
+			{0.5,0,0.1875,-0.25,0.5,0.25}, --NodeBox20--
+			{0.5,0,0.0625,-0.125,0.5,0.125}, --NodeBox21--
+			{0.5,0,-0.0625,0,0.5,0}, --NodeBox22--
+			{0.5,0,-0.1875,0.125,0.5,-0.125}, --NodeBox23--
+			{0.5,0,-0.3125,0.25,0.5,-0.25}, --NodeBox24--
+			{0.5,0,-0.5,0.4375,0.5,-0.4375}, --NodeBox25--
+			{0.5,0,-0.4375,0.375,0.5,-0.375}, --NodeBox10
+			{0.5,0,-0.375,0.3125,0.5,-0.3125}, --NodeBox11
+			{0.5,0,-0.25,0.1875,0.5,-0.1875}, --NodeBox12
+			{0.5,0,-0.125,0.0625,0.5,-0.0625}, --NodeBox13
+			{0.5,0,0,-0.0625,0.5,0.0625}, --NodeBox14
+			{0.5,0,0.125,-0.1875,0.5,0.1875}, --NodeBox15
+			{0.5,0,0.25,-0.3125,0.5,0.3125}, --NodeBox16
+			{0.5,0,0.375,-0.4375,0.5,0.4375}, --NodeBox17
 	},
 	}
 })
+
+--Turning Left Slab
+minetest.register_node("castle:" ..name.. "leftslab",{
+	drawtype="nodebox",
+		description = desc.. "Left Turning Slab",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		tiles = {inv},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,0.4375,0.5,0,0.5}, --NodeBox18--
+			{-0.5,-0.5,0.3125,0.375,0,0.375}, --NodeBox19--
+			{-0.5,-0.5,0.1875,0.25,0,0.25}, --NodeBox20--
+			{-0.5,-0.5,0.0625,0.125,0,0.125}, --NodeBox21--
+			{-0.5,-0.5,-0.0625,0,0,0}, --NodeBox22--
+			{-0.5,-0.5,-0.1875,-0.125,0,-0.125}, --NodeBox23--
+			{-0.5,-0.5,-0.3125,-0.25,0,-0.25}, --NodeBox24--
+			{-0.5,-0.5,-0.5,-0.4375,0,-0.4375}, --NodeBox25--
+			{-0.5,-0.5,-0.4375,-0.375,0,-0.375}, --NodeBox10
+			{-0.5,-0.5,-0.375,-0.3125,0,-0.3125}, --NodeBox11
+			{-0.5,-0.5,-0.25,-0.1875,0,-0.1875}, --NodeBox12
+			{-0.5,-0.5,-0.125,-0.0625,0,-0.0625}, --NodeBox13
+			{-0.5,-0.5,0,0.0625,0,0.0625}, --NodeBox14
+			{-0.5,-0.5,0.125,0.1875,0,0.1875}, --NodeBox15
+			{-0.5,-0.5,0.25,0.3125,0,0.3125}, --NodeBox16
+			{-0.5,-0.5,0.375,0.4375,0,0.4375}, --NodeBox17
+	},
+	}
+})
+
+--Turning Right Slab
+minetest.register_node("castle:" ..name.. "rightslab",{
+	drawtype="nodebox",
+		description = desc.. "Right Turning Slab",
+		paramtype = "light",
+		paramtype2 = "facedir",
+		tiles = {inv},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,0.4375,-0.5,0,0.5}, --NodeBox18--
+			{0.5,-0.5,0.3125,-0.375,0,0.375}, --NodeBox19--
+			{0.5,-0.5,0.1875,-0.25,0,0.25}, --NodeBox20--
+			{0.5,-0.5,0.0625,-0.125,0,0.125}, --NodeBox21--
+			{0.5,-0.5,-0.0625,0,0,0}, --NodeBox22--
+			{0.5,-0.5,-0.1875,0.125,0,-0.125}, --NodeBox23--
+			{0.5,-0.5,-0.3125,0.25,0,-0.25}, --NodeBox24--
+			{0.5,-0.5,-0.5,0.4375,0,-0.4375}, --NodeBox25--
+			{0.5,-0.5,-0.4375,0.375,0,-0.375}, --NodeBox10
+			{0.5,-0.5,-0.375,0.3125,0,-0.3125}, --NodeBox11
+			{0.5,-0.5,-0.25,0.1875,0,-0.1875}, --NodeBox12
+			{0.5,-0.5,-0.125,0.0625,0,-0.0625}, --NodeBox13
+			{0.5,-0.5,0,-0.0625,0,0.0625}, --NodeBox14
+			{0.5,-0.5,0.125,-0.1875,0,0.1875}, --NodeBox15
+			{0.5,-0.5,0.25,-0.3125,0,0.3125}, --NodeBox16
+			{0.5,-0.5,0.375,-0.4375,0,0.4375}, --NodeBox17
+	},
+	}
+})
+
 end
