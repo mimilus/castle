@@ -38,7 +38,7 @@ for _, row in ipairs(secret.types) do
 --Top Secret One Side Wall
 -- Node Definition
 
-	minetest.register_node("castle:top_secret_one_side" ..name, {
+	minetest.register_node("castle:z"  ..name.. "top_secret_one_side", {
 	    drawtype = "nodebox",
 		description = desc.." One Side Top Secret ",
 		tiles = {tile},
@@ -53,7 +53,7 @@ for _, row in ipairs(secret.types) do
 		},
 	})
 minetest.register_craft({
-	output = "castle:top_secret_one_side" ..name.. " 1",
+	output = "castle:z"  ..name.. "top_secret_one_side 1",
 	recipe = {
 		{"", "castle:cover_" ..name , ""},
 		{"", "", "castle:cover_" ..name },
@@ -63,7 +63,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:top_secret_one_side" ..name.. " 4",
+			output = "castle:z"  ..name.. "top_secret_one_side 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -75,7 +75,7 @@ minetest.register_craft({
 --Top Secret Corner Side
 -- Node Definition
 	
-	minetest.register_node("castle:top_secret_corner_side"..name, {
+	minetest.register_node("castle:" ..name.. "top_secret_corner_side", {
 	    drawtype = "nodebox",
 		description = desc.." One Side Top Secret Corner Wall",
 		tiles = {tile},
@@ -90,7 +90,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:top_secret_corner_side" ..name.. " 1",
+	output = "castle:z" ..name.. "top_secret_corner_side 1",
 	recipe = {
 		{"", "castle:cover_" ..name , "castle:cover_" ..name },
 		{"", "", "castle:cover_" ..name },
@@ -100,7 +100,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:top_secret_corner_side" ..name.. " 4",
+			output = "castle:z" ..name.. "top_secret_corner_side 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -110,7 +110,7 @@ minetest.register_craft({
 
 --Top Secret Wall
 	-- Node Definition
-	minetest.register_node("castle:top_secret_" ..name, {
+	minetest.register_node("castle:" ..name.. "top_secret_", {
 	    drawtype = "nodebox",
 		description = desc.." Top Secret Wall",
 		tiles = {tile},
@@ -125,7 +125,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:top_secret_" ..name.. " 1",
+	output = "castle:z" ..name.. "top_secret_ 1",
 	recipe = {
 		{"", "castle:cover_" ..name,"" },
 		{"castle:cover_" ..name , "", "castle:cover_" ..name },
@@ -135,7 +135,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:top_secret_" ..name.. " 4",
+			output = "castle:z" ..name.. "top_secret_ 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -146,9 +146,9 @@ minetest.register_craft({
 --Top Secret End Wall
 -- Node Definition
 
-	minetest.register_node("castle:top_secret_end" ..name, {
+	minetest.register_node("castle:" ..name.. "top_secret_end", {
 	    drawtype = "nodebox",
-		description = desc.." Top Secret End Wall",
+		description = desc.." Secret End Wall Top",
 		tiles = {tile},
 		groups = {cracky=3},
 		sounds = default.node_sound_stone_defaults(),
@@ -161,7 +161,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:top_secret_end" ..name.. " 1",
+	output = "castle:z" ..name.. "top_secret_end",
 	recipe = {
 		{"", "castle:cover_" ..name,"" },
 		{"castle:cover_" ..name , "castle:cover_" ..name, "castle:cover_" ..name },
@@ -171,7 +171,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:top_secret_end" ..name.. " 4",
+			output = "castle:z" ..name.. "top_secret_end 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -182,7 +182,7 @@ minetest.register_craft({
 --Bottom Secret End Wall
 -- Node Definition
 
-	minetest.register_node("castle:bottom_secret_end" ..name, {
+	minetest.register_node("castle:z" ..name.. "bottom_secret_end", {
 	    drawtype = "nodebox",
 		description = desc.." Bottom Secret End Wall",
 		tiles = {tile},
@@ -197,7 +197,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:bottom_secret_end" ..name.. " 1",
+	output = "castle:z" ..name.. "bottom_secret_end 1",
 	recipe = {
 		{"", "castle:cover_" ..name,"" },
 		{"castle:cover_" ..name , "castle:cover_" ..name, "castle:cover_" ..name },
@@ -207,7 +207,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:bottom_secret_end" ..name.. " 4",
+			output = "castle:z" ..name.. "bottom_secret_end 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -219,7 +219,7 @@ minetest.register_craft({
 --Secret wall
 -- Node Definition
 
-	minetest.register_node("castle:secret_wall_" ..name, {
+	minetest.register_node("castle:" ..name.. "secret_wall_", {
 	    drawtype = "nodebox",
 		description = desc.." Secret Wall",
 		tiles = {tile},
@@ -234,7 +234,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:secret_wall_" ..name.. " 1",
+	output = "castle:z" ..name.. "secret_wall_ 1",
 	recipe = {
 		{"castle:cover_" ..name , "", "castle:cover_" ..name },
 		{"", "", ""},
@@ -244,7 +244,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:secret_wall_" ..name.. " 4",
+			output = "castle:z" ..name.. "secret_wall_ 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -255,7 +255,7 @@ minetest.register_craft({
 --Secret Corner wall
 -- Node Definition
 
-	minetest.register_node("castle:secret_corner_wall_" ..name, {
+	minetest.register_node("castle:" ..name.. "secret_corner_wall_", {
 	    drawtype = "nodebox",
 		description = desc.." Secret Corner Wall",
 		tiles = {tile},
@@ -270,7 +270,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:secret_corner_wall_" ..name.. " 1",
+	output = "castle:z" ..name.. "secret_corner_wall_ 1",
 	recipe = {
 		{"", "castle:cover_" ..name , "castle:cover_" ..name },
 		{"", "", ""},
@@ -280,7 +280,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:secret_corner_wall_" ..name.. " 4",
+			output = "castle:z" ..name.. "secret_corner_wall_ 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -291,7 +291,7 @@ minetest.register_craft({
 --Secret top wall
 -- Node Definition
 
-	minetest.register_node("castle:top_top_wall_" ..name, {
+	minetest.register_node("castle:" ..name.. "top_top_wall_", {
 	    drawtype = "nodebox",
 		description = desc.." Secret Top Top Wall",
 		tiles = {tile},
@@ -306,7 +306,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:top_top_wall_" ..name.. " 1",
+	output = "castle:z" ..name.. "top_top_wall_ 1",
 	recipe = {
 		{"", "castle:cover_" ..name , ""},
 		{"", "", ""},
@@ -316,7 +316,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:top_top_wall_" ..name.. " 4",
+			output = "castle:z" ..name.. "top_top_wall_ 4",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,"", craft_material},
@@ -327,7 +327,7 @@ minetest.register_craft({
 --Secret Stairs
 -- Node Definition
 
-	minetest.register_node("castle:secret_stairs_" ..name, {
+	minetest.register_node("castle:" ..name.. "secret_stairs_", {
 	    drawtype = "nodebox",
 		description = desc.." Secret Stair",
 		tiles = {tile},
@@ -342,7 +342,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:secret_stairs_" ..name.. " 1",
+	output = "castle:z" ..name.. "secret_stairs_ 1",
 	recipe = {
 		{"", "", ""},
 		{"castle:cover_" ..name , "", "castle:cover_" ..name },
@@ -352,7 +352,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:secret_stairs_" ..name.. " 1",
+			output = "castle:z" ..name.. "secret_stairs_ 1",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,craft_material, craft_material},
@@ -363,7 +363,7 @@ minetest.register_craft({
 --Super Secret Stairs
 -- Node Definition
 
-	minetest.register_node("castle:super_secret_stairs_" ..name, {
+	minetest.register_node("castle:" ..name.. "super_secret_stairs_", {
 	    drawtype = "nodebox",
 		description = desc.." Super Secret Stair",
 		tiles = {tile},
@@ -378,7 +378,7 @@ minetest.register_craft({
 		},
 	})
 minetest.register_craft({
-	output = "castle:super_secret_stairs_" ..name.. " 1",
+	output = "castle:z" ..name.. "super_secret_stairs_ 1",
 	recipe = {
 		{"", "castle:cover_" ..name , ""},
 		{"castle:cover_" ..name , "castle:cover_" ..name , "castle:cover_" ..name },
@@ -388,7 +388,7 @@ minetest.register_craft({
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:castle:super_secret_stairs_" ..name.. " 1",
+			output = "castle:z" ..name.. "super_secret_stairs_ 1",
 			recipe = {
 			{"",craft_material, "" },
 			{craft_material,craft_material, craft_material},

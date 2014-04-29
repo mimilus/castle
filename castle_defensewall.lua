@@ -1,6 +1,6 @@
-local towerwalldefense = {}
+local normaldefense = {}
 
-towerwalldefense.types = {
+normaldefense.types = {
 	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
 	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
 	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
@@ -28,14 +28,264 @@ towerwalldefense.types = {
 
 
 
-for _, row in ipairs(towerwalldefense.types) do
+for _, row in ipairs(normaldefense.types) do
 	local name = row[1]
 	local desc = row[2]
 	local tile = row[3]
 	local craft_material = row[4]
 
 
-	-- Normal Defense Wall Slab
+-- Normal Corner Defense Wall with Slab
+	minetest.register_node("castle:" ..name.. "normalwallcornerdefenseslab", {
+	    drawtype = "nodebox",
+		description = desc.." Corner Defense Wall with Slab",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,0.5,0.5}, --NodeBox1
+			{-0.25,-0.5,0.25,0.5,0.5,0.5}, --NodeBox1
+			{-0.25,-0.5,-0.5,0.5,-0.4375,0.25}, --SLAB
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwallcornerdefenseslab 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+-- Top Normal Corner Defense Wall with Slab
+	minetest.register_node("castle:" ..name.. "normalwallcornerdefensetop", {
+	    drawtype = "nodebox",
+		description = desc.." Top Corner Defense Wall",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,-0.25,0.5}, --NodeBox1
+			{-0.5,-0.25,0.1875,-0.25,0,0.5}, --NodeBox5
+			{-0.5,-0.25,-0.5,-0.25,0,-0.1875}, --NodeBox4
+			{-0.25,-0.5,0.25,0.5,-0.25,0.5}, --NodeBox4-
+			{-0.25,-0.25,0.25,-0.1875,0,0.5}, --NodeBox5
+			{0.1875,-0.25,0.25,0.5,0,0.5}, --NodeBox6
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwallcornerdefensetop 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+-- Top Normal Corner Defense Wall with Slab
+	minetest.register_node("castle:" ..name.. "normalwallcornerdefensetoppillar", {
+	    drawtype = "nodebox",
+		description = desc.." Top Corner Defense Wall with Pillar",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,-0.25,0.5}, --NodeBox1
+			{-0.5,-0.25,0.1875,-0.25,0,0.5}, --NodeBox5
+			{-0.5,-0.25,-0.5,-0.25,0,-0.1875}, --NodeBox4
+			{-0.25,-0.5,0.25,0.5,-0.25,0.5}, --NodeBox4-
+			{-0.25,-0.25,0.25,-0.1875,0,0.5}, --NodeBox5
+			{0.1875,-0.25,0.25,0.5,0,0.5}, --NodeBox6
+			{0.25,0,0.25,0.5,0.5,0.5}, --NodeBox7
+			{-0.5,0,0.25,-0.25,0.5,0.5}, --NodeBox8
+			{-0.5,0,-0.5,-0.25,0.5,-0.25}, --NodeBox9
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwallcornerdefensetoppillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+-- Top Defense Wall
+	minetest.register_node("castle:" ..name.. "normalwalldefensetop", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Wall",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,-0.25,0.5}, --NodeBox1
+			{-0.5,-0.25,0.1875,-0.25,0,0.5}, --NodeBox5
+			{-0.5,-0.25,-0.5,-0.25,0,-0.1875}, --NodeBox4
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwalldefensetop 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+-- Top Defense Wall
+	minetest.register_node("castle:" ..name.. "normalwalldefensetoppillar", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Wall with Pillar",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,-0.25,0.5}, --NodeBox1
+			{-0.5,-0.25,0.1875,-0.25,0,0.5}, --NodeBox5
+			{-0.5,-0.25,-0.5,-0.25,0,-0.1875}, --NodeBox4
+			{-0.5,0,-0.5,-0.25,0.5,-0.25}, --NodeBox5-pillar
+			{-0.5,0,0.25,-0.25,0.5,0.5}, --NodeBox6-pillar
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwalldefensetoppillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+-- Normal Corner Defense Wall
+	minetest.register_node("castle:" ..name.. "normalwallcornerdefense", {
+	    drawtype = "nodebox",
+		description = desc.." Corner Defense Wall",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,0.5,0.5}, --NodeBox1
+			{-0.25,-0.5,0.25,0.5,0.5,0.5}, --NodeBox1
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwallcornerdefense 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+-- Normal Defense Wall
+	minetest.register_node("castle:" ..name.. "normalwalldefense", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Wall",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,0.5,0.5}, --NodeBox1
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwalldefense 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+-- Normal Defense Wall with Slab
+	minetest.register_node("castle:" ..name.. "normalwalldefensewithslab", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Wall with Slab",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.25,0.5,0.5}, --NodeBox1
+			{-0.25,-0.5,-0.5,0.5,-0.4375,0.5}, --SLAB
+			
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "normalwalldefensewithslab 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+-- Normal Defense Wall Slab
 	minetest.register_node("castle:" ..name.. "normalwalldefenseslab", {
 	    drawtype = "nodebox",
 		description = desc.." Defense Wall Slab",
@@ -47,7 +297,7 @@ for _, row in ipairs(towerwalldefense.types) do
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.5,0.5,-0.25,0.5}, --NodeBox1
+			{-0.5,-0.5,-0.5,0.5,-0.4375,0.5}, --NodeBox1
 		},
 	},
 	})
@@ -62,6 +312,5 @@ for _, row in ipairs(towerwalldefense.types) do
 			{craft_material,craft_material,craft_material} },
 		})
 	end
-
 end
 

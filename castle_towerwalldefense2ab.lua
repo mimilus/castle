@@ -1,6 +1,6 @@
-local towerwall = {}
+local towerwalldefense2ab = {}
 
-towerwall.types = {
+towerwalldefense2ab.types = {
 	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
 	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
 	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
@@ -28,16 +28,16 @@ towerwall.types = {
 
 
 
-for _, row in ipairs(towerwall.types) do
+for _, row in ipairs(towerwalldefense2ab.types) do
 	local name = row[1]
 	local desc = row[2]
 	local tile = row[3]
 	local craft_material = row[4]
 
---Standart towerwall
-	minetest.register_node("castle:" ..name.. "normaltowerwall", {
+	-- Top Defense Tower Wall Part One Top
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartonetop", {
 	    drawtype = "nodebox",
-		description = desc.." Normal Tower Wall ",
+		description = desc.." Top Defense Tower Wall Part One",
 		tiles = {tile},
 		groups = {cracky=3,attached_node=0},
 		sounds = default.node_sound_stone_defaults(),
@@ -46,22 +46,24 @@ for _, row in ipairs(towerwall.types) do
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.5,-0.4375,0.5,0.5},
-			{-0.375,-0.5,-0.375,-0.3125,0.5,0.5},
-			{-0.25,-0.5,-0.25,-0.1875,0.5,0.5},
-			{-0.125,-0.5,-0.125,-0.0625,0.5,0.5},
-			{0,-0.5,0,0.0625,0.5,0.5},
-			{0.125,-0.5,0.125,0.1875,0.5,0.5},
-			{0.25,-0.5,0.25,0.3125,0.5,0.5},
-			{0.375,-0.5,0.375,0.4375,0.5,0.5},
-			{-0.4375,-0.5,-0.4375,-0.375,0.5,0.5},
-			{-0.3125,-0.5,-0.3125,-0.25,0.5,0.5},
-			{-0.1875,-0.5,-0.1875,-0.125,0.5,0.5},
-			{-0.0625,-0.5,-0.0625,0,0.5,0.5},
-			{0.0625,-0.5,0.0625,0.125,0.5,0.5},
-			{0.1875,-0.5,0.1875,0.25,0.5,0.5},
-			{0.3125,-0.5,0.3125,0.375,0.5,0.5},
-			{0.4375,-0.5,0.4375,0.5,0.5,0.5},
+			{-0.5,-0.5,-0.5,-0.375,0,-0.4375}, --NodeBox1
+			{-0.5,-0.5,-0.375,-0.25,0,-0.3125}, --NodeBox2
+			{-0.375,-0.5,-0.25,-0.125,0,-0.1875}, --NodeBox3
+			{-0.25,-0.5,-0.125,0,-0.25,-0.0625}, --NodeBox4
+			{0.0625,-0.5,0,0.125,-0.25,0.25}, --NodeBox5--
+			{0.1875,-0.5,0.125,0.25,0,0.375}, --NodeBox6
+			{0.3125,-0.5,0.25,0.375,0,0.5}, --NodeBox7
+			{0.4375,-0.5,0.375,0.5,0,0.5}, --NodeBox8
+			{0,-0.5,0,0.0625,-0.25,0.1875}, --NodeBox9----
+			{-0.5,-0.5,-0.4375,-0.3125,0,-0.375}, --NodeBox10
+			{-0.4375,-0.5,-0.3125,-0.1875,0,-0.25}, --NodeBox11
+			{-0.3125,-0.5,-0.1875,-0.0625,-0.25,-0.125}, --NodeBox12
+			{-0.1875,-0.5,-0.0625,0.0625,-0.25,0}, --NodeBox13
+			{0.125,-0.5,0.0625,0.1875,-0.25,0.3125}, --NodeBox14
+			{0.25,-0.5,0.1875,0.3125,0,0.4375}, --NodeBox15
+			{0.375,-0.5,0.3125,0.4375,0,0.5}, --NodeBox16
+			{-0.0625,-0.5,0,0,-0.25,0.125}, --NodeBox17
+			{-0.125,-0.5,0,-0.0625,-0.25,0.0625}, --NodeBox18
 		},
 	},
 	})
@@ -69,7 +71,7 @@ for _, row in ipairs(towerwall.types) do
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:" ..name.. "normaltowerwall 4",
+			output = "castle:" ..name.. "towerwalldefensepartonetop 4",
 			recipe = {
 			{"",craft_material,""},
 			{"",craft_material,""},
@@ -77,12 +79,10 @@ for _, row in ipairs(towerwall.types) do
 		})
 	end
 
-
-
-	-- TowerWall Slab Defense Wall
-	minetest.register_node("castle:" ..name.. "towerslab", {
+	-- Top Defense Tower Wall Part Two Top
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwotop", {
 	    drawtype = "nodebox",
-		description = desc.." Tower Slab",
+		description = desc.." Top Defense Tower Wall Part Two",
 		tiles = {tile},
 		groups = {cracky=3,attached_node=0},
 		sounds = default.node_sound_stone_defaults(),
@@ -91,22 +91,14 @@ for _, row in ipairs(towerwall.types) do
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.5,-0.4375,-0.25,0.5}, --NodeBox1
-			{-0.375,-0.5,-0.375,-0.3125,-0.25,0.5}, --NodeBox2
-			{-0.25,-0.5,-0.25,-0.1875,-0.25,0.5}, --NodeBox3
-			{-0.125,-0.5,-0.125,-0.0625,-0.25,0.5}, --NodeBox4
-			{0,-0.5,0,0.0625,-0.25,0.5}, --NodeBox5
-			{0.125,-0.5,0.125,0.1875,-0.25,0.5}, --NodeBox6
-			{0.25,-0.5,0.25,0.3125,-0.25,0.5}, --NodeBox7
-			{0.375,-0.5,0.375,0.4375,-0.25,0.5}, --NodeBox8
-			{-0.4375,-0.5,-0.4375,-0.375,-0.25,0.5}, --NodeBox9
-			{-0.3125,-0.5,-0.3125,-0.25,-0.25,0.5}, --NodeBox10
-			{-0.1875,-0.5,-0.1875,-0.125,-0.25,0.5}, --NodeBox11
-			{-0.0625,-0.5,-0.0625,0,-0.25,0.5}, --NodeBox12
-			{0.0625,-0.5,0.0625,0.125,-0.25,0.5}, --NodeBox13
-			{0.1875,-0.5,0.1875,0.25,-0.25,0.5}, --NodeBox14
-			{0.3125,-0.5,0.3125,0.375,-0.25,0.5}, --NodeBox15
-			{0.4375,-0.5,0.4375,0.5,-0.25,0.5}, --NodeBox16
+			{-0.5,-0.5,-0.5,-0.375,0,-0.375}, --NodeBox1
+			{-0.375,-0.5,-0.4375,-0.25,0,-0.3125}, --NodeBox2
+			{-0.25,-0.5,-0.375,-0.125,-0.25,-0.25}, --NodeBox3
+			{-0.125,-0.5,-0.3125,0,-0.25,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,0.125,-0.25,-0.125}, --NodeBox5
+			{0.125,-0.5,-0.1875,0.25,-0.25,-0.0625}, --NodeBox6
+			{0.25,-0.5,-0.125,0.375,0,0}, --NodeBox7
+			{0.375,-0.5,-0.0625,0.5,0,0.0625}, --NodeBox8
 		},
 	},
 	})
@@ -114,13 +106,15 @@ for _, row in ipairs(towerwall.types) do
 	if craft_material then
 		--Choose craft material
 		minetest.register_craft({
-			output = "castle:" ..name.. "towerslab 4",
+			output = "castle:" ..name.. "towerwalldefenseparttwotop 4",
 			recipe = {
 			{"",craft_material,""},
 			{"",craft_material,""},
 			{craft_material,craft_material,craft_material} },
 		})
 	end
+
+
 
 
 end

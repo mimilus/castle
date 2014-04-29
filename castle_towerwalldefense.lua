@@ -202,9 +202,9 @@ for _, row in ipairs(towerwalldefense.types) do
 			{0.375,-0.5,0.3125,0.4375,0.5,0.5}, --NodeBox16
 			{-0.0625,-0.5,0,0,0.5,0.125}, --NodeBox17
 			{-0.125,-0.5,0,-0.0625,0.5,0.0625}, --NodeBox18
-			{0.1875,-0.5,-0.5,0.5,-0.25,0.375}, --NodeBox19
-			{-0.125,-0.5,-0.5,0.1875,-0.25,0.0625}, --NodeBox20
-			{-0.5,-0.5,-0.5,-0.125,-0.25,-0.3125}, --NodeBox21
+			{0.1875,-0.5,-0.5,0.5,-0.4375,0.375}, --NodeBox19
+			{-0.125,-0.5,-0.5,0.1875,-0.4375,0.0625}, --NodeBox20
+			{-0.5,-0.5,-0.5,-0.125,-0.4375,-0.3125}, --NodeBox21
 		},
 	},
 	})
@@ -213,6 +213,50 @@ for _, row in ipairs(towerwalldefense.types) do
 		--Choose craft material
 		minetest.register_craft({
 			output = "castle:" ..name.. "normaltowerwalldefenseslab 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+-- TowerWall Slab Defense Wall
+	minetest.register_node("castle:" ..name.. "towerwalldefensewallslab", {
+	    drawtype = "nodebox",
+		description = desc.." Tower Wall Slab Defense Wall",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.4375,-0.4375,0.5}, --NodeBox1
+			{-0.375,-0.5,-0.375,-0.3125,-0.4375,0.5}, --NodeBox2
+			{-0.25,-0.5,-0.25,-0.1875,-0.4375,0.5}, --NodeBox3
+			{-0.125,-0.5,-0.125,-0.0625,-0.4375,0.5}, --NodeBox4
+			{0,-0.5,0,0.0625,-0.4375,0.5}, --NodeBox5
+			{0.125,-0.5,0.125,0.1875,-0.4375,0.5}, --NodeBox6
+			{0.25,-0.5,0.25,0.3125,-0.4375,0.5}, --NodeBox7
+			{0.375,-0.5,0.375,0.4375,-0.4375,0.5}, --NodeBox8
+			{-0.4375,-0.5,-0.4375,-0.375,-0.4375,0.5}, --NodeBox9
+			{-0.3125,-0.5,-0.3125,-0.25,-0.4375,0.5}, --NodeBox10
+			{-0.1875,-0.5,-0.1875,-0.125,-0.4375,0.5}, --NodeBox11
+			{-0.0625,-0.5,-0.0625,0,-0.4375,0.5}, --NodeBox12
+			{0.0625,-0.5,0.0625,0.125,-0.4375,0.5}, --NodeBox13
+			{0.1875,-0.5,0.1875,0.25,-0.4375,0.5}, --NodeBox14
+			{0.3125,-0.5,0.3125,0.375,-0.4375,0.5}, --NodeBox15
+			{0.4375,-0.5,0.4375,0.5,-0.4375,0.5}, --NodeBox16
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensewallslab 4",
 			recipe = {
 			{"",craft_material,""},
 			{"",craft_material,""},
