@@ -34,6 +34,317 @@ for _, row in ipairs(towerwalldefense2ab.types) do
 	local tile = row[3]
 	local craft_material = row[4]
 
+----------------------------------
+--Standart defense towerwall 2ab--
+----------------------------------
+
+	-- Defense Tower Wall Part One
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartoneslab", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part One with Slab",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.375,0.5,-0.375}, --NodeBox1
+			{-0.375,-0.5,-0.4375,-0.25,0.5,-0.3125}, --NodeBox2
+			{-0.25,-0.5,-0.375,-0.125,0.5,-0.25}, --NodeBox3
+			{-0.125,-0.5,-0.3125,0,0.5,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,0.125,0.5,-0.125}, --NodeBox5
+			{0.125,-0.5,-0.1875,0.25,0.5,-0.0625}, --NodeBox6
+			{0.25,-0.5,-0.125,0.375,0.5,0}, --NodeBox7
+			{0.375,-0.5,-0.0625,0.5,0.5,0.0625}, --NodeBox8
+			{-0.5,-0.5,-0.375,-0.125,-0.4375,0.5}, --slab
+			{-0.125,-0.5,-0.1875,0.25,-0.4375,0.5}, --slab2
+			{0.25,-0.5,-0.0625,0.5,-0.4375,0.5}, --slab3
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensepartoneslab 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Defense Tower Wall Part One
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartone", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part One",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.375,0.5,-0.375}, --NodeBox1
+			{-0.375,-0.5,-0.4375,-0.25,0.5,-0.3125}, --NodeBox2
+			{-0.25,-0.5,-0.375,-0.125,0.5,-0.25}, --NodeBox3
+			{-0.125,-0.5,-0.3125,0,0.5,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,0.125,0.5,-0.125}, --NodeBox5
+			{0.125,-0.5,-0.1875,0.25,0.5,-0.0625}, --NodeBox6
+			{0.25,-0.5,-0.125,0.375,0.5,0}, --NodeBox7
+			{0.375,-0.5,-0.0625,0.5,0.5,0.0625}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensepartone 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Defense Tower Wall Part Two
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwo", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part Two",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,0,-0.375,0.5,0.125}, --NodeBox1
+			{-0.375,-0.5,0.0625,-0.25,0.5,0.1875}, --NodeBox2
+			{-0.25,-0.5,0.125,-0.125,0.5,0.25}, --NodeBox3
+			{-0.125,-0.5,0.1875,0,0.5,0.3125}, --NodeBox4
+			{0,-0.5,0.25,0.125,0.5,0.375}, --NodeBox5
+			{0.125,-0.5,0.3125,0.25,0.5,0.4375}, --NodeBox6
+			{0.25,-0.5,0.375,0.375,0.5,0.5}, --NodeBox7
+			{0.375,-0.5,0.4375,0.5,0.5,0.5}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefenseparttwo 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Defense Tower Wall Part Two
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwoslab", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part Two with Slab",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,0,-0.375,0.5,0.125}, --NodeBox1
+			{-0.375,-0.5,0.0625,-0.25,0.5,0.1875}, --NodeBox2
+			{-0.25,-0.5,0.125,-0.125,0.5,0.25}, --NodeBox3
+			{-0.125,-0.5,0.1875,0,0.5,0.3125}, --NodeBox4
+			{0,-0.5,0.25,0.125,0.5,0.375}, --NodeBox5
+			{0.125,-0.5,0.3125,0.25,0.5,0.4375}, --NodeBox6
+			{0.25,-0.5,0.375,0.375,0.5,0.5}, --NodeBox7
+			{0.375,-0.5,0.4375,0.5,0.5,0.5}, --NodeBox8
+			{0,-0.5,0.375,0.375,-0.4375,0.5}, --slab1
+			{-0.5,-0.5,0.125,-0.1875,-0.4375,0.5}, --slab2
+			{-0.1875,-0.5,0.25,0,-0.4375,0.5}, --slab3
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefenseparttwoslab 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+----------------------------------------------------------
+------------MIRROR DEFENSE WALL 2ab
+----------------------------------------------------------
+
+----------------------------------
+--Standart defense towerwall 2ab Mirror--
+----------------------------------
+
+	-- Defense Tower Wall Part Two
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwoslabmirror", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part Two with Slab Mirror",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,0,0.375,0.5,0.125}, --NodeBox1
+			{0.375,-0.5,0.0625,0.25,0.5,0.1875}, --NodeBox2
+			{0.25,-0.5,0.125,0.125,0.5,0.25}, --NodeBox3
+			{0.125,-0.5,0.1875,0,0.5,0.3125}, --NodeBox4
+			{0,-0.5,0.25,-0.125,0.5,0.375}, --NodeBox5
+			{-0.125,-0.5,0.3125,-0.25,0.5,0.4375}, --NodeBox6
+			{-0.25,-0.5,0.375,-0.375,0.5,0.5}, --NodeBox7
+			{-0.375,-0.5,0.4375,-0.5,0.5,0.5}, --NodeBox8
+			{-0,-0.5,0.375,-0.375,-0.4375,0.5}, --slab1
+			{0.5,-0.5,0.125,0.1875,-0.4375,0.5}, --slab2
+			{0.1875,-0.5,0.25,0,-0.4375,0.5}, --slab3
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefenseparttwoslabmirror 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Defense Tower Wall Part One
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartoneslabmirror", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part One with Slab Mirror",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,-0.5,0.375,0.5,-0.375}, --NodeBox1
+			{0.375,-0.5,-0.4375,0.25,0.5,-0.3125}, --NodeBox2
+			{0.25,-0.5,-0.375,0.125,0.5,-0.25}, --NodeBox3
+			{0.125,-0.5,-0.3125,0,0.5,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,-0.125,0.5,-0.125}, --NodeBox5
+			{-0.125,-0.5,-0.1875,-0.25,0.5,-0.0625}, --NodeBox6
+			{-0.25,-0.5,-0.125,-0.375,0.5,0}, --NodeBox7
+			{-0.375,-0.5,-0.0625,-0.5,0.5,0.0625}, --NodeBox8
+			{0.5,-0.5,-0.375,0.125,-0.4375,0.5}, --slab
+			{0.125,-0.5,-0.1875,-0.25,-0.4375,0.5}, --slab2
+			{-0.25,-0.5,-0.0625,-0.5,-0.4375,0.5}, --slab3
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensepartoneslabmirror 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Defense Tower Wall Part One
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartonemirror", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part One Mirror",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,-0.5,0.375,0.5,-0.375}, --NodeBox1
+			{0.375,-0.5,-0.4375,0.25,0.5,-0.3125}, --NodeBox2
+			{0.25,-0.5,-0.375,0.125,0.5,-0.25}, --NodeBox3
+			{0.125,-0.5,-0.3125,0,0.5,-0.1875}, --NodeBox4
+			{-0,-0.5,-0.25,-0.125,0.5,-0.125}, --NodeBox5
+			{-0.125,-0.5,-0.1875,-0.25,0.5,-0.0625}, --NodeBox6
+			{-0.25,-0.5,-0.125,-0.375,0.5,0}, --NodeBox7
+			{-0.375,-0.5,-0.0625,-0.5,0.5,0.0625}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensepartonemirror 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Defense Tower Wall Part Two
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwomirror", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Tower Wall Part Two Mirror",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,0,0.375,0.5,0.125}, --NodeBox1
+			{0.375,-0.5,0.0625,0.25,0.5,0.1875}, --NodeBox2
+			{0.25,-0.5,0.125,0.125,0.5,0.25}, --NodeBox3
+			{0.125,-0.5,0.1875,0,0.5,0.3125}, --NodeBox4
+			{0,-0.5,0.25,-0.125,0.5,0.375}, --NodeBox5
+			{-0.125,-0.5,0.3125,-0.25,0.5,0.4375}, --NodeBox6
+			{-0.25,-0.5,0.375,-0.375,0.5,0.5}, --NodeBox7
+			{-0.375,-0.5,0.4375,-0.5,0.5,0.5}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefenseparttwomirror 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+
+-----------------------------
+--Top Defense Towerwall 2ab--
+-----------------------------
+
 	-- Top Defense Tower Wall Part One Top
 	minetest.register_node("castle:" ..name.. "towerwalldefensepartonetop", {
 	    drawtype = "nodebox",
@@ -46,24 +357,14 @@ for _, row in ipairs(towerwalldefense2ab.types) do
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.5,-0.375,0,-0.4375}, --NodeBox1
-			{-0.5,-0.5,-0.375,-0.25,0,-0.3125}, --NodeBox2
-			{-0.375,-0.5,-0.25,-0.125,0,-0.1875}, --NodeBox3
-			{-0.25,-0.5,-0.125,0,-0.25,-0.0625}, --NodeBox4
-			{0.0625,-0.5,0,0.125,-0.25,0.25}, --NodeBox5--
-			{0.1875,-0.5,0.125,0.25,0,0.375}, --NodeBox6
-			{0.3125,-0.5,0.25,0.375,0,0.5}, --NodeBox7
-			{0.4375,-0.5,0.375,0.5,0,0.5}, --NodeBox8
-			{0,-0.5,0,0.0625,-0.25,0.1875}, --NodeBox9----
-			{-0.5,-0.5,-0.4375,-0.3125,0,-0.375}, --NodeBox10
-			{-0.4375,-0.5,-0.3125,-0.1875,0,-0.25}, --NodeBox11
-			{-0.3125,-0.5,-0.1875,-0.0625,-0.25,-0.125}, --NodeBox12
-			{-0.1875,-0.5,-0.0625,0.0625,-0.25,0}, --NodeBox13
-			{0.125,-0.5,0.0625,0.1875,-0.25,0.3125}, --NodeBox14
-			{0.25,-0.5,0.1875,0.3125,0,0.4375}, --NodeBox15
-			{0.375,-0.5,0.3125,0.4375,0,0.5}, --NodeBox16
-			{-0.0625,-0.5,0,0,-0.25,0.125}, --NodeBox17
-			{-0.125,-0.5,0,-0.0625,-0.25,0.0625}, --NodeBox18
+			{-0.5,-0.5,-0.5,-0.375,0,-0.375}, --NodeBox1
+			{-0.375,-0.5,-0.4375,-0.25,0,-0.3125}, --NodeBox2
+			{-0.25,-0.5,-0.375,-0.125,-0.25,-0.25}, --NodeBox3
+			{-0.125,-0.5,-0.3125,0,-0.25,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,0.125,-0.25,-0.125}, --NodeBox5
+			{0.125,-0.5,-0.1875,0.25,-0.25,-0.0625}, --NodeBox6
+			{0.25,-0.5,-0.125,0.375,0,0}, --NodeBox7
+			{0.375,-0.5,-0.0625,0.5,0,0.0625}, --NodeBox8
 		},
 	},
 	})
@@ -91,14 +392,14 @@ for _, row in ipairs(towerwalldefense2ab.types) do
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.5,-0.375,0,-0.375}, --NodeBox1
-			{-0.375,-0.5,-0.4375,-0.25,0,-0.3125}, --NodeBox2
-			{-0.25,-0.5,-0.375,-0.125,-0.25,-0.25}, --NodeBox3
-			{-0.125,-0.5,-0.3125,0,-0.25,-0.1875}, --NodeBox4
-			{0,-0.5,-0.25,0.125,-0.25,-0.125}, --NodeBox5
-			{0.125,-0.5,-0.1875,0.25,-0.25,-0.0625}, --NodeBox6
-			{0.25,-0.5,-0.125,0.375,0,0}, --NodeBox7
-			{0.375,-0.5,-0.0625,0.5,0,0.0625}, --NodeBox8
+			{-0.5,-0.5,0,-0.375,0,0.125}, --NodeBox1
+			{-0.375,-0.5,0.0625,-0.25,0,0.1875}, --NodeBox2
+			{-0.25,-0.5,0.125,-0.125,-0.25,0.25}, --NodeBox3
+			{-0.125,-0.5,0.1875,0,-0.25,0.3125}, --NodeBox4
+			{0,-0.5,0.25,0.125,-0.25,0.375}, --NodeBox5
+			{0.125,-0.5,0.3125,0.25,-0.25,0.4375}, --NodeBox6
+			{0.25,-0.5,0.375,0.375,0,0.5}, --NodeBox7
+			{0.375,-0.5,0.4375,0.5,0,0.5}, --NodeBox8
 		},
 	},
 	})
@@ -115,6 +416,255 @@ for _, row in ipairs(towerwalldefense2ab.types) do
 	end
 
 
+--------------------------------------------------
+--
+--MIRROR TOP DEFENSE TOWER WALL
+--
+---------------------------------------------------
+
+-----------------------------
+--Top Defense Towerwall 2ab--
+-----------------------------
+
+	-- Top Defense Tower Wall Part One Top
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartonetopmirror", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Tower Wall Part One Mirror",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,-0.5,0.375,0,-0.375}, --NodeBox1
+			{0.375,-0.5,-0.4375,0.25,0,-0.3125}, --NodeBox2
+			{0.25,-0.5,-0.375,0.125,-0.25,-0.25}, --NodeBox3
+			{0.125,-0.5,-0.3125,0,-0.25,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,-0.125,-0.25,-0.125}, --NodeBox5
+			{-0.125,-0.5,-0.1875,-0.25,-0.25,-0.0625}, --NodeBox6
+			{-0.25,-0.5,-0.125,-0.375,0,0}, --NodeBox7
+			{-0.375,-0.5,-0.0625,-0.5,0,0.0625}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensepartonetopmirror 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Top Defense Tower Wall Part Two Top
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwotopmirror", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Tower Wall Part Two Mirror",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,0,0.375,0,0.125}, --NodeBox1
+			{0.375,-0.5,0.0625,0.25,0,0.1875}, --NodeBox2
+			{0.25,-0.5,0.125,0.125,-0.25,0.25}, --NodeBox3
+			{0.125,-0.5,0.1875,0,-0.25,0.3125}, --NodeBox4
+			{0,-0.5,0.25,-0.125,-0.25,0.375}, --NodeBox5
+			{-0.125,-0.5,0.3125,-0.25,-0.25,0.4375}, --NodeBox6
+			{-0.25,-0.5,0.375,-0.375,0,0.5}, --NodeBox7
+			{-0.375,-0.5,0.4375,-0.5,0,0.5}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefenseparttwotopmirror 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------
+--Top Defense Towerwall Pillar 2ab--
+-----------------------------
+
+	-- Top Defense Tower Wall Part One Top Pillar
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartonetoppillar", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Tower Wall Part One Pillar",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,-0.375,0.5,-0.375}, --NodeBox1
+			{-0.375,-0.5,-0.4375,-0.25,0,-0.3125}, --NodeBox2
+			{-0.25,-0.5,-0.375,-0.125,-0.25,-0.25}, --NodeBox3
+			{-0.125,-0.5,-0.3125,0,-0.25,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,0.125,-0.25,-0.125}, --NodeBox5
+			{0.125,-0.5,-0.1875,0.25,-0.25,-0.0625}, --NodeBox6
+			{0.25,-0.5,-0.125,0.375,0,0}, --NodeBox7
+			{0.375,-0.5,-0.0625,0.5,0.5,0.0625}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensepartonetoppillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Top Defense Tower Wall Part Two Top Pillar
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwotoppillar", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Tower Wall Part Two Pillar",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,0,-0.375,0.5,0.125}, --NodeBox1
+			{-0.375,-0.5,0.0625,-0.25,0,0.1875}, --NodeBox2
+			{-0.25,-0.5,0.125,-0.125,-0.25,0.25}, --NodeBox3
+			{-0.125,-0.5,0.1875,0,-0.25,0.3125}, --NodeBox4
+			{0,-0.5,0.25,0.125,-0.25,0.375}, --NodeBox5
+			{0.125,-0.5,0.3125,0.25,-0.25,0.4375}, --NodeBox6
+			{0.25,-0.5,0.375,0.375,0,0.5}, --NodeBox7
+			{0.375,-0.5,0.4375,0.5,0.5,0.5}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefenseparttwotoppillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+--------------------------------------------------
+--
+--MIRROR TOP DEFENSE TOWER WALL PILLAR
+--
+---------------------------------------------------
+
+-----------------------------
+--Top Defense Towerwall 2ab--
+-----------------------------
+
+	-- Top Defense Tower Wall Part One Top Pillar
+	minetest.register_node("castle:" ..name.. "towerwalldefensepartonetopmirrorpillar", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Tower Wall Part One Mirror Pillar",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,-0.5,0.375,0.5,-0.375}, --NodeBox1
+			{0.375,-0.5,-0.4375,0.25,0,-0.3125}, --NodeBox2
+			{0.25,-0.5,-0.375,0.125,-0.25,-0.25}, --NodeBox3
+			{0.125,-0.5,-0.3125,0,-0.25,-0.1875}, --NodeBox4
+			{0,-0.5,-0.25,-0.125,-0.25,-0.125}, --NodeBox5
+			{-0.125,-0.5,-0.1875,-0.25,-0.25,-0.0625}, --NodeBox6
+			{-0.25,-0.5,-0.125,-0.375,0,0}, --NodeBox7
+			{-0.375,-0.5,-0.0625,-0.5,0.5,0.0625}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefensepartonetopmirrorpillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	-- Top Defense Tower Wall Part Two Top Pillar
+	minetest.register_node("castle:" ..name.. "towerwalldefenseparttwotopmirrorpillar", {
+	    drawtype = "nodebox",
+		description = desc.." Top Defense Tower Wall Part Two Mirror Pillar",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.5,-0.5,0,0.375,0.5,0.125}, --NodeBox1
+			{0.375,-0.5,0.0625,0.25,0,0.1875}, --NodeBox2
+			{0.25,-0.5,0.125,0.125,-0.25,0.25}, --NodeBox3
+			{0.125,-0.5,0.1875,0,-0.25,0.3125}, --NodeBox4
+			{0,-0.5,0.25,-0.125,-0.25,0.375}, --NodeBox5
+			{-0.125,-0.5,0.3125,-0.25,-0.25,0.4375}, --NodeBox6
+			{-0.25,-0.5,0.375,-0.375,0,0.5}, --NodeBox7
+			{-0.375,-0.5,0.4375,-0.5,0.5,0.5}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "towerwalldefenseparttwotopmirrorpillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
 
 
 end
