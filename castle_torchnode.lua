@@ -101,7 +101,7 @@ minetest.register_node("castle:standart_torch_node_" ..name,{
 			{-0.25,-0.25,-0.25,0.25,0.25,0.25},
 		},
 	},
-		light_source = LIGHT_MAX-3,
+		light_source = LIGHT_MAX-1,
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -167,7 +167,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 			{-0.25,0,-0.25,-0.0625,0.25,-0.0625},
 		},
 	},
-		light_source = LIGHT_MAX-3,
+		light_source = LIGHT_MAX-1,
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -233,7 +233,7 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 			{-0.25,0,-0.25,-0.0625,0.25,-0.0625},
 		},
 	},
-		light_source = LIGHT_MAX-3,
+		light_source = LIGHT_MAX-1,
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -303,7 +303,7 @@ minetest.register_node("castle:corner_torch_node_" ..name,{
 			{-0.5,-0.125,0.25,-0.25,0.1875,0.5}, --NodeBox11
 		},
 	},
-		light_source = LIGHT_MAX-3,
+		light_source = LIGHT_MAX-1,
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -378,7 +378,7 @@ minetest.register_node("castle:towerwall_torch_node_" ..name,{
 			{0.4375,-0.5,0.4375,0.5,0.5,0.5},
 		},
 	},
-		light_source = LIGHT_MAX-3,
+		light_source = LIGHT_MAX-1,
 	groups = {choppy=2,dig_immediate=2},
 	sounds = default.node_sound_stone_defaults(),
 })

@@ -498,19 +498,6 @@ for _, row in ipairs(towerwalldefense2ab.types) do
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 -----------------------------
 --Top Defense Towerwall Pillar 2ab--
 -----------------------------

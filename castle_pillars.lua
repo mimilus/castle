@@ -51,6 +51,7 @@ for _, row in ipairs(pillar.types) do
 		},
 	},
 	})
+	
 	minetest.register_node("castle:pillars_"..name.."_top", {
 	    drawtype = "nodebox",
 		description = desc.." Pillar Top",
@@ -68,6 +69,7 @@ for _, row in ipairs(pillar.types) do
 		},
 	},
 	})
+
 	minetest.register_node("castle:pillars_"..name.."_middle", {
 	    drawtype = "nodebox",
 		description = desc.." Pillar Middle",
@@ -113,4 +115,142 @@ for _, row in ipairs(pillar.types) do
 			{craft_material,craft_material} },
 		})
 	end
+
+	minetest.register_node("castle:pillars_"..name.."4pillar", {
+	    drawtype = "nodebox",
+		description = desc.." 4 Pillars",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=1},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.3125,-0.5,0.3125,0.5,0.5,0.5}, --NodeBox1
+			{-0.5,-0.5,0.3125,-0.3125,0.5,0.5}, --NodeBox2
+			{-0.5,-0.5,-0.5,-0.3125,0.5,-0.3125}, --NodeBox3
+			{0.3125,-0.5,-0.5,0.5,0.5,-0.3125}, --NodeBox4
+		},
+	},
+	})
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:pillars_"..name.."4pillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	minetest.register_node("castle:pillars_"..name.."3pillar", {
+	    drawtype = "nodebox",
+		description = desc.." 3 Pillars",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=1},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.3125,-0.5,0.3125,0.5,0.5,0.5}, --NodeBox1
+			{-0.5,-0.5,0.3125,-0.3125,0.5,0.5}, --NodeBox2
+			{-0.5,-0.5,-0.5,-0.3125,0.5,-0.3125}, --NodeBox3
+		},
+	},
+	})
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:pillars_"..name.."3pillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	minetest.register_node("castle:pillars_"..name.."2pillar", {
+	    drawtype = "nodebox",
+		description = desc.." 2 Pillars",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=1},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.3125,-0.5,0.3125,0.5,0.5,0.5}, --NodeBox1
+			{-0.5,-0.5,0.3125,-0.3125,0.5,0.5}, --NodeBox2
+		},
+	},
+	})
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:pillars_"..name.."2pillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	minetest.register_node("castle:pillars_"..name.."2pillardiag", {
+	    drawtype = "nodebox",
+		description = desc.." 2 Pillars Diagonal",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=1},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.3125,-0.5,0.3125,0.5,0.5,0.5}, --NodeBox1
+			{-0.5,-0.5,-0.5,-0.3125,0.5,-0.3125}, --NodeBox2
+		},
+	},
+	})
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:pillars_"..name.."2pillardiag 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+	minetest.register_node("castle:pillars_"..name.."1pillar", {
+	    drawtype = "nodebox",
+		description = desc.." 1 Pillar",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=1},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{0.3125,-0.5,0.3125,0.5,0.5,0.5}, --NodeBox1
+		},
+	},
+	})
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:pillars_"..name.."1pillar 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
 end
