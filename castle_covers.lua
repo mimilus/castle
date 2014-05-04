@@ -162,8 +162,8 @@ minetest.register_craft({
 })
 
 --Cover Water
-minetest.register_node("castle:cover_water", {
-	description = "Water Cover",
+minetest.register_node("castle:cover_water_transparent", {
+	description = "Transparent Water Cover",
 	tiles = {
 		{image="castle_water_flowing_animated.png",
 		backface_culling = true,
@@ -175,7 +175,7 @@ minetest.register_node("castle:cover_water", {
 		},
 			},
 	alpha = WATER_ALPHA,
-	inventory_image = "default_water.png" ,
+--	inventory_image = "default_water.png" ,
 	wield_image = "default_water.png",
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -193,8 +193,8 @@ minetest.register_node("castle:cover_water", {
 --	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("castle:cover_water_opaque2i", {
-	description = "Water Cover Opaque 2",
+minetest.register_node("castle:cover_water_transparent2", {
+	description = "Transparent  Water Cover 2",
 	tiles = {
 		{image="castle_water_flowing_animated2.png",
 		backface_culling = true,
@@ -206,7 +206,7 @@ minetest.register_node("castle:cover_water_opaque2i", {
 		},
 			},
 	alpha = WATER_ALPHA,
-	inventory_image = "default_water.png" ,
+--	inventory_image = "default_water.png" ,
 	wield_image = "default_water.png",
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -224,8 +224,8 @@ minetest.register_node("castle:cover_water_opaque2i", {
 --	sounds = default.node_sound_stone_defaults(),
 })
 
-minetest.register_node("castle:cover_water_opaque1", {
-	description = "Water Cover Opaque 1",
+minetest.register_node("castle:cover_water_transparent1", {
+	description = "Transparent Water Cover 1",
 	tiles = {
 		{image="castle_water_flowing_animated1.png",
 		backface_culling = true,
@@ -237,7 +237,7 @@ minetest.register_node("castle:cover_water_opaque1", {
 		},
 			},
 	alpha = WATER_ALPHA,
-	inventory_image = "default_water.png" ,
+--	inventory_image = "default_water.png" ,
 	wield_image = "default_water.png",
 	drawtype = "nodebox",
 	paramtype = "light",
@@ -255,98 +255,4 @@ minetest.register_node("castle:cover_water_opaque1", {
 --	sounds = default.node_sound_stone_defaults(),
 })
 
----- Opaque water wall
 
---Cover Water
-minetest.register_node("castle:cover_water_wall", {
-	description = "Water Cover Wall",
-	tiles = {
-		{image="castle_water_flowing_animated.png",
-		backface_culling = true,
-		animation={
-		type="vertical_frames",
-		aspect_w=16,
-		aspect_h=16,
-		length=0.8}
-		},
-			},
---	alpha = WATER_ALPHA,
-	inventory_image = "default_water.png" ,
-	wield_image = "default_water.png",
-	drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    walkable = false,
---    selection_box={
---       type="fixed",
---        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
---    },
-	groups = {choppy=2,dig_immediate=1},
---	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("castle:cover_water_wall_opaque2", {
-	description = "Water Cover Wall Opaque 2",
-	tiles = {
-		{image="castle_water_flowing_animated2.png",
-		backface_culling = true,
-		animation={
-		type="vertical_frames",
-		aspect_w=16,
-		aspect_h=16,
-		length=0.8}
-		},
-			},
---	alpha = WATER_ALPHA,
-	inventory_image = "default_water.png" ,
-	wield_image = "default_water.png",
-	drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    walkable = false,
---    selection_box={
---       type="fixed",
---        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
---    },
-	groups = {choppy=2,dig_immediate=1},
---	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("castle:cover_water_wall_opaque1", {
-	description = "Water Cover Wall Opaque 1",
-	tiles = {
-		{image="castle_water_flowing_animated1.png",
-		backface_culling = true,
-		animation={
-		type="vertical_frames",
-		aspect_w=16,
-		aspect_h=16,
-		length=0.8}
-		},
-			},
---	alpha = WATER_ALPHA,
-	inventory_image = "default_water.png" ,
-	wield_image = "default_water.png",
-	drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    walkable = false,
---    selection_box={
---       type="fixed",
---        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
---    },
-	groups = {choppy=2,dig_immediate=1},
---	sounds = default.node_sound_stone_defaults(),
-})
