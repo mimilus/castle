@@ -8,7 +8,8 @@ secret_door.types = {
 	{"cornwall","CornWall","castle_secret_cornwall_door_inv.png","castle_secret_cornwall_door_top","castle_secret_cornwall_door_bottom","castle:cover_cornerwall","castle:cover_cornerwall"},
 	{"pavement","PavingStone","castle_secret_pavement_door_inv.png","castle_secret_pavement_door_top","castle_secret_pavement_door_bottom","castle:cover_pavement","castle:cover_pavement"},
 	{"book","Bookshelf","castle_secret_book_door_inv.png","castle_secret_book_door_top","castle_secret_book_door_bottom","castle:cover_bookshelf","castle:cover_bookshelf"},
-	
+	{"straw_bale","Straw Bale","castle_secret_door_straw_bale_inv.png","castle_secret_door_straw_bale_top","castle_secret_door_straw_bale_top","castle:cover_straw_bale","castle:cover_straw_bale"},
+	{"wood","Wood","castle_secret_door_wood_inv.png","castle_secret_door_wood_top","castle_secret_door_wood_bottom","castle:cover_wood","castle:cover_wood"},
 }
 
 for _, row in ipairs(secret_door.types) do

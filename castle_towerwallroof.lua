@@ -5,6 +5,12 @@ rooftowerwall.types = {
 	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
 	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
 	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+	
+		--FOR ROOF
+	{"shingles_asphalt",		"Shingles Asphalt",			"shingles_asphalt.png",			"castle:shingles_asphalt"},
+	{"shingles_terracotta",		"Shingles Terracotta",		"shingles_terracotta.png",		"castle:shingles_terracotta"},
+	{"shingles_wood",			"Shingles Wood",			"shingles_wood.png",			"castle:shingles_wood"},
+		{"castle_straw_bale_reinforced","Straw Bale Reinforced","castle_secret_door_straw_bale_top.png","castle:straw_bale_reinforced"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},

@@ -51,4 +51,4 @@ dofile(minetest.get_modpath("castle").."/castle_turningstairs.lua")
 dofile(minetest.get_modpath("castle").."/castle_towerturningstair.lua")
 
 ------- FOR TESTS
---------dofile(minetest.get_modpath("castle").."/test.lua")
+dofile(minetest.get_modpath("castle").."/test.lua")
