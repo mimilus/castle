@@ -71,9 +71,10 @@ minetest.register_craft({
 })
 end
 
-
-
+-------------------
 ------------------Saw
+---------------------
+
 minetest.register_craftitem("castle:saw", {
 	description = "Handsaw",
 	tiles = { 'coversaw.png' },
@@ -117,142 +118,6 @@ minetest.register_craft({
 		{"", "", ""},
 		{"", "", ""},
 	},
-})
-
-
-
-----------------Cover Leaves
-minetest.register_node("castle:cover_leaves", {
-	description = "Leaves Cover",
-	tiles = { 
-		{image = "animated_default_leaves.png",
-		backface_culling = false,
-		animation={
-		type="vertical_frames",
-		aspect_w=16,
-		aspect_h=16,
-		length=8.0}
-		},
-			},
-	inventory_image = "default_leaves.png" ,
-	wield_image = "default_leaves.png",
-	drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    walkable = false,
---    selection_box={
---       type="fixed",
---        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
---    },
-	groups = {choppy=2,dig_immediate=1},
---	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_craft({
-	output = "castle:cover_leaves 8",
-	recipe = {
-		{"castle:saw", "default:leaves" ,""},
-		{"", "", ""},
-		{"", "", ""}
-	},
-})
-
---Cover Water
-minetest.register_node("castle:cover_water_transparent", {
-	description = "Transparent Water Cover",
-	tiles = {
-		{image="castle_water_flowing_animated.png",
-		backface_culling = true,
-		animation={
-		type="vertical_frames",
-		aspect_w=16,
-		aspect_h=16,
-		length=0.8}
-		},
-			},
-	alpha = WATER_ALPHA,
---	inventory_image = "default_water.png" ,
-	wield_image = "default_water.png",
-	drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    walkable = false,
---    selection_box={
---       type="fixed",
---        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
---    },
-	groups = {choppy=2,dig_immediate=1},
---	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("castle:cover_water_transparent2", {
-	description = "Transparent  Water Cover 2",
-	tiles = {
-		{image="castle_water_flowing_animated2.png",
-		backface_culling = true,
-		animation={
-		type="vertical_frames",
-		aspect_w=16,
-		aspect_h=16,
-		length=0.8}
-		},
-			},
-	alpha = WATER_ALPHA,
---	inventory_image = "default_water.png" ,
-	wield_image = "default_water.png",
-	drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    walkable = false,
---    selection_box={
---       type="fixed",
---        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
---    },
-	groups = {choppy=2,dig_immediate=1},
---	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("castle:cover_water_transparent1", {
-	description = "Transparent Water Cover 1",
-	tiles = {
-		{image="castle_water_flowing_animated1.png",
-		backface_culling = true,
-		animation={
-		type="vertical_frames",
-		aspect_w=16,
-		aspect_h=16,
-		length=0.8}
-		},
-			},
-	alpha = WATER_ALPHA,
---	inventory_image = "default_water.png" ,
-	wield_image = "default_water.png",
-	drawtype = "nodebox",
-	paramtype = "light",
-    paramtype2 = "facedir",
-    node_box={
-        type="fixed",
-        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
-    },
-    walkable = false,
---    selection_box={
---       type="fixed",
---        fixed = { -0.5, -0.5, 0.4375, 0.5, 0.5, 0.5 }
---    },
-	groups = {choppy=2,dig_immediate=1},
---	sounds = default.node_sound_stone_defaults(),
 })
 
 

@@ -1,6 +1,7 @@
 --castle Mod By Daniel modified by mimilus
 --The castle mod ReBirth
 
+dofile(minetest.get_modpath("castle").."/castle_mud.lua")
 dofile(minetest.get_modpath("castle").."/castle_fountain.lua")
 dofile(minetest.get_modpath("castle").."/castle_defensewall.lua")
 dofile(minetest.get_modpath("castle").."/castle_rooftop.lua")
@@ -14,6 +15,7 @@ dofile(minetest.get_modpath("castle").."/castle_topmossynodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_rubblenodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_extranodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_covers.lua")
+dofile(minetest.get_modpath("castle").."/castle_animatedcovers.lua")
 dofile(minetest.get_modpath("castle").."/castle_excalibur.lua")
 dofile(minetest.get_modpath("castle").."/castle_pillars.lua")
 dofile(minetest.get_modpath("castle").."/castle_sidepillars.lua")
@@ -27,6 +29,7 @@ dofile(minetest.get_modpath("castle").."/castle_secretdoors.lua")
 dofile(minetest.get_modpath("castle").."/castle_cornerstairs.lua")
 dofile(minetest.get_modpath("castle").."/castle_stairs.lua")
 dofile(minetest.get_modpath("castle").."/castle_rope.lua")
+dofile(minetest.get_modpath("castle").."/castle_animatedsecret.lua")
 dofile(minetest.get_modpath("castle").."/castle_secret.lua")
 dofile(minetest.get_modpath("castle").."/castle_towerwallsecret.lua")
 -----dofile(minetest.get_modpath("castle").."/castle_sounds.lua")

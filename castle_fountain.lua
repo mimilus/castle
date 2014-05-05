@@ -2,43 +2,13 @@ local fountain = {}
 
 fountain.types = {
 
---{"fountain","Opaque Fountain","default_water.png","castle:stone","castle_water_flowing_animated.png",2},
---{"fountain1","Opaque Fountain 1","default_water.png","castle:stone","castle_water_flowing_animated1.png",2},
---{"fountain2","Opaque Fountain 2","default_water.png","castle:stone","castle_water_flowing_animated2.png",2},
-{"fountaintrans","Transparent Fountain","default_water.png","castle:stone","castle_water_flowing_animated.png",1},
-{"fountain1trans","Transparent Fountain 1","default_water.png","castle:stone","castle_water_flowing_animated1.png",1},
-{"fountain2trans","Transparent Fountain 2","default_water.png","castle:stone","castle_water_flowing_animated2.png",1},
+--{"fountain"," Opaque Fountain","default_water.png","castle:stone","castle_water_flowing_animated.png",2},
+--{"fountain1"," Opaque Fountain 1","default_water.png","castle:stone","castle_water_flowing_animated1.png",2},
+--{"fountain2"," Opaque Fountain 2","default_water.png","castle:stone","castle_water_flowing_animated2.png",2},
+{"fountaintrans"," Transparent Fountain","default_water.png","castle:stone","castle_water_flowing_animated.png",1},
+{"fountain1trans"," Transparent Fountain 1","default_water.png","castle:stone","castle_water_flowing_animated1.png",1},
+{"fountain2trans"," Transparent Fountain 2","default_water.png","castle:stone","castle_water_flowing_animated2.png",1},
 
-
---	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
---	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
---	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
---	
---		--FOR ROOF
---	{"shingles_asphalt",		"Shingles Asphalt",			"shingles_asphalt.png",			"castle:shingles_asphalt"},
---	{"shingles_terracotta",		"Shingles Terracotta",		"shingles_terracotta.png",		"castle:shingles_terracotta"},
---	{"shingles_wood",			"Shingles Wood",			"shingles_wood.png",			"castle:shingles_wood"},
---		{"castle_straw_bale_reinforced","Straw Bale Reinforced","castle_secret_door_straw_bale_top.png","castle:straw_bale_reinforced"},
---	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
---	{"dirt","Dirt","default_dirt.png","default:dirt"},
---	{"stone","Stone","default_stone.png","default:stone"},
---	{"cobble","Cobble","default_cobble.png","default:cobble"},
---	{"sand","Sand","default_sand.png","default:sand"},
---	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
---	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
---	{"brick","Brick","default_brick.png","default:brick"},
---	{"steel","Steel","default_steel_block.png","default:steelblock"},
---	{"glass","Glass","default_glass.png","default:glass"},
---	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
---	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
---	{"sand_stone_brick","Sand Stone Brick","default_sandstone_brick.png","default:sandstonebrick"},
---	{"tree","Tree","default_tree.png","default:tree"},
---	{"wood","Wood","default_wood.png","default:wood"},
---	{"sand_stone","Sand Stone","default_sandstone.png","default:sandstone"},
---	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
---	{"gravel","Gravel","default_gravel.png","default:gravel"},
---	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
---	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
 }
 
 --Standart fountain
@@ -63,6 +33,7 @@ for _, row in ipairs(fountain.types) do
 	-- Node Definition
 	minetest.register_node("castle:" ..name.. "fountain", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  ",
 		tiles = {
 		{image = animtile,
@@ -107,6 +78,7 @@ for _, row in ipairs(fountain.types) do
 
 	minetest.register_node("castle:" ..name.. "fountaincorner", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Corner",
 		tiles = {
 		{image = animtile,
@@ -151,6 +123,7 @@ for _, row in ipairs(fountain.types) do
 
 	minetest.register_node("castle:" ..name.. "fountainmiddle", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Middle",
 		tiles = {
 		{image = animtile,
@@ -196,6 +169,7 @@ for _, row in ipairs(fountain.types) do
 ----OK
 	minetest.register_node("castle:" ..name.. "fountainside", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Side",
 		tiles = {
 		{image = animtile,
@@ -241,6 +215,7 @@ for _, row in ipairs(fountain.types) do
 ----OK
 	minetest.register_node("castle:" ..name.. "fountaincornerin", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Corner In",
 		tiles = {
 		{image = animtile,
@@ -293,6 +268,7 @@ for _, row in ipairs(fountain.types) do
 ----OK
 	minetest.register_node("castle:" ..name.. "fountainmiddleside", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Middle Side",
 		tiles = {
 		{image = animtile,
@@ -338,6 +314,7 @@ for _, row in ipairs(fountain.types) do
 ----OK
 	minetest.register_node("castle:" ..name.. "fountainmiddlecross", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Middle Cross",
 		tiles = {
 		{image = animtile,
@@ -390,6 +367,7 @@ for _, row in ipairs(fountain.types) do
 ----OK
 	minetest.register_node("castle:" ..name.. "fountainmiddlecrossT", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Middle Cross T",
 		tiles = {
 		{image = animtile,
@@ -442,6 +420,7 @@ for _, row in ipairs(fountain.types) do
 ----OK
 	minetest.register_node("castle:" ..name.. "fountainmiddlecrossL", {
 	    drawtype = "nodebox",
+	        walkable = false,
 		description = desc.." Roof Top  Middle Cross L",
 		tiles = {
 		{image = animtile,
@@ -496,6 +475,7 @@ for _, row in ipairs(fountain.types) do
 minetest.register_node("castle:" ..name.. "fountaincube", {
 	description = desc.." Cube",
 	drawtype = "nodebox",
+	    walkable = false,
 	node_box = {
 		type = "fixed",
 		fixed = {
