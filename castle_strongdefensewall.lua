@@ -66,6 +66,36 @@ for _, row in ipairs(strongdefense.types) do
 		})
 	end
 
+	-- Stong Defense Corner Wall
+	minetest.register_node("castle:" ..name.. "strongdefensecorner", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Corner Wall Strong",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,0,0.5,0.5,0.5}, --NodeBox1
+			{0,-0.5,-0.5,0.5,0.5,0}, --NodeBox2
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "strongdefensecorner 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
 	-- Stong Defense Wall
 	minetest.register_node("castle:" ..name.. "strongdefensetop", {
 	    drawtype = "nodebox",
@@ -98,3 +128,40 @@ for _, row in ipairs(strongdefense.types) do
 		})
 	end
 
+	-- Stong Defense Top Wall
+	minetest.register_node("castle:" ..name.. "strongdefensetopcorner", {
+	    drawtype = "nodebox",
+		description = desc.." Defense Wall Strong Corner Top",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,0,0.5,-0.25,0.5}, --NodeBox1
+			{0.1875,-0.25,0.1875,0.5,0,0.5}, --NodeBox2
+			{-0.5,-0.25,0.1875,-0.1875,0,0.5}, --NodeBox3
+			{0.3125,0,0.3125,0.5,0.5,0.5}, --NodeBox4
+			{-0.5,0,0.3125,-0.3125,0.5,0.5}, --NodeBox5
+			{0,-0.5,-0.5,0.5,-0.25,0}, --NodeBox6
+			{0.1875,-0.25,-0.5,0.5,0,-0.1875}, --NodeBox7
+			{0.3125,0,-0.5,0.5,0.5,-0.3125}, --NodeBox8
+		},
+	},
+	})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "strongdefensetopcorner 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+
+end
