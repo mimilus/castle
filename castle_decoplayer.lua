@@ -25,7 +25,13 @@ for _, row in ipairs(decoplayerbottom.types) do
 	minetest.register_node("castle:deco" ..name.. "0decotop", {
 	    drawtype = "nodebox",
 		description = desc.." Top Deco Player",
-		tiles = {tile.. "_top.png"},
+		tiles = {
+		"castle_space.png",
+		"castle_space.png",
+		"castle_space.png",
+		"castle_space.png",
+		tile.. "_top.png",
+		tile.. "_top.png"},
 		groups = {cracky=3,attached_node=0},
 --		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
@@ -67,7 +73,13 @@ for _, row in ipairs(decoplayertop.types) do
 	minetest.register_node("castle:deco" ..name.. "0decobottom", {
 	    drawtype = "nodebox",
 		description = desc.." Bottom Deco Player",
-		tiles = {tile.. "_bottom.png"},
+		tiles = {
+		"castle_space.png",
+		"castle_space.png",
+		"castle_space.png",
+		"castle_space.png",
+		tile.. "_bottom.png",
+		tile.. "_bottom.png"},
 		groups = {cracky=3,attached_node=0},
 --		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
