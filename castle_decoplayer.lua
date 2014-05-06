@@ -36,10 +36,12 @@ for _, row in ipairs(decoplayerbottom.types) do
 --		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
 	    paramtype2 = "facedir",
+	    walkable = false,
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.0625,0.5,0.5,0.0625}, --NodeBox1
+			{-0.4375,-0.5,-0.1875,0.4375,-0.0625,-0.0625}, --NodeBox1
+			{-0.25,-0.0625,-0.1875,0.25,0.4375,-0.0625}, --NodeBox2
 		},
 	},
 	})
@@ -84,10 +86,12 @@ for _, row in ipairs(decoplayertop.types) do
 --		sounds = default.node_sound_stone_defaults(),
 	    paramtype = "light",
 	    paramtype2 = "facedir",
+	    walkable = false,
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.0625,0.5,0.5,0.0625}, --NodeBox1
+			{-0.4375,0.1875,-0.1875,0.4375,0.5,-0.0625}, --NodeBox1
+			{-0.1875,-0.5,-0.1875,0.1875,0.1875,-0.0625}, --NodeBox2
 		},
 	},
 	})

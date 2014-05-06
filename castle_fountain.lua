@@ -514,3 +514,91 @@ minetest.register_node("castle:" ..name.. "fountaincube", {
 end
 
 
+local bubblecube = {}
+
+bubblecube.types = {
+
+		{"bubble",		" Bubble",		"bubble.png",							"",		"castle_animated_bubble.png",					0.5},
+		{"bubbletop",	" Bubble Top",	"castle_animated_bubble_top_inv.png",	"",		"castle_animated_bubble_top.png",					0.7},
+}
+
+--Standart Bubble
+
+for _, row in ipairs(bubblecube.types) do
+	local name = row[1]
+	local desc = row[2]
+	local tile = row[3]
+	local craft_material = row[4]
+	local animtile = row[5]
+	local speed = row[6]
+	local trans = row[7]
+
+
+--Bubble Cube Node
+minetest.register_node("castle:" ..name.. "bubblecube", {
+	description = desc ,
+	drawtype = "nodebox",
+	    walkable = false,
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,0.5,0.5,0.5},
+		},
+	},
+	tiles = {
+		"castle_space.png",
+		"castle_space.png",
+	{image = animtile,
+		backface_culling = true,
+		animation={
+		type="vertical_frames",
+		aspect_w=16,
+		aspect_h=16,
+		lenght=speed}
+		},
+	{image = animtile,
+		backface_culling = true,
+		animation={
+		type="vertical_frames",
+		aspect_w=16,
+		aspect_h=16,
+		lenght=speed}
+		},
+	{image = animtile,
+		backface_culling = true,
+		animation={
+		type="vertical_frames",
+		aspect_w=16,
+		aspect_h=16,
+		lenght=speed}
+		},
+	{image = animtile,
+		backface_culling = true,
+		animation={
+		type="vertical_frames",
+		aspect_w=16,
+		aspect_h=16,
+		lenght=speed}
+		},
+	},
+		inventory_image = tile ,
+		alpha = WATER_ALPHA ,
+	paramtype = "light",
+	paramtype2 = "facedir",
+--	drop = "castle:" ..name,
+	groups = {cracky=3,attached_node=0},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+	if craft_material then
+		--Choose craft material
+		minetest.register_craft({
+			output = "castle:" ..name.. "fountaincube 4",
+			recipe = {
+			{"",craft_material,""},
+			{"",craft_material,""},
+			{craft_material,craft_material,craft_material} },
+		})
+	end
+
+end

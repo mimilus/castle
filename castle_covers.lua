@@ -28,8 +28,8 @@ castle_cover.types = {
 	{"shingles_asphalt",		"Shingles Asphalt",			"shingles_asphalt.png",			"castle:shingles_asphalt"},
 	{"shingles_terracotta",		"Shingles Terracotta",		"shingles_terracotta.png",		"castle:shingles_terracotta"},
 	{"shingles_wood",			"Shingles Wood",			"shingles_wood.png",			"castle:shingles_wood"},
-		{"castle_straw_bale","Straw Bale","castle_straw_bale.png","castle:straw_bale"},
-		{"castle_straw_bale_reinforced","Straw Bale Reinforced","castle_secret_door_straw_bale_top.png","castle:straw_bale_reinforced"},
+	{"castle_straw_bale","Straw Bale","castle_straw_bale.png","castle:straw_bale"},
+	{"castle_straw_bale_reinforced","Straw Bale Reinforced","castle_secret_door_straw_bale_top.png","castle:straw_bale_reinforced"},
 
 --		{"leaves","Desert Leaves","default_leaves.png","default:default_leaves"},
 }

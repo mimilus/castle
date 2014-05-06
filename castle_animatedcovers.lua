@@ -5,11 +5,13 @@
 local castle_coveranim = {}
 
 castle_coveranim.types = {
-
-		{"leaves",					" Leaves",							"default_leaves.png",					"default:default_leaves",		"castle_animated_default_leaves.png",			7.5},
-		{"_water_transparent2",		" Transparent  Water Cover 2",		"castle_water_flowing2_inv.png",		"default:water_flowing",		"castle_water_flowing_animated2.png",			0.8},
+		{"bubble",					" Bubble",							"bubble.png",							"",								"castle_animated_bubble.png",					8},
+		{"bubbletop",				" Bubble Top",						"castle_animated_bubble_top_inv.png",	"",								"castle_animated_bubble_top.png",				10},
+		{"leaves",					" Leaves",							"default_leaves.png",					"default:default_leaves",		"castle_animated_default_leaves.png",			6},
+		{"leaves2",					" Leaves 2",						"castle_default_leaves2.png",			"castle:coverleaves",			"castle_animated_default_leaves2.png",			6},
+		{"_water_transparent2",		" Transparent  Water Cover 2",		"castle_water_flowing_inv.png",			"default:water_flowing",		"castle_water_flowing_animated2.png",			0.8},
 		{"_water_transparent1",		" Transparent  Water Cover 1",		"castle_water_flowing1_inv.png",		"default:water_flowing",		"castle_water_flowing_animated1.png",			0.8},
-		{"_water_transparent",		" Transparent  Water Cover ",		"castle_water_flowing_inv.png",			"default:water_flowing",		"castle_water_flowing_animated.png",			0.8},
+		{"_water_transparent",		" Transparent  Water Cover ",		"castle_water_flowing2_inv.png",		"default:water_flowing",		"castle_water_flowing_animated.png",			0.8},
 		{"_mud",					" Mud Cover",						"castle_cover_inv_mud.png",				"default:water_flowing",		"castle_mud_flowing_animated.png",				0.8},
 		{"_mud2",					" Mud Cover 2",						"castle_cover_inv_mud1.png",			"default:water_flowing",		"castle_mud_flowing_animated1.png",				0.8},
 --		{"_mud_dirt",				" Mud Dirt Cover",					"castle_cover_inv_dirt_mud.png",		"default:water_flowing",		"castle_dirtmud_flowing_animated.png",			0.8},
