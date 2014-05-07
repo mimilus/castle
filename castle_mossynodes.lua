@@ -1,10 +1,10 @@
 local castle_mossynodes_ = {}
 
 castle_mossynodes_.types = {
-	{"stonewall_mossy","StoneWall Mossy","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
-	{"dungeon_mossy","DungeonWall Mossy","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
-	{"pavingstone_mossy","PavingStone Mossy","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
-	{"cornerwall_mossy","CornerWall Mossy","castle_cornwall.png","castle:cornerwall"},
+	{"stonewall_mossy","StoneWall","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
+	{"dungeon_mossy","DungeonWall","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
+	{"pavingstone_mossy","PavingStone","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
+	{"cornerwall_mossy","CornerWall","castle_cornwall.png","castle:cornerwall"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -44,9 +44,9 @@ minetest.register_craft({
 })
 minetest.register_node("castle:" ..name, {
 	drawtype = "normal",
-	paramtype = light,
+	paramtype = "light",
 	paramtype2 = "facedir",
-	description = "Castle Mossy" ..desc,
+	description = "Castle Mossy " ..desc,
 	tiles = {inv, 	--top
 			inv, 	--bottom
 			"mossy_" ..inv, 

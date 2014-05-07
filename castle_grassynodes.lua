@@ -1,10 +1,12 @@
-local castle_cornernodes_ = {}
+local castle_standartnodes_ = {}
 
-castle_cornernodes_.types = {
-	{"stonewall_corner","StoneWall Corner","castle_stonewall.png","castle_corner_stonewall1.png","castle_corner_stonewall2.png","castle:stonewall"},
-	{"dungeon_corner","DungeonWall Corner","castle_dungeon_stone.png","castle_dungeon_stone_corner_1.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
-	{"pavingstone_corner","PavingStone Corner","castle_pavement_brick.png","castle_pavement_brick_corner1.png","castle_pavement_brick_corner2.png","castle:pavement"},
---	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+castle_standartnodes_.types = {
+--Normal nodes
+	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
+	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+--Unused
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -27,35 +29,28 @@ castle_cornernodes_.types = {
 	
 }
 
-for _, row in ipairs(castle_cornernodes_.types) do
+for _, row in ipairs(castle_standartnodes_.types) do
 	local name = row[1]
 	local desc = row[2]
 	local inv = row[3]
-	local tile1 = row[4]
-	local tile2 = row[5]
-	local craft_logical = row[6]
+	local craft_logical = row[4]
 
 minetest.register_craft({
 	output = "castle:" ..name,
 	recipe = {
-		{"", "castle:stonewall"},
-		{"castle:stonewall", "default:sandstone"},
+		{"default:cobble"},
+		{"default:desert_stone"},
 	}
 })
 minetest.register_node("castle:" ..name, {
+	description = "Castle " ..desc ,
 	drawtype = "normal",
-	paramtype = "light",
-	paramtype2 = "facedir",
-	description = "Castle Corner" ..desc,
-	tiles = {inv, 
-			inv,
-			tile1, 
-			inv, 
-			inv, 
-			tile2},
+	tiles = {inv},
+	paramtype = light,
+--	paramtype2 = "facedir",
+	drop = "castle:" ..name,
 	groups = {cracky=3},
 	sounds = default.node_sound_stone_defaults(),
 })
 
 end
-

@@ -1,24 +1,20 @@
-local cornerstairs = {}
+local grassystairs = {}
 
-cornerstairs.types = {
------Material			Material Desc			Standart tile					Craft						tileup				tiledown			tileleft			tileright			tilebehind			tilefront
-	{"stonewall",		"StoneWall",			"castle_stonewall.png",			"castle:stonewall"},
-	{"dungeon",			"DungeonWall",			"castle_dungeon_stone.png",		"castle:dungeonwall"},
-	{"cornerwall",		"CornerWall",			"castle_cornwall.png",			"castle:cornerwall"},
-	{"dirt",			"Dirt",					"default_dirt.png",				"default:dirt"},
-	{"stone",			"Stone",				"default_stone.png",			"default:stone"},
-	{"pavingstone",		"Paving Stone",			"castle_pavement_brick.png",	"castle:pavement"},
-	{"stonebrick",		"Stone Brick",			"default_stone_brick.png",		"default:stonebrick"},
-	{"cobble",			"Cobble",				"default_cobble.png",			"default:cobble"},
-	{"grass",			"Grass",				"castle_top_grass.png",			"default:grass"},
-	----nothing else
+grassystairs.types = {
+	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
+	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+	{"dirt","Dirt","default_dirt.png","default:dirt"},
+	{"stone","Stone","default_stone.png","default:stone"},
+	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
+	{"cobble","Cobble","default_cobble.png","default:cobble"},
 --	{"junglewood","Jungle Wood","default_junglewood.png","default:default_junglewood"},
 --	{"sand","Sand","default_sand.png","default:sand"},
 --	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
 --	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
-	{"brick","Brick","default_brick.png","default:brick"},
-		{"coloredbrick","Colored Brick","color_brick.png","castle:colored_brick"},
+--	{"brick","Brick","default_brick.png","default:brick"},
 --	{"steel","Steel","default_steel_block.png","default:steelblock"},
 --	{"glass","Glass","default_glass.png","default:glass"},
 --	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
@@ -32,7 +28,7 @@ cornerstairs.types = {
 	
 }
 
-for _, row in ipairs(cornerstairs.types) do
+for _, row in ipairs(grassystairs.types) do
 	local name =			 row[1]
 	local desc =			 row[2]
 	local inv =				 row[3]
@@ -53,7 +49,7 @@ alltiles = { tileup,tiledown,tileleft,tileright,tilebehind,tilefront }
 end
 
 
-minetest.register_node(":stairs:stair_" ..name.. "_cornerstairs", {
+minetest.register_node(":stairs:stair_" ..name.. "_grassystairs", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -72,7 +68,7 @@ minetest.register_node(":stairs:stair_" ..name.. "_cornerstairs", {
 })
 
 
-minetest.register_node(":stairs:stair_" ..name.. "_cornerslab", {
+minetest.register_node(":stairs:stair_" ..name.. "_grassyslab", {
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
@@ -90,3 +86,4 @@ minetest.register_node(":stairs:stair_" ..name.. "_cornerslab", {
 })
 
 end
+
