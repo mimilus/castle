@@ -31,14 +31,13 @@ for _, row in ipairs(cornerstairs.types) do
 	local name =			 row[1]
 	local desc =			 row[2]
 	local inv =				 row[3]
-	local craft_logical =	 row[10]
-	local tileup =			 row[4] -- if alone , tile for all faces
+	local tileup =			 row[4]
 	local tiledown =		 row[5]
 	local tileleft =		 row[6]
 	local tileright =		 row[7]
 	local tilebehind =		 row[8]
 	local tilefront =		 row[9]
-
+	local craft_logical =	 row[10]
 
 
 
