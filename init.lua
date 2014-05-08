@@ -51,10 +51,11 @@ dofile(minetest.get_modpath("castle").."/castle_towerwalldefense2ab.lua")
 dofile(minetest.get_modpath("castle").."/castle_towerwallroof.lua")
 dofile(minetest.get_modpath("castle").."/castle_towerwallroof2ab.lua")
 dofile(minetest.get_modpath("castle").."/castle_bridgenode.lua")
---dofile(minetest.get_modpath("castle").."/castle_towerbridgenode.lua")
+dofile(minetest.get_modpath("castle").."/castle_towerbridgenode.lua")
 dofile(minetest.get_modpath("castle").."/castle_turningstairs.lua")
 dofile(minetest.get_modpath("castle").."/castle_towerturningstair.lua")
-dofile(minetest.get_modpath("castle").."/castle_grassystair.lua")
+--dofile(minetest.get_modpath("castle").."/castle_grassystair.lua")
+dofile(minetest.get_modpath("castle").."/castle_grassynodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_walkinggrass.lua")
 
 ------- FOR TESTS

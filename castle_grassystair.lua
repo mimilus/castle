@@ -1,15 +1,16 @@
 local grassystairs = {}
 
 grassystairs.types = {
-	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
-	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
-	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
-	{"dirt","Dirt","default_dirt.png","default:dirt"},
-	{"stone","Stone","default_stone.png","default:stone"},
-	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
-	{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
+-----Material Name				Material Desc						Standart tile					Craft						tileup										tiledown			tileleft			tileright			tilebehind			tilefront
+{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
+{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
+{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
+{"dirt","Dirt","default_dirt.png","default:dirt"},
+{"stone","Stone","default_stone.png","default:stone"},
+{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+{"stonebrick","Stone Brick","default_stone_brick.png","default:stonebrick"},
+{"cobble","Cobble","default_cobble.png","default:cobble"},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
-	{"cobble","Cobble","default_cobble.png","default:cobble"},
 --	{"junglewood","Jungle Wood","default_junglewood.png","default:default_junglewood"},
 --	{"sand","Sand","default_sand.png","default:sand"},
 --	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
@@ -42,29 +43,48 @@ for _, row in ipairs(grassystairs.types) do
 	local alltiles		-- Definition for all faces
 
 
-if tilesdown == nil then
-alltiles = { inv }
-else
-alltiles = { tileup,tiledown,tileleft,tileright,tilebehind,tilefront }
-end
+	if inv == nil
+		then	inv = "default_dirt.png^default_grass_side.png"
+	end
+	if tileup == nil
+		then	tileup = inv
+	end
+	if tiledown == nil
+		then	tiledown = "default_dirt.png"
+	end
+	if tileleft == nil
+		then	tileleft = inv
+	end
+	if tileright == nil
+		then	tileright = inv
+	end
+	if tilebehind == nil
+		then	tilebehind = inv
+	end
+	if tilefront == nil
+		then	tilefront = inv
+	end
 
 
-minetest.register_node(":stairs:stair_" ..name.. "_grassystairs", {
-	drawtype = "nodebox",
+minetest.register_node("castle:walking_" ..name.. "_grassystairs", {
+	drawtype="nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	description = "Castle " ..desc.. " Corner Stairs",
-	tiles = alltiles ,
+	description = "Walking Grass Stair " ..desc,
+	tiles = { tileup, tiledown, tileleft, tileright, tilebehind, tilefront },
+--	inventory_image = tileup,
+	groups = {cracky=3},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_gravel_footstep", gain=0.5},
+		dug = {name="default_gravel_footstep", gain=1.0},
+	}),
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.5,-0.5,-0.5,0.5,-0,0.5}, --NodeBox1
-			{0,0,0,0.5,0.5,0.5}, --NodeBox2
-			{-0.5,0,-0.5,0,0.5,0.5},
-			}
+			{-0.5,-0.5,-0.5,0.5,0,0.5} --NodeBox1
+		}
 	},
-	groups = {cracky=3},
-	sounds = default.node_sound_stone_defaults(),
+})
 })
 
 
