@@ -13,6 +13,8 @@ walkinggrass.types = {
 	{"turningwalking",			"Turning Walking",					nil,							"castle:dirt",				"castle_turning_walking_grass.png"},
 	{"Tjunctionwalking",			"T Junction Walking",					nil,							"castle:dirt",				"castle_T_junction_walking_road_grass.png"},
 	{"turninginsideroad",			"Turning Inside Road",					nil,							"castle:dirt",				"castle_turning_inside_road_grass.png"},
+	{"roundaboutroad",			"Roundabout Road",					nil,							"castle:dirt",				"castle_roundabout_road_grass.png"},
+	{"roundingrassroad",			"Round in Grass",					nil,							"castle:dirt",				"castle_roundingrass_road_grass.png"},
 
 }
 
