@@ -1,18 +1,22 @@
-local castle_standartnodes_ = {}
+local castle_grassynodes_ = {}
 
-castle_standartnodes_.types = {
------Material Name	Material Desc	Standart tile "inv"											Craft				tileup		tiledown					tileleft												tileright											tilebehind			tilefront
-{"cobble",			" Cobble",		"default_cobble.png^castle_grass_side_front_top_16.png",	"default:cobble",	nil,		"default_cobble.png",		"default_cobble.png^castle_grass_side_right_16.png",	"default_cobble.png^castle_grass_side_left_16.png",	nil,				"default_cobble.png^castle_grass_side_front_16.png"},
---	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
-{"dirt",			"Dirt",			"default_dirt.png^castle_grass_side_front_top_16.png",		"default:dirt",		nil,		"default_dirt.png",			"default_dirt.png^castle_grass_side_right_16.png",		"default_dirt.png^castle_grass_side_left_16.png",	nil,				"default_dirt.png^castle_grass_side_front_16.png"},
-{"stone",			"Stone",		"default_stone.png^castle_grass_side_front_top_16.png",		"default:stone",	nil,		"default_stone.png",		"default_stone.png^castle_grass_side_right_16.png",		"default_stone.png^castle_grass_side_left_16.png",	nil,				"default_stone.png^castle_grass_side_front_16.png"},
---	{"sand","Sand","default_sand.png","default:sand"},
---	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
---	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
-{"brick",			"Brick",		"default_brick.png^castle_grass_side_front_top_16.png",		"default:brick",	nil,		"default_brick.png",		"default_brick.png^castle_grass_side_right_16.png",		"default_brick.png^castle_grass_side_left_16.png",	nil,				"default_brick.png^castle_grass_side_front_16.png"},
---	{"steel","Steel","default_steel_block.png","default:steelblock"},
---	{"glass","Glass","default_glass.png","default:glass"},
-{"stonebrick",		"Stone Brick",	"default_stone_brick.png^castle_grass_side_front_top_16.png",		"default:stonebrick",	nil,		"default_stone_brick.png",		"default_stone_brick.png^castle_grass_side_right_16.png",		"default_stone_brick.png^castle_grass_side_left_16.png",	nil,				"default_stone_brick.png^castle_grass_side_front_16.png"},
+castle_grassynodes_.types = {
+-----Material Name	Material Desc		Standart tile "inv"												Craft					tileup		tiledown						tileleft													tileright													tilebehind			tilefront
+{"cobble",			"Cobble",			"default_cobble.png^castle_grass_side_front_top_16.png",		"default:cobble",		nil,		"default_cobble.png",			"default_cobble.png^castle_grass_side_right_16.png",		"default_cobble.png^castle_grass_side_left_16.png",			nil,				"default_cobble.png^castle_grass_side_front_16.png"},
+{"dirt",			"Dirt",				"default_dirt.png^castle_grass_side_front_top_16.png",			"default:dirt",			nil,		"default_dirt.png",				"default_dirt.png^castle_grass_side_right_16.png",			"default_dirt.png^castle_grass_side_left_16.png",			nil,				"default_dirt.png^castle_grass_side_front_16.png"},
+{"stone",			"Stone",			"default_stone.png^castle_grass_side_front_top_16.png",			"default:stone",		nil,		"default_stone.png",			"default_stone.png^castle_grass_side_right_16.png",			"default_stone.png^castle_grass_side_left_16.png",			nil,				"default_stone.png^castle_grass_side_front_16.png"},
+{"brick",			"Brick",			"default_brick.png^castle_grass_side_front_top_16.png",			"default:brick",		nil,		"default_brick.png",			"default_brick.png^castle_grass_side_right_16.png",			"default_brick.png^castle_grass_side_left_16.png",			nil,				"default_brick.png^castle_grass_side_front_16.png"},
+{"stonebrick",		"Stone Brick",		"default_stone_brick.png^castle_grass_side_front_top_16.png",	"default:stonebrick",	nil,		"default_stone_brick.png",		"default_stone_brick.png^castle_grass_side_right_16.png",	"default_stone_brick.png^castle_grass_side_left_16.png",	nil,				"default_stone_brick.png^castle_grass_side_front_16.png"},
+{"coloredbrick",	"Colored Brick",	"color_brick.png^castle_grass_side_front_top_16.png",			"castle:colored_brick", nil,		"color_brick.png",				"color_brick.png^castle_grass_side_right_16.png",			"color_brick.png^castle_grass_side_left_16.png",			nil,				"color_brick.png^castle_grass_side_front_16.png"},
+
+--Castlenodes
+
+{"stonewall",		"StoneWall",		"castle_stonewall.png^castle_grass_side_front_top.png",			"castle:stonewall",		nil,		"castle_stonewall.png",			"castle_stonewall.png^castle_grass_side_right.png",			"castle_stonewall.png^castle_grass_side_left.png",			nil,				"castle_stonewall.png^castle_grass_side_front.png"},
+{"dungeon",			"DungeonWall",		"castle_dungeon_stone.png^castle_grass_side_front_top.png",		"castle:dungeonwall",	nil,		"castle_dungeon_stone.png",		"castle_dungeon_stone.png^castle_grass_side_right.png",		"castle_dungeon_stone.png^castle_grass_side_left.png",		nil,				"castle_dungeon_stone.png^castle_grass_side_front.png"},
+{"cornerwall",		"CornerWall",		"castle_cornwall.png^castle_grass_side_front_top.png",			"castle:cornerwall",	nil,		"castle_cornwall.png",			"castle_cornwall.png^castle_grass_side_right.png",			"castle_cornwall.png^castle_grass_side_left.png",			nil,				"castle_cornwall.png^castle_grass_side_front.png"},
+{"pavingstone",		"Paving Stone",		"castle_pavement_brick.png^castle_grass_side_front_top.png",	"castle:pavement",		nil,		"castle_pavement_brick.png",	"castle_pavement_brick.png^castle_grass_side_right.png",	"castle_pavement_brick.png^castle_grass_side_left.png",		nil,				"castle_pavement_brick.png^castle_grass_side_front.png"},
+
+
 --	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
 --	{"sand_stone_brick","Sand Stone Brick","default_sandstone_brick.png","default:sandstonebrick"},
 --	{"tree","Tree","default_tree.png","default:tree"},
@@ -21,10 +25,16 @@ castle_standartnodes_.types = {
 --	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
 --	{"gravel","Gravel","default_gravel.png","default:gravel"},
 --	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
-	
+--	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
+--	{"sand","Sand","default_sand.png","default:sand"},
+--	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
+--	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
+--	{"steel","Steel","default_steel_block.png","default:steelblock"},
+--	{"glass","Glass","default_glass.png","default:glass"},
+
 }
 
-for _, row in ipairs(castle_standartnodes_.types) do
+for _, row in ipairs(castle_grassynodes_.types) do
 	local name =			 row[1]
 	local desc =			 row[2]
 	local inv =				 row[3] -- if alone , tile for all visible faces

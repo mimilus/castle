@@ -5,7 +5,7 @@ castle_standartnodes_.types = {
 	{"stonewall","StoneWall","castle_stonewall.png","castle:stonewall"},
 	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle:dungeonwall"},
 	{"cornerwall","CornerWall","castle_cornwall.png","castle:cornerwall"},
-	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
+--	{"pavingstone","Paving Stone","castle_pavement_brick.png","castle:pavement"},
 --Unused
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},

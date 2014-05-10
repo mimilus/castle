@@ -18,7 +18,7 @@ cornerstairs.types = {
 --	{"desert_sand","Desert Sand","default_desert_sand.png","default:desert_sand"},
 --	{"desert_stone","Desert Stone","default_desert_stone.png","default:desert-stone"},
 	{"brick","Brick","default_brick.png","default:brick"},
-		{"coloredbrick","Colored Brick","color_brick.png","castle:colored_brick"},
+	{"coloredbrick","Colored Brick","color_brick.png","castle:colored_brick"},
 --	{"steel","Steel","default_steel_block.png","default:steelblock"},
 --	{"glass","Glass","default_glass.png","default:glass"},
 --	{"desert_stone_brick","Desert Stone Brick","default_desert_stone_brick.png","default:desertstonebrick"},
