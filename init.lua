@@ -10,6 +10,7 @@ dofile(minetest.get_modpath("castle").."/castle_torchnode.lua")
 dofile(minetest.get_modpath("castle").."/castle_standartnodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_cornernodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_topmossycornernodes.lua")
+dofile(minetest.get_modpath("castle").."/castle_grassymossycornernodes.lua")
 ----dofile(minetest.get_modpath("castle").."/castle_mossycornernodes.lua") Moved in topmossycornernodes
 dofile(minetest.get_modpath("castle").."/castle_mossynodes.lua")
 ----dofile(minetest.get_modpath("castle").."/castle_topmossynodes.lua") Moved in mossynodes
