@@ -1,10 +1,3 @@
-local castle_torchnode = {}
-
-castle_torchnode.types = {
-	{"stonewall","StoneWall","castle_stonewall.png","castle_stonewall_torchnode_animated.png","castle_stonewall_pillar_middle_torch_animated.png","castle:stonewall"},
-	{"dungeon","DungeonWall","castle_dungeon_stone.png","castle_dungeon_torchnode_animated.png","castle_dungeonwall_pillar_middle_torch_animated.png","castle_dungeon_stone_corner_2.png","castle:dungeonwall"},
-	{"pavingstone","PavingStone","castle_pavement_brick.png","castle_pavement_torchnode_animated.png","castle_pavementwall_pillar_middle_torch_animated.png","castle_pavement_brick_corner2.png","castle:pavement"},
-	{"cornerwall","CornerWall","castle_cornwall.png","castle_cornwall_torchnode_animated.png","castle_cornerwall_pillar_middle_torch_animated.png",},
 --	{"bookshelf","Bookshelf","default_bookshelf.png","default:bookshelf"},
 --	{"dirt","Dirt","default_dirt.png","default:dirt"},
 --	{"stone","Stone","default_stone.png","default:stone"},
@@ -24,6 +17,15 @@ castle_torchnode.types = {
 --	{"obsidian","Obsidian","default_obsidian.png","default:obsidian"},
 --	{"gravel","Gravel","default_gravel.png","default:gravel"},
 --	{"desertcobble","Desert Cobble","desert_cobble.png","castle:desert_cobble"},
+
+local castle_torchnode = {}
+
+castle_torchnode.types = {
+	--name			Desc			inv								animtile									pillar_animtile											anim_torch_in_corner									anim_torch_in_pillar_corner
+	{"stonewall",	"StoneWall",	"castle_stonewall.png",			"castle_stonewall_torchnode_animated.png",	"castle_stonewall_pillar_middle_torch_animated.png",	"castle_stonewall_torch_incorner_node_animated.png",	"castle_stonewall_torchinpillar_corner_animated.png"},
+	{"dungeon",		"DungeonWall",	"castle_dungeon_stone.png",		"castle_dungeon_torchnode_animated.png",	"castle_dungeonwall_pillar_middle_torch_animated.png",	"castle_dungeonwall_torch_incorner_node_animated.png",	"castle_dungeonwall_torchinpillar_corner_animated.png","castle:dungeonwall"},
+	{"pavingstone",	"PavingStone",	"castle_pavement_brick.png",	"castle_pavement_torchnode_animated.png",	"castle_pavementwall_pillar_middle_torch_animated.png",	"castle_pavementwall_torch_incorner_node_animated.png",	"castle_pavement_torchinpillar_corner_animated.png","castle:pavement"},
+	{"cornerwall",	"CornerWall",	"castle_cornwall.png",			"castle_cornwall_torchnode_animated.png",	"castle_cornerwall_pillar_middle_torch_animated.png",	"castle_cornwall_torch_incorner_node_animated.png",		"castle_cornwall_torchinpillar_corner_animated.png"},
 	
 }
 
@@ -35,9 +37,12 @@ for _, row in ipairs(castle_torchnode.types) do
 	--ANIMATION
 	local animtile = row[4]		--Standart Node top bottom
 	local pillaranimtile = row[5]		--Pillar Middle 4 faces
+	local anim_torch_in_corner = row[6] --Torch Into Corner
+	local anim_torch_in_corner_pillar =row [7]
 --	local craft_logical = row[6]
 
-minetest.register_node("castle:standart_torch_node_" ..name,{
+--Torch in standart node
+minetest.register_node("castle:" ..name.. "_standart_torch_node_",{
 	description = "Torch In " ..desc.. " Block",
 	tiles = { inv ,
 			  inv ,
@@ -107,7 +112,7 @@ minetest.register_node("castle:standart_torch_node_" ..name,{
 })
 
 --pillar_torch
-minetest.register_node("castle:pillar_torch_node_" ..name,{
+minetest.register_node("castle:" ..name.. "_pillar_torch_node_",{
 	description = "Torch In " ..desc.. " Pillar",
 	tiles = { inv ,
 			  inv ,
@@ -173,12 +178,12 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 })
 
 --pillar_corner_torch
-minetest.register_node("castle:pillar_torch_node_" ..name,{
-	description = "Torch In " ..desc.. " Pillar",
+minetest.register_node("castle:" ..name.. "_in_corner_pillar_torch_node",{
+	description = "Torch In " ..desc.. " Corner Pillar",
 	tiles = { inv ,
 			  inv ,
 			{
-			image = pillaranimtile,
+			image = anim_torch_in_corner_pillar,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -187,28 +192,10 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 				length = 1.5
 				},
 			  },
+			inv,
+			inv,
 			  			{
-			image = pillaranimtile,
-			backface_culling = false,
-			animation = {
-				type = "vertical_frames",
-				aspect_w = 64,
-				aspect_h = 64,
-				length = 1.5
-				},
-			  },
-			  			{
-			image = pillaranimtile,
-			backface_culling = false,
-			animation = {
-				type = "vertical_frames",
-				aspect_w = 64,
-				aspect_h = 64,
-				length = 1.5
-				},
-			  },
-			  			{
-			image = pillaranimtile,
+			image = anim_torch_in_corner_pillar,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -224,13 +211,12 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 	node_box = {
 		type = "fixed",
 		fixed = {
-			{-0.25,0.25,-0.25,0.25,0.5,0.25},
-			{-0.25,-0.5,-0.25,0.25,0,0.25},
-			{-0.125,-0.25,-0.125,0.125,0.25,0.125},
-			{0.0625,0,0.0625,0.25,0.25,0.25},
-			{-0.25,0,0.0625,-0.0625,0.25,0.25},
-			{0.0625,0,-0.25,0.25,0.25,-0.0625},
-			{-0.25,0,-0.25,-0.0625,0.25,-0.0625},
+			{-0.5,0.25,0.0625,-0.0625,0.5,0.5}, --NodeBox1
+			{-0.5,-0.5,0.0625,-0.0625,0,0.5}, --NodeBox5
+			{-0.375,-0.25,0.125,-0.125,0.25,0.375}, --NodeBox17
+			{-0.5,0,0.3125,-0.0625,0.25,0.5}, --NodeBox54
+			{-0.1875,0,0.0625,-0.0625,0.25,0.1875}, --NodeBox6
+			{-0.5,0,0.0625,-0.3125,0.25,0.3125}, --NodeBox7
 		},
 	},
 		light_source = LIGHT_MAX-1,
@@ -239,12 +225,12 @@ minetest.register_node("castle:pillar_torch_node_" ..name,{
 })
 
 --Corner_torch
-minetest.register_node("castle:corner_torch_node_" ..name,{
-	description = "Torch In " ..desc.. " Into Corner",
+minetest.register_node("castle:" ..name.. "_torch_in_corner",{
+	description = desc.. " Torch In Corner",
 	tiles = { inv ,
 			  inv ,
 			{
-			image = pillaranimtile,
+			image = anim_torch_in_corner,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
@@ -253,28 +239,10 @@ minetest.register_node("castle:corner_torch_node_" ..name,{
 				length = 1.5
 				},
 			  },
+			inv,
+			inv,
 			  			{
-			image = pillaranimtile,
-			backface_culling = false,
-			animation = {
-				type = "vertical_frames",
-				aspect_w = 64,
-				aspect_h = 64,
-				length = 1.5
-				},
-			  },
-			  			{
-			image = pillaranimtile,
-			backface_culling = false,
-			animation = {
-				type = "vertical_frames",
-				aspect_w = 64,
-				aspect_h = 64,
-				length = 1.5
-				},
-			  },
-			  			{
-			image = pillaranimtile,
+			image = anim_torch_in_corner,
 			backface_culling = false,
 			animation = {
 				type = "vertical_frames",
