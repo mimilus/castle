@@ -21,11 +21,11 @@
 local castle_torchnode = {}
 
 castle_torchnode.types = {
-	--name			Desc			inv								animtile									pillar_animtile											anim_torch_in_corner									anim_torch_in_pillar_corner
-	{"stonewall",	"StoneWall",	"castle_stonewall.png",			"castle_stonewall_torchnode_animated.png",	"castle_stonewall_pillar_middle_torch_animated.png",	"castle_stonewall_torch_incorner_node_animated.png",	"castle_stonewall_torchinpillar_corner_animated.png"},
-	{"dungeon",		"DungeonWall",	"castle_dungeon_stone.png",		"castle_dungeon_torchnode_animated.png",	"castle_dungeonwall_pillar_middle_torch_animated.png",	"castle_dungeonwall_torch_incorner_node_animated.png",	"castle_dungeonwall_torchinpillar_corner_animated.png","castle:dungeonwall"},
-	{"pavingstone",	"PavingStone",	"castle_pavement_brick.png",	"castle_pavement_torchnode_animated.png",	"castle_pavementwall_pillar_middle_torch_animated.png",	"castle_pavementwall_torch_incorner_node_animated.png",	"castle_pavement_torchinpillar_corner_animated.png","castle:pavement"},
-	{"cornerwall",	"CornerWall",	"castle_cornwall.png",			"castle_cornwall_torchnode_animated.png",	"castle_cornerwall_pillar_middle_torch_animated.png",	"castle_cornwall_torch_incorner_node_animated.png",		"castle_cornwall_torchinpillar_corner_animated.png"},
+	--name			Desc				inv									animtile										pillar_animtile												anim_torch_in_corner										anim_torch_in_pillar_corner									anim_side														anim_side_front
+	{"stonewall",	"StoneWall",		"castle_stonewall.png",				"castle_stonewall_torchnode_animated.png",		"castle_stonewall_pillar_middle_torch_animated.png",		"castle_stonewall_torch_incorner_node_animated.png",		"castle_stonewall_torchinpillar_corner_animated.png",		"castle_stonewall_torchinpillar_side_animated.png",				"castle_stonewall_torchinpillar_side_front_animated.png"},
+	{"dungeon",		"DungeonWall",		"castle_dungeon_stone.png",			"castle_dungeon_torchnode_animated.png",		"castle_dungeonwall_pillar_middle_torch_animated.png",		"castle_dungeonwall_torch_incorner_node_animated.png",		"castle_dungeonwall_torchinpillar_corner_animated.png",		"castle_dungeonwall_torchinpillar_side_animated.png",			"castle_dungeonwall_torchinpillar_side_front_animated.png","castle:dungeonwall"},
+	{"pavingstone",	"PavingStone",		"castle_pavement_brick.png",		"castle_pavement_torchnode_animated.png",		"castle_pavementwall_pillar_middle_torch_animated.png",		"castle_pavementwall_torch_incorner_node_animated.png",		"castle_pavement_torchinpillar_corner_animated.png",		"castle_pavement_torchinpillar_side_animated.png"				,"castle_pavement_torchinpillar_side_front_animated.png","castle:pavement"},
+	{"cornerwall",	"CornerWall",		"castle_cornwall.png",				"castle_cornwall_torchnode_animated.png",		"castle_cornwall_pillar_middle_torch_animated.png",			"castle_cornwall_torch_incorner_node_animated.png",			"castle_cornwall_torchinpillar_corner_animated.png",		"castle_cornwall_torchinpillar_side_animated.png",				"castle_cornwall_torchinpillar_side_front_animated.png",},
 	
 }
 
@@ -39,6 +39,8 @@ for _, row in ipairs(castle_torchnode.types) do
 	local pillaranimtile = row[5]		--Pillar Middle 4 faces
 	local anim_torch_in_corner = row[6] --Torch Into Corner
 	local anim_torch_in_corner_pillar =row [7]
+	local anim_side = row [8]
+	local anim_side_front = row [9]
 --	local craft_logical = row[6]
 
 --Torch in standart node
@@ -217,6 +219,72 @@ minetest.register_node("castle:" ..name.. "_in_corner_pillar_torch_node",{
 			{-0.5,0,0.3125,-0.0625,0.25,0.5}, --NodeBox54
 			{-0.1875,0,0.0625,-0.0625,0.25,0.1875}, --NodeBox6
 			{-0.5,0,0.0625,-0.3125,0.25,0.3125}, --NodeBox7
+		},
+	},
+		light_source = LIGHT_MAX-1,
+	groups = {choppy=2,dig_immediate=2},
+	sounds = default.node_sound_stone_defaults(),
+})
+
+--pillar side torch
+minetest.register_node("castle:" ..name.. "_side_pillar_torch_node",{
+	description = "Torch In " ..desc.. " Side Pillar",
+	tiles = { inv ,
+			  inv ,
+			{
+			image = anim_side_front,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			},
+			inv,
+			{
+			image = anim_side,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			},
+			{
+			image = anim_side,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			},
+			{
+			image = anim_side,
+			backface_culling = false,
+			animation = {
+				type = "vertical_frames",
+				aspect_w = 64,
+				aspect_h = 64,
+				length = 1.5
+				},
+			},
+	},
+    drawtype = "nodebox",
+	paramtype = "light",
+    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.15625,-0.1875,0,0.15625}, --NodeBox1
+			{-0.5,0.25,-0.15625,-0.1875,0.5,0.15625}, --NodeBox2
+			{-0.5,0,-0.15625,-0.375,0.25,0.15625}, --NodeBox3
+			{-0.3125,0,0.0625,-0.1875,0.25,0.15625}, --NodeBox4
+			{-0.3125,0,-0.15625,-0.1875,0.25,-0.0625}, --NodeBox5
+			{-0.4375,0,-0.125,-0.25,0.25,0.125}, --NodeBox6
 		},
 	},
 		light_source = LIGHT_MAX-1,
