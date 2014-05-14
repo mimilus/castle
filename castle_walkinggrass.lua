@@ -1,66 +1,77 @@
-local walkinggrass = {}
+local walkingroad = {}
+originalnodes = {} -- GLOBAL
+materials = {} --Global
 
-walkinggrass.types = {
------Material Name				Material Desc						Standart tile					Craft						tileup										tiledown			tileleft			tileright			tilebehind			tilefront
-	{"endofroad",				"End of Road",						nil,							"castle:dirt",				"castle_endof_road_grass.png",				nil,				nil,				nil,				nil,				nil},
-	{"crossroad",				"Cross Road",						nil,							"castle:dirt",				"castle_cross_road_grass.png"},
-	{"sideroad",				"Side Road",						nil,							"castle:dirt",				"castle_side_road_grass.png"},
-	{"middleroad",				"Middle Road",						nil,							"castle:dirt",				"castle_middle_road_grass.png"},
-	{"junctionwalkingroad",		"Junction Walking and Road",		nil,							"castle:dirt",				"castle_junction_road_walking_grass.png"},
-	{"endofwalking",			"End of Walking Road",				nil,							"castle:dirt",				"castle_endof_walking_grass.png"},
-	{"crosswalking",			"Cross Walking Road",				nil,							"castle:dirt",				"castle_cross_walking_grass.png"},
-	{"walking",					"Walking",							nil,							"castle:dirt",				"castle_walking_grass.png"},
-	{"turningwalking",			"Turning Walking",					nil,							"castle:dirt",				"castle_turning_walking_grass.png"},
-	{"Tjunctionwalking",			"T Junction Walking",					nil,							"castle:dirt",				"castle_T_junction_walking_road_grass.png"},
-	{"turninginsideroad",			"Turning Inside Road",					nil,							"castle:dirt",				"castle_turning_inside_road_grass.png"},
-	{"roundaboutroad",			"Roundabout Road",					nil,							"castle:dirt",				"castle_roundabout_road_grass.png"},
-	{"roundingrassroad",			"Round in Grass",					nil,							"castle:dirt",				"castle_roundingrass_road_grass.png"},
-
+originalnodes.types = {
+--oriname						oridesc						oritop					oribottom					orifaces
+{"ondirt",					" on Dirt",					"default_dirt.png",			nil,						nil},
+{"ondirt_with_grass",		" on Dirt with Grass",		"default_grass.png",		"default_dirt.png",			"default_dirt.png^default_grass_side.png"},
+{"ondirt_with_snow",		" on Dirt with Snow",		"default_snow.png",			"default_dirt.png",			"default_dirt.png^default_snow_side.png"},
 }
 
-for _, row in ipairs(walkinggrass.types) do
-	local name =			 row[1]
-	local desc =			 row[2]
-	local inv =				 row[3] -- if alone , tile for all visible faces
-	local craft_logical =	 row[4]
-	local tileup =			 row[5]
-	local tiledown =		 row[6]
-	local tileleft =		 row[7]
-	local tileright =		 row[8]
-	local tilebehind =		 row[9]
-	local tilefront =		 row[10]
---	local alltiles		-- Definition for all faces
+materials.types = {
+--material			materialdesc
+{"_sandstone",		"SandStone"},
+{"_gravel",			"Gravel"},
+{"_redsand",		"RedSand"},
+}
 
-	if inv == nil
-		then	inv = "default_dirt.png^default_grass_side.png"
+	walkingroad.types = {
+-----Material Name				Material Desc						tiletop
+		{"roadendof",			"End of Road",						"roadendof"},
+		{"roadmiddle",			"Middle of Road",					"roadmiddle"},
+		{"roadside",			"Side of Road",						"roadside"},
+		{"roadturninginside",	"Turning Inside Road",				"roadturninginside"},
+		{"roadturningoutside",	"Turning Outside Road",				"roadturningoutside"},
+		{"roundabout",			"Roundabout Road",					"roundabout"},
+		{"roundof",				"Round of",							"roundof"},
+		{"walkingcross",		"Cross Walkable",					"walkingcross"},
+		{"walkingendof",		"End of Walkable",					"walkingendof"},
+		{"walking",				"Walkable",							"walking"},
+		{"walkingjunction",		"Junction of Walkable",				"walkingjunction"},
+		{"walkingroadjunction",	"Junction of Walkable and Road",	"walkingroadjunction"},
+--		{"walkingstair",		"Walkable Stair",					"walkingstair"},
+		{"walkingturning",		"Turning Walkable",					"walkingturning"},
+	}
+
+for _, row in ipairs(originalnodes.types) do
+oriname = row [1] -- GLOBAL
+oridesc = row [2] -- GLOBAL
+oritop = row [3] -- GLOBAL
+oribottom = row [4] -- GLOBAL
+orifaces = row [5] -- GLOBAL
+
+for _, row in ipairs(materials.types) do
+material = 		row [1] --GLOBAL
+materialdesc = 	row [2] --GLOBAL
+
+for _, row in ipairs(walkingroad.types) do
+local name =			 row[1]
+local namedesc =		 row[2]
+local tiletop =			 row[3] -- if alone , tile for all visible faces
+
+
+	if oritop == nil
+		then	inv = "default_dirt.png"
 	end
-	if tileup == nil
-		then	tileup = inv
+	if tiletop == nil
+		then	tiletop = "default_dirt.png"
 	end
-	if tiledown == nil
-		then	tiledown = "default_dirt.png"
+	if oribottom == nil
+		then	oribottom = "default_dirt.png"
 	end
-	if tileleft == nil
-		then	tileleft = inv
-	end
-	if tileright == nil
-		then	tileright = inv
-	end
-	if tilebehind == nil
-		then	tilebehind = inv
-	end
-	if tilefront == nil
-		then	tilefront = inv
+	if orifaces == nil
+		then 	orifaces = "default_dirt.png"
 	end
 
 
-minetest.register_node("castle:walking_grass_" ..name, {
+minetest.register_node("castle:0" ..oriname..material..name, {
 	drawtype = "normal",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	description = "Walking Grass " ..desc,
-	tiles = { tileup, tiledown, tileleft, tileright, tilebehind, tilefront },
-	inventory_image = tileup,
+	description = namedesc..materialdesc..oridesc,
+	tiles = { oritop.. "^" ..tiletop..material.. ".png", oribottom, orifaces },
+--	inventory_image = tileup,
 	groups = {cracky=3},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.5},
@@ -68,73 +79,72 @@ minetest.register_node("castle:walking_grass_" ..name, {
 	})
 })
 end
+end
+end
 
 
+local walkingroadstairs = {}
 
-local walkinggrassstair = {}
+	walkingroadstairs.types = {
+-----Material Name				Material Desc						tiletop						tilefront
+--		{"roadendof",			"End of Road",						"roadendof"},
+		{"roadmiddle",			"Middle of Road",					"roadmiddle"},
+		{"roadside",			"Side of Road",						"roadside"},
+		{"leftroadside",		"Left Side of Road",				"leftroadside"},
+--		{"roadturninginside",	"Turning Inside Road",				"roadturninginside"},
+--		{"roadturningoutside",	"Turning Outside Road",				"roadturningoutside"},
+--		{"roundabout",			"Roundabout Road",					"roundabout"},
+		{"roundof",				"Round of",							"roundof",					"walkingstair"},
+--		{"walkingcross",		"Cross Walkable",					"walkingcross"},
+--		{"walkingendof",		"End of Walkable",					"walkingendof"},
+		{"walking",				"Walkable",							"walking"},
+--		{"walkingjunction",		"Junction of Walkable",				"walkingjunction"},
+--		{"walkingroadjunction",	"Junction of Walkable and Road",	"walkingroadjunction"},
+--		{"walkingstair",		"Walkable Stair",					"walkingstair"},
+--		{"walkingturning",		"Turning Walkable",					"walkingturning"},
+	}
 
-walkinggrassstair.types = {
------Material Name				Material Desc						Standart tile					Craft						tileup										tiledown			tileleft			tileright			tilebehind			tilefront
---	{"endofroad",				"End of Road",						nil,							"castle:dirt",				"castle_endof_road_grass.png",				nil,				nil,				nil,				nil,				nil},
---	{"crossroad",				"Cross Road",						nil,							"castle:dirt",				"castle_cross_road_grass.png"},
-	{"rightsideroad",			"Right Side Road",					nil,							"castle:dirt",				"castle_side_road_grass.png"},
-	{"leftsideroad",			"Left Side Road",					nil,							"castle:dirt",				"castle_left_side_road_grass.png"},
-	{"middleroad",				"Middle Road",						nil,							"castle:dirt",				"castle_middle_road_grass.png"},
---	{"junctionwalkingroad",		"Junction Walking and Road",		nil,							"castle:dirt",				"castle_junction_road_walking_grass.png"},
---	{"endofwalking",			"End of Walking Road",				nil,							"castle:dirt",				"castle_endof_walking_grass.png"},
---	{"crosswalking",			"Cross Walking Road",				nil,							"castle:dirt",				"castle_cross_walking_grass.png"},
-	{"walking",					"Walking",							nil,							"castle:dirt",				"castle_walking_grass.png",					nil,				nil,				nil,				nil,				"castle_walking_grass.png"},
---	{"turningwalking",			"Turning Walking",					nil,							"castle:dirt",				"castle_turning_walking_grass.png"},
---	{"Tjunctionwalking",		"T Junction Walking",				nil,							"castle:dirt",				"castle_T_junction_walking_road_grass.png"},
---	{"turninginsideroad",		"Turning Inside Road",				nil,							"castle:dirt",				"castle_turning_inside_road_grass.png"},
---	{"roundaboutroad",			"Roundabout Road",					nil,							"castle:dirt",				"castle_roundabout_road_grass.png"},
-	{"roundingrassroad",		"Round in Grass",					nil,							"castle:dirt",				"castle_roundingrass_road_grass.png",		nil,				nil,				nil,				nil,				"castle_slab_front_round_of_grass_road_grass.png",},
+for _, row in ipairs(originalnodes.types) do
+oriname = row [1] -- GLOBAL
+oridesc = row [2] -- GLOBAL
+oritop = row [3] -- GLOBAL
+oribottom = row [4] -- GLOBAL
+orifaces = row [5] -- GLOBAL
 
-}
+for _, row in ipairs(materials.types) do
+material = 		row [1] --GLOBAL
+materialdesc = 	row [2] --GLOBAL
 
-for _, row in ipairs(walkinggrassstair.types) do
-	local name =			 row[1]
-	local desc =			 row[2]
-	local inv =				 row[3] -- if alone , tile for all visible faces
-	local craft_logical =	 row[4]
-	local tileup =			 row[5]
-	local tiledown =		 row[6]
-	local tileleft =		 row[7]
-	local tileright =		 row[8]
-	local tilebehind =		 row[9]
-	local tilefront =		 row[10]
---	local alltiles		-- Definition for all faces
+for _, row in ipairs(walkingroadstairs.types) do
+local name =			 row[1]
+local namedesc =		 row[2]
+local tiletop =			 row[3] -- if alone , tile for all visible faces
+local tilefront = 		 row[4]
 
-	if inv == nil
-		then	inv = "default_dirt.png^default_grass_side.png"
+	if orifaces == nil
+		then 	orifaces = "default_dirt.png"
 	end
-	if tileup == nil
-		then	tileup = inv
+
+	if oritop == nil
+		then	inv = 			"default_dirt.png"
 	end
-	if tiledown == nil
-		then	tiledown = "default_dirt.png"
+	if tiletop == nil
+		then	tiletop = 		"default_dirt.png"
 	end
-	if tileleft == nil
-		then	tileleft = inv
-	end
-	if tileright == nil
-		then	tileright = inv
-	end
-	if tilebehind == nil
-		then	tilebehind = inv
+	if oribottom == nil
+		then	oribottom = 	"default_dirt.png"
 	end
 	if tilefront == nil
-		then	tilefront = tileup
+		then	tilefront = 	tiletop
 	end
 
 
-
-minetest.register_node("castle:walking_grass_slabs_" ..name, {
+minetest.register_node("castle:0" ..oriname..material..name.. "slab", {
 	drawtype="nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	description = "Walking Grass Slab " ..desc,
-	tiles = { tileup, tiledown, tileleft, tileright, tilebehind, tilefront },
+	description = namedesc..materialdesc..oridesc.. "Slab",
+	tiles = { oritop.. "^" ..tiletop..material.. ".png", oribottom, orifaces, orifaces, orifaces, orifaces.. "^" ..tilefront..material.. ".png" },
 --	inventory_image = tileup,
 	groups = {cracky=3},
 	sounds = default.node_sound_dirt_defaults({
@@ -151,12 +161,12 @@ minetest.register_node("castle:walking_grass_slabs_" ..name, {
 
 
 
-minetest.register_node("castle:walking_grass_stairs_" ..name, {
+minetest.register_node("castle:0" ..oriname..material..name.. "stair", {
 	drawtype="nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	description = "Walking Grass Stairs " ..desc,
-	tiles = { tileup, tiledown, tileleft, tileright, tilebehind, tilefront },
+	description = namedesc..materialdesc..oridesc.. "Stair",
+	tiles = { oritop.. "^" ..tiletop..material.. ".png", oribottom, orifaces, orifaces, orifaces, orifaces.. "^" ..tilefront..material.. ".png"},
 --	inventory_image = tileup,
 	groups = {cracky=3},
 	sounds = default.node_sound_dirt_defaults({
@@ -172,4 +182,6 @@ minetest.register_node("castle:walking_grass_stairs_" ..name, {
 	},
 })
 
+end
+end
 end

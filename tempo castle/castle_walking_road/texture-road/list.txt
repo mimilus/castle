@@ -1,0 +1,15 @@
+leftroadside_gravel.png
+roadendof_gravel.png
+roadmiddle_gravel.png
+roadside_gravel.png
+roadturninginside_gravel.png
+roadturningoutside_gravel.png
+roundabout_gravel.png
+roundof_gravel.png
+walkingcross_gravel.png
+walkingendof_gravel.png
+walking_gravel.png
+walkingjunction_gravel.png
+walkingroadjunction_gravel.png
+walkingstair_gravel.png
+walkingturning_gravel.png
