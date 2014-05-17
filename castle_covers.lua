@@ -30,6 +30,9 @@ castle_cover.types = {
 	{"shingles_wood",			"Shingles Wood",			"shingles_wood.png",			"castle:shingles_wood"},
 	{"castle_straw_bale","Straw Bale","castle_straw_bale.png","castle:straw_bale"},
 	{"castle_straw_bale_reinforced","Straw Bale Reinforced","castle_secret_door_straw_bale_top.png","castle:straw_bale_reinforced"},
+	{"lawn",		"Lawn",			"default_grass.png","castle:lawn"},
+	{"lawn2",		"Lawn2",		"castle_lawn2.png","castle:lawn2"},
+	{"lawn3",		"Lawn3",		"castle_lawn3.png","castle:lawn3"},
 
 --		{"leaves","Desert Leaves","default_leaves.png","default:default_leaves"},
 }
