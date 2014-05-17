@@ -3,35 +3,42 @@ originalnodes = {} -- GLOBAL
 materials = {} --Global
 
 originalnodes.types = {
---oriname						oridesc						oritop					oribottom					orifaces										oriright											orileft												oribehind		orifront												oristair
+--oriname		oridesc			oritop					oribottom				orifaces										oriright											orileft												oribehind		orifront												oristair
+{"onlawn",		" on Lawn",			"default_grass.png",	"default_dirt.png",		"default_grass.png"},
+{"onlawn2",		" on Lawn2",		"castle_lawn2.png",		"default_dirt.png",		"castle_lawn2.png"},
+{"onlawn3",		" on Lawn3",		"castle_lawn3.png",		"default_dirt.png",		"castle_lawn3.png"},
+
 {"ondirt",					" on Dirt",					"default_dirt.png",			nil,						nil},
 {"ondirt_with_grass",		" on Dirt with Grass",		"default_grass.png",		"default_dirt.png",			"default_dirt.png^default_grass_side.png",		"default_dirt.png^castle_grass_side_right_16.png",	"default_dirt.png^castle_grass_side_left_16.png",	nil,			"default_dirt.png^castle_grass_side_front_16.png",		"default_dirt.png^castle_grass_side_front_16.png"},
 {"ondirt_with_snow",		" on Dirt with Snow",		"default_snow.png",			"default_dirt.png",			"default_dirt.png^default_snow_side.png"},
+{"cobble",					" on Cobble",				"default_cobble.png",		"default_cobble.png"},
+{"stone",					" on Stone",				"default_stone.png",		"default_stone.png"},
+{"desert_stone",			" on Desert Stone",			"default_desert_stone.png",	"default_desert_stone.png"},
 }
 
 materials.types = {
 --material			materialdesc
-{"_sandstone",		"SandStone"},
-{"_gravel",			"Gravel"},
-{"_redsand",		"RedSand"},
+{"_sandstone",		" SandStone"},
+{"_gravel",			" Gravel"},
+{"_redsand",		" RedSand"},
 }
 
 	walkingroad.types = {
 -----Material Name				Material Desc						tiletop
-		{"roadendof",			"End of Road",						"roadendof"},
-		{"roadmiddle",			"Middle of Road",					"roadmiddle"},
-		{"roadside",			"Side of Road",						"roadside"},
-		{"roadturninginside",	"Turning Inside Road",				"roadturninginside"},
-		{"roadturningoutside",	"Turning Outside Road",				"roadturningoutside"},
-		{"roundabout",			"Roundabout Road",					"roundabout"},
-		{"roundof",				"Round of",							"roundof"},
-		{"walkingcross",		"Cross Walkable",					"walkingcross"},
-		{"walkingendof",		"End of Walkable",					"walkingendof"},
-		{"walking",				"Walkable",							"walking"},
-		{"walkingjunction",		"Junction of Walkable",				"walkingjunction"},
-		{"walkingroadjunction",	"Junction of Walkable and Road",	"walkingroadjunction"},
+		{"roadendof",			" End of Road",						"roadendof"},
+		{"roadmiddle",			" Middle of Road",					"roadmiddle"},
+		{"roadside",			" Side of Road",						"roadside"},
+		{"roadturninginside",	" Turning Inside Road",				"roadturninginside"},
+		{"roadturningoutside",	" Turning Outside Road",				"roadturningoutside"},
+		{"roundabout",			" Roundabout Road",					"roundabout"},
+		{"roundof",				" Round of",							"roundof"},
+		{"walkingcross",		" Cross Walkable",					"walkingcross"},
+		{"walkingendof",		" End of Walkable",					"walkingendof"},
+		{"walking",				" Walkable",							"walking"},
+		{"walkingjunction",		" Junction of Walkable",				"walkingjunction"},
+		{"walkingroadjunction",	" Junction of Walkable and Road",	"walkingroadjunction"},
 --		{"walkingstair",		"Walkable Stair",					"walkingstair"},
-		{"walkingturning",		"Turning Walkable",					"walkingturning"},
+		{"walkingturning",		" Turning Walkable",					"walkingturning"},
 	}
 
 for _, row in ipairs(originalnodes.types) do
@@ -73,7 +80,7 @@ local tiletop =			 row[3] -- if alone , tile for all visible faces
 		then	tilefront = 	tiletop
 	end
 	if orifaces == nil
-		then 	orifaces = 		"default_dirt.png"
+		then 	orifaces = 		oritop
 	end
 
 minetest.register_node("castle:0" ..oriname..material..name, {
@@ -96,21 +103,21 @@ end
 local walkingroadstairs = {}
 	walkingroadstairs.types = {
 -----Material Name				Material Desc						tiletop						tilefront				tilebehind
---		{"roadendof",			"End of Road",						"roadendof"},
-		{"roadmiddle",			"Middle of Road",					"roadmiddle",				nil,					nil},
-		{"roadside",			"Side of Road",						"roadside",					nil,					"leftroadside"},
-		{"leftroadside",		"Left Side of Road",				"leftroadside",				nil,					"roadside"},
---		{"roadturninginside",	"Turning Inside Road",				"roadturninginside"},
---		{"roadturningoutside",	"Turning Outside Road",				"roadturningoutside"},
---		{"roundabout",			"Roundabout Road",					"roundabout"},
-		{"roundof",				"Round of",							"roundof",					"walkingstair",			nil},
---		{"walkingcross",		"Cross Walkable",					"walkingcross"},
---		{"walkingendof",		"End of Walkable",					"walkingendof"},
-		{"walking",				"Walkable",							"walking",					nil,					nil},
---		{"walkingjunction",		"Junction of Walkable",				"walkingjunction"},
---		{"walkingroadjunction",	"Junction of Walkable and Road",	"walkingroadjunction"},
---		{"walkingstair",		"Walkable Stair",					"walkingstair"},
---		{"walkingturning",		"Turning Walkable",					"walkingturning"},
+--		{"roadendof",			" End of Road",						"roadendof"},
+		{"roadmiddle",			" Middle of Road",					"roadmiddle",				nil,					nil},
+		{"roadside",			" Side of Road",					"roadside",					nil,					"leftroadside"},
+		{"leftroadside",		" Left Side of Road",				"leftroadside",				nil,					"roadside"},
+--		{"roadturninginside",	" Turning Inside Road",				"roadturninginside"},
+--		{"roadturningoutside",	" Turning Outside Road",			"roadturningoutside"},
+--		{"roundabout",			" Roundabout Road",					"roundabout"},
+		{"roundof",				" Round of",						"roundof",					"walkingstair",			nil},
+--		{"walkingcross",		" Cross Walkable",					"walkingcross"},
+--		{"walkingendof",		" End of Walkable",					"walkingendof"},
+		{"walking",				" Walkable",						"walking",					nil,					nil},
+--		{"walkingjunction",		" Junction of Walkable",			"walkingjunction",			nil,					nil},
+--		{"walkingroadjunction",	" Junction of Walkable and Road",	"walkingroadjunction"},
+--		{"walkingstair",		" Walkable Stair",					"walkingstair"},
+--		{"walkingturning",		" Turning Walkable",					"walkingturning"},
 	}
 
 for _, row in ipairs(materials.types) do
@@ -159,7 +166,7 @@ minetest.register_node("castle:0" ..oriname..material..name.. "slab", {
 	drawtype="nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	description = namedesc..materialdesc..oridesc.. "Slab",
+	description = namedesc..materialdesc..oridesc.. " Slab",
 	tiles = { oritop.. "^" ..tiletop..material.. ".png",
 			 oribottom,
 			 oristair,
@@ -184,7 +191,7 @@ minetest.register_node("castle:0" ..oriname..material..name.. "stair", {
 	drawtype="nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	description = namedesc..materialdesc..oridesc.. "Stair",
+	description = namedesc..materialdesc..oridesc.. " Stair",
 	tiles = { oritop.. "^" ..tiletop..material.. ".png",
 			  oribottom,
 			  oriright,
@@ -210,3 +217,43 @@ end
 end
 end
 end
+
+minetest.register_abm({
+	nodenames = {"default:dirt"},
+	interval = 2,
+	chance = 1,
+	action = function(pos, node)
+		local above = {x=pos.x, y=pos.y+1, z=pos.z}
+		local name = minetest.get_node(above).name
+		local nodedef = minetest.registered_nodes[name]
+		if name == "air" then
+			if name == "default:snow" or name == "default:snowblock" then
+				minetest.set_node(pos, {name = "default:dirt_with_snow"})
+			else
+				minetest.set_node(pos, {name = "default:dirt_with_grass"})
+			end
+		end
+	end
+})
+
+minetest.register_abm({
+	nodenames = {"default:dirt_with_grass",
+				"trail:dirt_with_grass_walked",
+				"trail:dirt_walked",
+				"trail:sand_walked",
+				"trail:desert_sand_walked",
+				"trail:snow_walked",
+				"trail:snow_block_walked",},
+	interval = 2,
+	chance = 1,
+	action = function(pos, node)
+		local above = {x=pos.x, y=pos.y+1, z=pos.z}
+		local name = minetest.get_node(above).name
+		local nodedef = minetest.registered_nodes[name]
+		if name ~= "ignore" and nodedef
+				and not ((nodedef.sunlight_propagates or nodedef.paramtype == "light")
+				and nodedef.liquidtype == "none") or name ~= "air" then
+			minetest.set_node(pos, {name = "default:dirt"})
+		end
+	end
+})
