@@ -60,6 +60,7 @@ dofile(minetest.get_modpath("castle").."/castle_towerturningstair.lua")
 dofile(minetest.get_modpath("castle").."/castle_grassymossynodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_grassynodes.lua")
 dofile(minetest.get_modpath("castle").."/castle_walkinggrass.lua")
+dofile(minetest.get_modpath("castle").."/castle_lawn.lua")
 --TEST
 --dofile(minetest.get_modpath("castle").."/castle_walkinggrass-all-material-v2.lua")
 
