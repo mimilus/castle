@@ -144,7 +144,7 @@ for _, row in ipairs(rooftoplow.types) do
 
 	minetest.register_node("castle:" ..name.. "rooftop_lowside", {
 	    drawtype = "nodebox",
-		description = desc.." Roof Top Low Side",
+		description = desc.." Roof Top Low Side Lower",
 		tiles = {tile},
 		groups = {cracky=3,attached_node=0},
 		sounds = default.node_sound_stone_defaults(),
@@ -161,6 +161,29 @@ for _, row in ipairs(rooftoplow.types) do
 			{-0.5,-0.1875,-0.5,-0.125,-0.125,0.5},
 			{-0.5,-0.125,-0.5,-0.25,-0.0625,0.5},
 			{-0.5,-0.0625,-0.5,-0.375,-0,0.5},
+		},
+	},
+	})
+
+	minetest.register_node("castle:" ..name.. "rooftop_lowsideupper", {
+	    drawtype = "nodebox",
+		description = desc.." Roof Top Low Side Upper",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,0.5,0.0625,0.5},
+			{-0.5,0.0625,-0.5,0.375,0.125,0.5},
+			{-0.5,0.125,-0.5,0.25,0.1875,0.5},
+			{-0.5,0.1875,-0.5,0.125,0.25,0.5},
+			{-0.5,0.25,-0.5,0,0.3125,0.5},
+			{-0.5,0.3125,-0.5,-0.125,0.375,0.5},
+			{-0.5,0.375,-0.5,-0.25,0.4375,0.5},
+			{-0.5,0.4375,-0.5,-0.375,0.5,0.5},
 		},
 	},
 	})
@@ -219,7 +242,7 @@ for _, row in ipairs(rooftoplow.types) do
 
 	minetest.register_node("castle:" ..name.. "rooftop_lowmiddleside", {
 	    drawtype = "nodebox",
-		description = desc.." Roof Top Low Middle Side",
+		description = desc.." Roof Top Low Middle Side Lower",
 		tiles = {tile},
 		groups = {cracky=3,attached_node=0},
 		sounds = default.node_sound_stone_defaults(),
@@ -236,6 +259,29 @@ for _, row in ipairs(rooftoplow.types) do
 			{-0.5,-0.1875,-0.1875,0.5,-0.125,0.1875},
 			{-0.5,-0.125,-0.125,0.5,-0.0625,0.125},
 			{-0.5,-0.0625,-0.0625,0.5,-0,0.0625},
+		},
+	},
+	})
+
+	minetest.register_node("castle:" ..name.. "rooftop_lowmiddlesideupper", {
+	    drawtype = "nodebox",
+		description = desc.." Roof Top Low Middle Side Upper",
+		tiles = {tile},
+		groups = {cracky=3,attached_node=0},
+		sounds = default.node_sound_stone_defaults(),
+	    paramtype = "light",
+	    paramtype2 = "facedir",
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5,-0.5,-0.5,0.5,0.0625,0.5},
+			{-0.5,0.0625,-0.4375,0.5,0.125,0.4375},
+			{-0.5,0.125,-0.375,0.5,0.1875,0.375},
+			{-0.5,0.1875,-0.3125,0.5,0.25,0.3125},
+			{-0.5,0.25,-0.25,0.5,0.3125,0.25},
+			{-0.5,0.3125,-0.1875,0.5,0.375,0.1875},
+			{-0.5,0.375,-0.125,0.5,0.4375,0.125},
+			{-0.5,0.4375,-0.0625,0.5,0.5,0.0625},
 		},
 	},
 	})
